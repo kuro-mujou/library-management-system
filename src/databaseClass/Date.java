@@ -76,9 +76,4 @@ public class Date
         long diffDays = diff.toDays();
         return diffDays;
     }
-    public static void main(String[] args) {
-        Date d1 = new Date("01","-1","2020");
-        Date d2 = new Date("10","2","2020");
-        System.out.println(d1.CalculateDayDiff(d2));
-    }
 }
