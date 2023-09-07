@@ -20,7 +20,7 @@ public class Background extends JPanel {
     public Background() {
         setOpaque(false);
     }
-    private int round = 20;
+    private int round = 0;
 
     @Override
     public void paint(Graphics grphcs) {
