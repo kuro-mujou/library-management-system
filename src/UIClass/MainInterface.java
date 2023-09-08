@@ -20,6 +20,7 @@ public class MainInterface extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         BackGround = new swing.PictureBox();
         LaptopIcon = new swing.PictureBox();
+        button3 = new swing.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LIBRARY MANAGEMENT SYSTEM");
@@ -36,7 +37,11 @@ public class MainInterface extends javax.swing.JFrame {
 
         LaptopIcon.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/laptopIcon.png"))); // NOI18N
 
+        button3.setText("Group 6");
+        button3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+
         BackGround.setLayer(LaptopIcon, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        BackGround.setLayer(button3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout BackGroundLayout = new javax.swing.GroupLayout(BackGround);
         BackGround.setLayout(BackGroundLayout);
@@ -45,14 +50,20 @@ public class MainInterface extends javax.swing.JFrame {
             .addGroup(BackGroundLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(LaptopIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1207, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackGroundLayout.createSequentialGroup()
+                .addContainerGap(896, Short.MAX_VALUE)
+                .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         BackGroundLayout.setVerticalGroup(
             BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackGroundLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(LaptopIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(673, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(584, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
@@ -108,5 +119,6 @@ public class MainInterface extends javax.swing.JFrame {
     private swing.PictureBox BackGround;
     private swing.PictureBox LaptopIcon;
     private javax.swing.JPanel MainPanel;
+    private swing.Button button3;
     // End of variables declaration//GEN-END:variables
 }
