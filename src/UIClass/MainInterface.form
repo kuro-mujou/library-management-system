@@ -69,13 +69,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LaptopIcon" min="-2" pref="67" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="896" max="32767" attributes="0"/>
-                      <Component id="button3" min="-2" pref="358" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="LaptopIcon" min="-2" pref="67" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="890" max="32767" attributes="0"/>
+                              <Component id="button3" min="-2" pref="358" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -106,8 +110,9 @@
             <Component class="swing.Button" name="button3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Group 6"/>
+                <Property name="focusable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="36" style="0"/>
+                  <Font name="Poppins SemiBold" size="36" style="0"/>
                 </Property>
               </Properties>
             </Component>

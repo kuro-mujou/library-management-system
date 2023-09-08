@@ -19,6 +19,7 @@ public class Button extends JButton
         colorClick = new Color(209,209,209);
         setContentAreaFilled(false);
         setBorder(null);
+        setFocusable(false);
         //  Add event mouse
         addMouseListener(new MouseAdapter() {
             @Override
