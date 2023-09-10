@@ -1,0 +1,17 @@
+
+use quanlythuvien
+
+insert TacGia(TenTacGia,GhiChu)
+values('1','2023')
+insert TheLoai(TenTheLoai)
+values('Theloai1')
+insert NhaXuatBan(TenNXB,DiaChi,Email,ThongTinNDD)
+values('xuantho','Ther','xuantho@gmail','xuantho')
+
+insert Sach(TenSach,MaTacGia,MaTheLoai,MaNXB,NamXB)
+values('abc','1','1','1','2023')
+select * from Sach;
+select * from TacGia;
+select * from NhaXuatBan;
+select * from TheLoai;
+
