@@ -13,7 +13,7 @@ public class Sach
     public Sach() {
     }
 
-    public Sach(int MaSach, String TenSach, int NamXB, NhaXuatBan MaNXB, TacGia MaTacGia, TheLoai MaTheLoai) {
+    public Sach(int MaSach, String TenSach, NhaXuatBan MaNXB, TacGia MaTacGia, TheLoai MaTheLoai, int NamXB) {
         this.MaSach = MaSach;
         this.TenSach = TenSach;
         this.NamXB = NamXB;
@@ -76,7 +76,6 @@ public class Sach
 
     public void setMaTheLoai(TheLoai MaTheLoai) {
         this.MaTheLoai = MaTheLoai;
-    }
-    
+    }    
     
 }
