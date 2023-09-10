@@ -37,10 +37,6 @@ public class LoginInterface extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
 
-        BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/Black & white technology store Desktop Prototype.png"))); // NOI18N
-
-        LaptopIcon.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/laptopIcon.png"))); // NOI18N
-
         Group6Btn.setText("Group 6");
         Group6Btn.setFont(new java.awt.Font("Poppins SemiBold", 0, 36)); // NOI18N
 
