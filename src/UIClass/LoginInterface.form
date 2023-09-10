@@ -55,6 +55,11 @@
       </Layout>
       <SubComponents>
         <Container class="swing.PictureBox" name="BackGround">
+          <Properties>
+            <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Image/Black &amp; white technology store Desktop Prototype.png"/>
+            </Property>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -138,6 +143,11 @@
           </Layout>
           <SubComponents>
             <Container class="swing.PictureBox" name="LaptopIcon">
+              <Properties>
+                <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Image/laptopIcon.png"/>
+                </Property>
+              </Properties>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
                 <Property name="useNullLayout" type="boolean" value="true"/>
