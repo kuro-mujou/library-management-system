@@ -25,6 +25,8 @@ public class SettingInterface extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         combobox2 = new swing.Combobox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,9 +56,14 @@ public class SettingInterface extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel6.setText("Exit");
 
-        combobox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "Vietnamese" }));
+        jButton1.setText("jButton1");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        combobox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "Coming soon.." }));
         combobox2.setFocusable(false);
         combobox2.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
+        combobox2.setOpaque(false);
         combobox2.setRequestFocusEnabled(false);
         combobox2.setVerifyInputWhenFocusTarget(false);
 
@@ -66,6 +73,8 @@ public class SettingInterface extends javax.swing.JFrame {
         BackGround.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         BackGround.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         BackGround.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        BackGround.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        BackGround.setLayer(jComboBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         BackGround.setLayer(combobox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout BackGroundLayout = new javax.swing.GroupLayout(BackGround);
@@ -87,8 +96,15 @@ public class SettingInterface extends javax.swing.JFrame {
                 .addComponent(Group6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
             .addGroup(BackGroundLayout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(combobox2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackGroundLayout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(combobox2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BackGroundLayout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(jButton1)
+                        .addGap(110, 110, 110)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BackGroundLayout.setVerticalGroup(
@@ -106,8 +122,12 @@ public class SettingInterface extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(66, 66, 66)
+                .addGap(179, 179, 179)
                 .addComponent(combobox2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addGroup(BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -162,6 +182,8 @@ public class SettingInterface extends javax.swing.JFrame {
     private swing.PictureBox LaptopIcon;
     private javax.swing.JPanel MainPanel;
     private swing.Combobox combobox2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -1,7 +1,7 @@
 
 package login;
 
-import UIClass.LoginInterface;
+//import UIClass.LoginInterface;
 import java.awt.Color;
 import java.util.HashMap;
 
@@ -137,7 +137,7 @@ public class LoginPages extends javax.swing.JFrame {
                   messageLabel.setForeground(Color.GREEN);
                   messageLabel.setText("Login successfull");
                   this.dispose();
-                  new LoginInterface().setVisible(true);
+//                  new LoginInterface().setVisible(true);
               }
 
               else 
