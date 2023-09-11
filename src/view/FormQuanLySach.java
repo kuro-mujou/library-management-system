@@ -5,7 +5,7 @@
 package view;
 
 import databaseClass.Sach;
-import databaseClass.sachCRUD;
+//import databaseClass.sachCRUD;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,10 +17,10 @@ public class FormQuanLySach extends javax.swing.JFrame {
     /**
      * Creates new form FormQuanLySach
      */
-    sachCRUD sachDAO = new sachCRUD();
+//    sachCRUD sachDAO = new sachCRUD();
     public FormQuanLySach() {
         initComponents();
-        fillDataTable();
+//        fillDataTable();
     }
 
     /**
@@ -241,23 +241,23 @@ public class FormQuanLySach extends javax.swing.JFrame {
         textNamXB.setText("");
         textMaTacGia.setText("");
     }
-    public void fillDataTable()
-    {
-        DefaultTableModel tbModel = (DefaultTableModel)jTable1.getModel();
-        tbModel.setRowCount(0);
-        for(Sach b: sachDAO.getAll())
-        {
-            Object  dataRow[] = new Object[6];
-            dataRow[0]= b.getMaSach();
-            dataRow[1]= b.getTenSach();
-            dataRow[2]= b.getMaTacGia().getMaTacGia();
-            dataRow[3]= b.getMaTheLoai().getMaTheLoai();
-            dataRow[4]= b.getMaNXB().getMaNXB();
-            dataRow[5]= b.getNamXB();
-              tbModel.addRow(dataRow);
-        }
-      
-    }
+//    public void fillDataTable()
+//    {
+//        DefaultTableModel tbModel = (DefaultTableModel)jTable1.getModel();
+//        tbModel.setRowCount(0);
+//        for(Sach b: sachDAO.getAll())
+//        {
+//            Object  dataRow[] = new Object[6];
+//            dataRow[0]= b.getMaSach();
+//            dataRow[1]= b.getTenSach();
+//            dataRow[2]= b.getMaTacGia().getMaTacGia();
+//            dataRow[3]= b.getMaTheLoai().getMaTheLoai();
+//            dataRow[4]= b.getMaNXB().getMaNXB();
+//            dataRow[5]= b.getNamXB();
+//              tbModel.addRow(dataRow);
+//        }
+//      
+//    }
     public Sach getModel()
     {
         Sach b = new Sach();
