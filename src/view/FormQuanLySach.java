@@ -4,8 +4,14 @@
  */
 package view;
 
+import databaseClass.NhaXuatBan;
+import databaseClass.NhaXuatBanCRUD;
 import databaseClass.Sach;
-//import databaseClass.sachCRUD;
+import databaseClass.TacGia;
+import databaseClass.TacGiaCRUD;
+import databaseClass.TheLoai;
+import databaseClass.TheLoaiCRUD;
+import databaseClass.sachCRUD;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,10 +23,14 @@ public class FormQuanLySach extends javax.swing.JFrame {
     /**
      * Creates new form FormQuanLySach
      */
-//    sachCRUD sachDAO = new sachCRUD();
+    sachCRUD sachDAO = new sachCRUD();
+    NhaXuatBanCRUD NXBDAO = new NhaXuatBanCRUD();
+    TacGiaCRUD tacgiaDAO = new TacGiaCRUD();
+    TheLoaiCRUD theloaiDAO = new TheLoaiCRUD();
+    int idSach = -1;
     public FormQuanLySach() {
         initComponents();
-//        fillDataTable();
+        fillDataTable();
     }
 
     /**
@@ -41,8 +51,8 @@ public class FormQuanLySach extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         textMaSach = new javax.swing.JTextField();
         textTenSach = new javax.swing.JTextField();
+        textMaNXB = new javax.swing.JTextField();
         textMaTacGia = new javax.swing.JTextField();
-        textTacGia = new javax.swing.JTextField();
         textMaTheLoai = new javax.swing.JTextField();
         textNamXB = new javax.swing.JTextField();
         btnFInd = new javax.swing.JButton();
@@ -81,15 +91,15 @@ public class FormQuanLySach extends javax.swing.JFrame {
             }
         });
 
-        textMaTacGia.addActionListener(new java.awt.event.ActionListener() {
+        textMaNXB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textMaTacGiaActionPerformed(evt);
+                textMaNXBActionPerformed(evt);
             }
         });
 
-        textTacGia.addActionListener(new java.awt.event.ActionListener() {
+        textMaTacGia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textTacGiaActionPerformed(evt);
+                textMaTacGiaActionPerformed(evt);
             }
         });
 
@@ -98,8 +108,18 @@ public class FormQuanLySach extends javax.swing.JFrame {
         btnFInd.setText("Find");
 
         BtnAdd.setText("Add");
+        BtnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +146,11 @@ public class FormQuanLySach extends javax.swing.JFrame {
                 "MaSach", "TenSach", "MaNXB", "MaTheLoai", "MaTacGia", "NamXB"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -151,7 +176,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(textTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textMaTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -168,7 +193,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
                                             .addComponent(btnFInd, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(BtnAdd, javax.swing.GroupLayout.Alignment.TRAILING)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(textMaTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnDelete))
                                     .addGroup(layout.createSequentialGroup()
@@ -185,7 +210,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(textMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFInd))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -200,7 +225,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textMaTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -213,7 +238,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
                         .addComponent(btnUpdate)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textMaTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -226,7 +251,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
                         .addComponent(btnSave)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -236,61 +261,135 @@ public class FormQuanLySach extends javax.swing.JFrame {
     {
         textMaSach.setText("");
         textTenSach.setText("");
-        textMaTacGia.setText("");
+        textMaNXB.setText("");
         textMaTheLoai.setText("");
         textNamXB.setText("");
         textMaTacGia.setText("");
+        textMaSach.setEnabled(true);
     }
-//    public void fillDataTable()
-//    {
-//        DefaultTableModel tbModel = (DefaultTableModel)jTable1.getModel();
-//        tbModel.setRowCount(0);
-//        for(Sach b: sachDAO.getAll())
-//        {
-//            Object  dataRow[] = new Object[6];
-//            dataRow[0]= b.getMaSach();
-//            dataRow[1]= b.getTenSach();
-//            dataRow[2]= b.getMaTacGia().getMaTacGia();
-//            dataRow[3]= b.getMaTheLoai().getMaTheLoai();
-//            dataRow[4]= b.getMaNXB().getMaNXB();
-//            dataRow[5]= b.getNamXB();
-//              tbModel.addRow(dataRow);
-//        }
-//      
-//    }
+    public void fillDataTable()
+    {
+        DefaultTableModel tbModel = (DefaultTableModel)jTable1.getModel();
+        tbModel.setRowCount(0);
+        for(Sach b: sachDAO.getAll())
+        {
+            Object  dataRow[] = new Object[6];
+            dataRow[0]= b.getMaSach();
+            dataRow[1]= b.getTenSach();
+            dataRow[2]= b.getMaTacGia().getMaTacGia();
+            dataRow[3]= b.getMaTheLoai().getMaTheLoai();
+            dataRow[4]= b.getMaNXB().getMaNXB();
+            dataRow[5]= b.getNamXB();
+              tbModel.addRow(dataRow);
+        }
+      
+    }
     public Sach getModel()
     {
         Sach b = new Sach();
         b.setMaSach(Integer.parseInt(textMaSach.getText()));
         b.setTenSach(textTenSach.getText());
-//        b.setMaTacGia();
+        NhaXuatBan nxb = NXBDAO.findNhaXuatBanById(Integer.parseInt(textMaNXB.getText()));
+        b.setMaNXB(nxb);
+        
+        TacGia tacgia = tacgiaDAO.findTacGiaById(Integer.parseInt(textMaTacGia.getText()));
+        b.setMaTacGia(tacgia);
+        TheLoai theloai = theloaiDAO.findTheLoaiById(Integer.parseInt(textMaTheLoai.getText()));
+        b.setMaTheLoai(theloai);
         b.setNamXB(Integer.parseInt(textNamXB.getText()));
         return b;
     }
+    public void setModel(Sach b)         
+    {
+        textMaSach.setText(String.valueOf(b.getMaSach()));
+        textTenSach.setText(b.getTenSach());
+        textMaNXB.setText(String.valueOf(b.getMaNXB().getMaNXB()));
+        textNamXB.setText(String.valueOf(b.getNamXB()));
+        textMaTacGia.setText(String.valueOf(b.getMaTacGia().getMaTacGia()));
+        textMaTheLoai.setText(String.valueOf(b.getMaTheLoai().getMaTheLoai()));
+    }   
     private void textMaSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMaSachActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textMaSachActionPerformed
 
-    private void textMaTacGiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMaTacGiaActionPerformed
+    private void textMaNXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMaNXBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textMaTacGiaActionPerformed
+    }//GEN-LAST:event_textMaNXBActionPerformed
 
     private void textTenSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textTenSachActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textTenSachActionPerformed
 
-    private void textTacGiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textTacGiaActionPerformed
+    private void textMaTacGiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMaTacGiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textTacGiaActionPerformed
+    }//GEN-LAST:event_textMaTacGiaActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        try {
+            Sach sach = getModel();
+            if(sachDAO.update(sach)>0)
+            {
+                System.out.println("update xong");
+                fillDataTable();
+                resetForm();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        
+        try {
+            Sach sach = getModel();
+            if(sachDAO.add(sach)>0)
+            {
+                System.out.println("them thanh cong ");
+                fillDataTable();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+//        if(evt.getClickCount()==2)
+//        {
+            textMaSach.setEnabled(false);
+            int position = jTable1.rowAtPoint(evt.getPoint());
+            idSach = Integer.parseInt(jTable1.getValueAt(position,0).toString());
+            Sach sach = sachDAO.findSachById(idSach);
+            if(sach !=null)
+            {
+                setModel(sach);
+            }
+//        }   
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
+        // TODO add your handling code here:
+        resetForm();
+    }//GEN-LAST:event_BtnAddActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+//        int position = jTable1.rowAtPoint(evt.getPoint());
+//        idSach = Integer.parseInt(jTable1.getValueAt(position,0).toString());
+//        Sach sach = sachDAO.findSachById(idSach);
+            Sach sach = getModel();
+            if(sachDAO.delete(sach)>0 )
+            {
+                System.out.println("xoa thanh cong");
+                fillDataTable();
+
+            }
+        
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,11 +442,11 @@ public class FormQuanLySach extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField textMaNXB;
     private javax.swing.JTextField textMaSach;
     private javax.swing.JTextField textMaTacGia;
     private javax.swing.JTextField textMaTheLoai;
     private javax.swing.JTextField textNamXB;
-    private javax.swing.JTextField textTacGia;
     private javax.swing.JTextField textTenSach;
     // End of variables declaration//GEN-END:variables
 }
