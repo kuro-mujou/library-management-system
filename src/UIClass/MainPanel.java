@@ -3,7 +3,7 @@ package UIClass;
 
 import javax.swing.JPanel;
 
-public class MainPanel extends javax.swing.JPanel 
+public class MainPanel extends JPanel 
 {
     MainInterface main;
     public MainPanel(MainInterface m) 
@@ -68,7 +68,6 @@ public class MainPanel extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-
         LoginPanel login = new LoginPanel(main);
         JPanel p = main.getPanel();
         p.removeAll();

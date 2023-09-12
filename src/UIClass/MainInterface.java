@@ -33,7 +33,7 @@ public class MainInterface extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
 
-        BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/Black & white technology store Desktop Prototype.png"))); // NOI18N
+        BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/main_background.png"))); // NOI18N
 
         LaptopIcon.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/laptopIcon.png"))); // NOI18N
 

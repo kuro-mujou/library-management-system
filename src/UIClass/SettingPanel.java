@@ -1,9 +1,10 @@
 
 package UIClass;
 
-public class SettingPanel extends javax.swing.JPanel 
+import javax.swing.JPanel;
+
+public class SettingPanel extends JPanel 
 {
-    
     MainInterface main;
     public SettingPanel(MainInterface main) {
         this.main = main;

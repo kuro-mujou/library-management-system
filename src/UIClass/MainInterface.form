@@ -57,7 +57,7 @@
         <Container class="swing.PictureBox" name="BackGround">
           <Properties>
             <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/Black &amp; white technology store Desktop Prototype.png"/>
+              <Image iconType="3" name="/Image/main_background.png"/>
             </Property>
           </Properties>
 

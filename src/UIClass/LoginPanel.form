@@ -109,6 +109,9 @@
           <Font name="Poppins SemiBold" size="24" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginBtnMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

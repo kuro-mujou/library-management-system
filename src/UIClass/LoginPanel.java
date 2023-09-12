@@ -1,7 +1,9 @@
 
 package UIClass;
 
-public class LoginPanel extends javax.swing.JPanel 
+import javax.swing.JPanel;
+
+public class LoginPanel extends JPanel 
 {
     MainInterface main;
     public LoginPanel(MainInterface m) 
@@ -39,6 +41,11 @@ public class LoginPanel extends javax.swing.JPanel
         loginBtn.setColorClick(new java.awt.Color(94, 94, 94));
         loginBtn.setColorOver(new java.awt.Color(128, 128, 128));
         loginBtn.setFont(new java.awt.Font("Poppins SemiBold", 0, 24)); // NOI18N
+        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginBtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,6 +82,16 @@ public class LoginPanel extends javax.swing.JPanel
                 .addContainerGap(123, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
+        //check login info ( missing )
+        HomePanel home = new HomePanel(main);
+        JPanel p = main.getPanel();
+        p.removeAll();
+        p.add(home);
+        p.validate();
+        p.repaint();
+    }//GEN-LAST:event_loginBtnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
