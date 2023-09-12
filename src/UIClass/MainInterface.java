@@ -2,8 +2,6 @@
 package UIClass;
 
 import java.awt.BorderLayout;
-import java.awt.Image;
-import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -53,12 +51,27 @@ public class MainInterface extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel4.setText("About Us");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel5.setText("Setting");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel6.setText("Exit");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         jPanel1.setOpaque(false);
 
@@ -153,11 +166,30 @@ public class MainInterface extends javax.swing.JFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         jPanel1.removeAll();
         MainPanel main = new MainPanel(this);
-        jPanel1.setLayout(new BorderLayout());
         jPanel1.add(main);
         jPanel1.validate();
         jPanel1.repaint();
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        jPanel1.removeAll();
+        SettingPanel setting = new SettingPanel(this);
+        jPanel1.add(setting);
+        jPanel1.validate();
+        jPanel1.repaint();
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        jPanel1.removeAll();
+        AboutUsPanel aboutus = new AboutUsPanel(this);
+        jPanel1.add(aboutus);
+        jPanel1.validate();
+        jPanel1.repaint();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     public static void main(String args[]) {
 
@@ -171,14 +203,13 @@ public class MainInterface extends javax.swing.JFrame {
     {
         return this.jPanel1;
     }
-    private void initComponentsCustom() {
-//        setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        ImageIcon imgIcon = new ImageIcon(getClass().getResource("/Image/11.png"));
-//        Image image = (imgIcon).getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
-//        imgIcon = new ImageIcon(image);
-//        jLabel1.setIcon(imgIcon);
+    private void initComponentsCustom() 
+    {
         ImageIcon icon = new ImageIcon("src/Image/StackOfBooksIcon.png");
         setIconImage(icon.getImage());
+        MainPanel main = new MainPanel(this);
+        jPanel1.setLayout(new BorderLayout());
+        jPanel1.add(main);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
