@@ -41,6 +41,11 @@ public class HomePanel extends JPanel {
         button1.setColorClick(new java.awt.Color(102, 102, 102));
         button1.setColorOver(new java.awt.Color(153, 153, 153));
         button1.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        button1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button1MouseClicked(evt);
+            }
+        });
 
         button2.setBackground(new java.awt.Color(0, 0, 0));
         button2.setForeground(new java.awt.Color(255, 255, 255));
@@ -49,6 +54,11 @@ public class HomePanel extends JPanel {
         button2.setColorClick(new java.awt.Color(102, 102, 102));
         button2.setColorOver(new java.awt.Color(153, 153, 153));
         button2.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        button2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button2MouseClicked(evt);
+            }
+        });
 
         button4.setBackground(new java.awt.Color(0, 0, 0));
         button4.setForeground(new java.awt.Color(255, 255, 255));
@@ -57,6 +67,11 @@ public class HomePanel extends JPanel {
         button4.setColorClick(new java.awt.Color(102, 102, 102));
         button4.setColorOver(new java.awt.Color(153, 153, 153));
         button4.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        button4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button4MouseClicked(evt);
+            }
+        });
 
         button3.setBackground(new java.awt.Color(0, 0, 0));
         button3.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,6 +134,33 @@ public class HomePanel extends JPanel {
                 .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
+        BookManagementPanel bookManagement = new BookManagementPanel(main);
+        JPanel p = main.getPanel();
+        p.removeAll();
+        p.add(bookManagement);
+        p.validate();
+        p.repaint();
+    }//GEN-LAST:event_button1MouseClicked
+
+    private void button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button2MouseClicked
+        ReaderManagementPanel readerManagement = new ReaderManagementPanel(main);
+        JPanel p = main.getPanel();
+        p.removeAll();
+        p.add(readerManagement);
+        p.validate();
+        p.repaint();
+    }//GEN-LAST:event_button2MouseClicked
+
+    private void button4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button4MouseClicked
+        BorrowManagementPanel borrowManagement = new BorrowManagementPanel(main);
+        JPanel p = main.getPanel();
+        p.removeAll();
+        p.add(borrowManagement);
+        p.validate();
+        p.repaint();
+    }//GEN-LAST:event_button4MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

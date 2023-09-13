@@ -89,6 +89,9 @@
           <Font name="Poppins" size="15" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button1MouseClicked"/>
+      </Events>
     </Component>
     <Component class="swing.Button" name="button2">
       <Properties>
@@ -112,6 +115,9 @@
           <Font name="Poppins" size="15" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button2MouseClicked"/>
+      </Events>
     </Component>
     <Component class="swing.Button" name="button4">
       <Properties>
@@ -135,6 +141,9 @@
           <Font name="Poppins" size="15" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button4MouseClicked"/>
+      </Events>
     </Component>
     <Component class="swing.Button" name="button3">
       <Properties>

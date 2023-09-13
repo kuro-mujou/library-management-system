@@ -65,6 +65,15 @@ public class Buttonver2 extends JButton
     private Color color;
     private Color colorOver;
     private Color colorClick;
+    private boolean isBackButton;
+
+    public boolean isIsBackButton() {
+        return isBackButton;
+    }
+
+    public void setIsBackButton(boolean isBackButton) {
+        this.isBackButton = isBackButton;
+    }
     private int radius = 50;
     public Color getShadow() {
         return shadow;
@@ -126,6 +135,19 @@ public class Buttonver2 extends JButton
         Baseround.subtract(Subround);
         g2.setPaint(shadow);
         g2.fill(Baseround);
+        if(isBackButton == true)
+        {
+            int width = getWidth();
+            int height = getHeight();
+            int sizeX = 50;
+            int sizeY = 30;
+            int x = width - sizeX;
+            int y = height - sizeY;
+            int px[] = {x, x - sizeX+40, x};
+            int py[] = {y, height/2, sizeY};
+            g2.setColor(new Color(0,0,0));
+            g2.fillPolygon(px, py, px.length);
+        }
         super.paintComponent(grphcs);
     }
     class RoundedCornerBorder extends AbstractBorder 
