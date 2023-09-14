@@ -46,6 +46,11 @@ public class HomePanel extends JPanel {
                 button1MouseClicked(evt);
             }
         });
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
 
         button2.setBackground(new java.awt.Color(0, 0, 0));
         button2.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,6 +186,10 @@ public class HomePanel extends JPanel {
         p.validate();
         p.repaint();
     }//GEN-LAST:event_button3MouseClicked
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
