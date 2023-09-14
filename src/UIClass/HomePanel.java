@@ -80,6 +80,11 @@ public class HomePanel extends JPanel {
         button3.setColorClick(new java.awt.Color(102, 102, 102));
         button3.setColorOver(new java.awt.Color(153, 153, 153));
         button3.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        button3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button3MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Calibri", 2, 18)); // NOI18N
         jLabel1.setText("book management");
@@ -161,6 +166,15 @@ public class HomePanel extends JPanel {
         p.validate();
         p.repaint();
     }//GEN-LAST:event_button4MouseClicked
+
+    private void button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseClicked
+        ReturnManagementPanel returnManagement = new ReturnManagementPanel(main);
+        JPanel p = main.getPanel();
+        p.removeAll();
+        p.add(returnManagement);
+        p.validate();
+        p.repaint();
+    }//GEN-LAST:event_button3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
