@@ -15,7 +15,7 @@ public class DatabaseConnect {
         var server = "DESKTOP-IPDB6V8\\THER";
         var user = "sa";
         var password ="123456";
-        var db = "quanlythuvien";
+        var db = "quanlythuvienv1";
         var port = 1433;
         SQLServerDataSource ds = new SQLServerDataSource();
         ds.setUser(user);

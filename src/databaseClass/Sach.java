@@ -8,27 +8,37 @@ public class Sach
     private NhaXuatBan MaNXB;
     private TacGia MaTacGia;
     private TheLoai MaTheLoai;
+    private int SoLuong;
      private int NamXB;
 
     public Sach() {
     }
 
-    public Sach(int MaSach, String TenSach, NhaXuatBan MaNXB, TacGia MaTacGia, TheLoai MaTheLoai, int NamXB) {
+    public Sach(int MaSach, String TenSach, NhaXuatBan MaNXB, TacGia MaTacGia, TheLoai MaTheLoai, int SoLuong, int NamXB) {
         this.MaSach = MaSach;
         this.TenSach = TenSach;
-        this.NamXB = NamXB;
         this.MaNXB = MaNXB;
         this.MaTacGia = MaTacGia;
         this.MaTheLoai = MaTheLoai;
+        this.SoLuong = SoLuong;
+        this.NamXB = NamXB;
     }
 
-    public Sach(String TenSach, NhaXuatBan MaNXB, TacGia MaTacGia, TheLoai MaTheLoai, int NamXB) {
+    public Sach(int MaSach) {
+        this.MaSach = MaSach;
+    }
+
+    public Sach(String TenSach, NhaXuatBan MaNXB, TacGia MaTacGia, TheLoai MaTheLoai, int SoLuong, int NamXB) {
         this.TenSach = TenSach;
         this.MaNXB = MaNXB;
         this.MaTacGia = MaTacGia;
         this.MaTheLoai = MaTheLoai;
+        this.SoLuong = SoLuong;
         this.NamXB = NamXB;
     }
+
+    
+
 
     public int getMaSach() {
         return MaSach;
@@ -54,6 +64,10 @@ public class Sach
         return MaTheLoai;
     }
 
+    public int getSoLuong() {
+        return SoLuong;
+    }
+
     public void setMaSach(int MaSach) {
         this.MaSach = MaSach;
     }
@@ -76,6 +90,11 @@ public class Sach
 
     public void setMaTheLoai(TheLoai MaTheLoai) {
         this.MaTheLoai = MaTheLoai;
-    }    
+    }   
+
+    public void setSoLuong(int SoLuong) {
+        this.SoLuong = SoLuong;
+    }
+    
     
 }

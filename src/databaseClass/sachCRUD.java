@@ -23,17 +23,18 @@ public class sachCRUD {
     public int add (Sach sach)
     {
         try {
-            String sSQL = "insert Sach(TenSach,MaTacGia,MaTheLoai,MaNXB,NamXB)"
-                            + "values(?,?,?,?,?)";
+            String sSQL = "insert Sach(MaSach,TenSach,MaTacGia,MaTheLoai,MaNXB,Soluong,NamXB)"
+                            + "values(?,?,?,?,?,?,?)";
             
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
-//            sttm.setInt(1, sach.getMaSach());
-            sttm.setString(1, sach.getTenSach());
-            sttm.setInt(2,sach.getMaTacGia().getMaTacGia());
-            sttm.setInt(3,sach.getMaTheLoai().getMaTheLoai());
-            sttm.setInt(4,sach.getMaNXB().getMaNXB());
-            sttm.setInt(5,sach.getNamXB());
+            sttm.setInt(1, sach.getMaSach());
+            sttm.setString(2, sach.getTenSach());
+            sttm.setInt(3,sach.getMaTacGia().getMaTacGia());
+            sttm.setInt(4,sach.getMaTheLoai().getMaTheLoai());
+            sttm.setInt(5,sach.getMaNXB().getMaNXB());
+            sttm.setInt(6,sach.getSoLuong());
+            sttm.setInt(7,sach.getNamXB());
             System.out.println("abc:"
                     +sach.getMaTacGia().getMaTacGia());
             if(sttm.executeUpdate() > 0)
@@ -49,7 +50,7 @@ public class sachCRUD {
     public int update (Sach sach)
     {
         try {
-            String sSQL = "update Sach set TenSach=?,MaTacGia=?,MaTheLoai=?,MaNXB=?,NamXB=? where MaSach =?";
+            String sSQL = "update Sach set TenSach=?,MaTacGia=?,MaTheLoai=?,MaNXB=?,SoLuong=?,NamXB=? where MaSach =?";
                    
             
             conn = DatabaseConnect.getDBConnect();
@@ -58,8 +59,10 @@ public class sachCRUD {
             sttm.setInt(2,sach.getMaTacGia().getMaTacGia());
             sttm.setInt(3,sach.getMaTheLoai().getMaTheLoai());
             sttm.setInt(4,sach.getMaNXB().getMaNXB());
-            sttm.setInt(5,sach.getNamXB());
-            sttm.setInt(6,sach.getMaSach());
+            sttm.setInt(5,sach.getSoLuong());
+            sttm.setInt(6,sach.getNamXB());
+    
+            sttm.setInt(7,sach.getMaSach());
             if(sttm.executeUpdate() > 0)
             {
                 System.out.println("Update thanh cong!");
@@ -109,7 +112,8 @@ public class sachCRUD {
                 sach.setMaNXB(new NhaXuatBan(rs.getInt(3)));
                 sach.setMaTacGia(new TacGia(rs.getInt(4)));
                 sach.setMaTheLoai(new TheLoai(rs.getInt(5)));
-                sach.setNamXB(rs.getInt(6));
+                sach.setSoLuong(rs.getInt(6));
+                sach.setNamXB(rs.getInt(7));
 //                
 //                System.out.println(sach.getMaNXB().getMaNXB());
                 ls.add(sach);
@@ -148,7 +152,8 @@ public class sachCRUD {
                 sach.setMaNXB(new NhaXuatBan(rs.getInt(3)));
                 sach.setMaTacGia(new TacGia(rs.getInt(4)));
                 sach.setMaTheLoai(new TheLoai(rs.getInt(5)));
-                sach.setNamXB(rs.getInt(6));
+                sach.setSoLuong(rs.getInt(6));
+                sach.setNamXB(rs.getInt(7));
                 return sach;
             }
                 
@@ -171,7 +176,7 @@ public class sachCRUD {
         TheLoai theLoai = new TheLoai(1);
                 
         
-        Sach sach = new Sach(4,"update",nhaXuatBan,tacGia,theLoai,2003);
+//        Sach sach = new Sach(4,"update",nhaXuatBan,tacGia,theLoai,2003);
         
         
         

@@ -62,6 +62,8 @@ public class FormQuanLySach extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        textSoLuong = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,13 +139,13 @@ public class FormQuanLySach extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "MaSach", "TenSach", "MaNXB", "MaTheLoai", "MaTacGia", "NamXB"
+                "MaSach", "TenSach", "MaNXB", "MaTheLoai", "MaTacGia", "SoLuong", "NamXB"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -153,32 +155,42 @@ public class FormQuanLySach extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        textSoLuong.setText("1");
+        textSoLuong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSoLuongActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("SoLuong");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LableQuanLySach, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(LableQuanLySach, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel7)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel7)))
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(textMaTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(textMaTheLoai, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,10 +209,15 @@ public class FormQuanLySach extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnDelete))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(textNamXB, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnSave)))
-                                .addGap(42, 42, 42))))))
+                                .addGap(42, 42, 42))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textMaTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textNamXB, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,16 +259,20 @@ public class FormQuanLySach extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(btnSave)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textNamXB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(btnSave)))
+                            .addComponent(jLabel1)
+                            .addComponent(textSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textNamXB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -265,6 +286,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
         textMaTheLoai.setText("");
         textNamXB.setText("");
         textMaTacGia.setText("");
+        textSoLuong.setText("");
         textMaSach.setEnabled(true);
     }
     public void fillDataTable()
@@ -273,13 +295,14 @@ public class FormQuanLySach extends javax.swing.JFrame {
         tbModel.setRowCount(0);
         for(Sach b: sachDAO.getAll())
         {
-            Object  dataRow[] = new Object[6];
+            Object  dataRow[] = new Object[7];
             dataRow[0]= b.getMaSach();
             dataRow[1]= b.getTenSach();
             dataRow[2]= b.getMaTacGia().getMaTacGia();
             dataRow[3]= b.getMaTheLoai().getMaTheLoai();
             dataRow[4]= b.getMaNXB().getMaNXB();
-            dataRow[5]= b.getNamXB();
+            dataRow[5]= b.getSoLuong();
+            dataRow[6]= b.getNamXB();
               tbModel.addRow(dataRow);
         }
       
@@ -296,6 +319,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
         b.setMaTacGia(tacgia);
         TheLoai theloai = theloaiDAO.findTheLoaiById(Integer.parseInt(textMaTheLoai.getText()));
         b.setMaTheLoai(theloai);
+        b.setSoLuong(Integer.parseInt(textSoLuong.getText()));
         b.setNamXB(Integer.parseInt(textNamXB.getText()));
         return b;
     }
@@ -305,6 +329,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
         textTenSach.setText(b.getTenSach());
         textMaNXB.setText(String.valueOf(b.getMaNXB().getMaNXB()));
         textNamXB.setText(String.valueOf(b.getNamXB()));
+        textSoLuong.setText(String.valueOf(b.getSoLuong()));
         textMaTacGia.setText(String.valueOf(b.getMaTacGia().getMaTacGia()));
         textMaTheLoai.setText(String.valueOf(b.getMaTheLoai().getMaTheLoai()));
     }   
@@ -386,10 +411,14 @@ public class FormQuanLySach extends javax.swing.JFrame {
             {
                 System.out.println("xoa thanh cong");
                 fillDataTable();
-
+                resetForm();
             }
         
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void textSoLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSoLuongActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSoLuongActionPerformed
 
     /**
      * @param args the command line arguments
@@ -434,6 +463,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
     private javax.swing.JButton btnFInd;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -447,6 +477,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
     private javax.swing.JTextField textMaTacGia;
     private javax.swing.JTextField textMaTheLoai;
     private javax.swing.JTextField textNamXB;
+    private javax.swing.JTextField textSoLuong;
     private javax.swing.JTextField textTenSach;
     // End of variables declaration//GEN-END:variables
 }
