@@ -3,8 +3,10 @@ package UIClass;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import swing.Buttonver2;
 import swing.PictureBox;
 
 
@@ -12,6 +14,12 @@ public class MainInterface extends javax.swing.JFrame
 {
     private String CurrentPanel;
     private String PreviousPanel;
+
+    private AboutUsPanel aboutUsPanel = new AboutUsPanel(this);
+    private HomePanel homePanel = new HomePanel(this);
+    private MainPanel mainPanel = new MainPanel(this);
+    private SettingPanel settingPanel = new SettingPanel(this);
+    
     private ArrayList<String> classname;
     public MainInterface() 
     {
@@ -19,12 +27,35 @@ public class MainInterface extends javax.swing.JFrame
         initComponentsCustom();
         LoadChange();
     }
-    private void LoadChange()
+    public void LoadChange()
     {
-        if(classname.contains(CurrentPanel))
-            BackButton.setVisible(true);
-        else if(CurrentPanel == "UIClass.MainPanel")
+        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
+        PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
+        if(CurrentPanel == "UIClass.MainPanel" || CurrentPanel == "UIClass.HomePanel")
             BackButton.setVisible(false);
+        else 
+            BackButton.setVisible(true);
+    }
+    public void Update()
+    {
+        if(CurrentPanel == "UIClass.AboutUsPanel" || CurrentPanel == "UIClass.SettingPanel" || CurrentPanel == "UIClass.LoginPanel")
+        {
+            ContentPanel.removeAll();
+            ContentPanel.add(mainPanel);
+            LoadChange();
+            ContentPanel.validate();
+            ContentPanel.repaint();
+        }
+        else
+            if(CurrentPanel == "UIClass.BookManagementPanel" || CurrentPanel == "UIClass.BorrowManagementPanel" || CurrentPanel == "UIClass.ReaderManagementPanel" || CurrentPanel == "UIClass.ReturnManagementPanel")
+            {
+                ContentPanel.removeAll();
+                ContentPanel.add(homePanel);
+                BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/main_background.png")));
+                LoadChange();
+                ContentPanel.validate();
+                ContentPanel.repaint();
+            }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -196,25 +227,20 @@ public class MainInterface extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
     
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
+        
         ContentPanel.removeAll();
-        MainPanel main = new MainPanel(this);
-        ContentPanel.add(main);
-        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
+        ContentPanel.add(mainPanel);
+        LoadChange();
         ContentPanel.validate();
         ContentPanel.repaint();
-        LoadChange();
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
         ContentPanel.removeAll();
-        SettingPanel setting = new SettingPanel(this);
-        ContentPanel.add(setting);
-        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
+        ContentPanel.add(settingPanel);
+        LoadChange();
         ContentPanel.validate();
         ContentPanel.repaint();
-        LoadChange();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -222,24 +248,15 @@ public class MainInterface extends javax.swing.JFrame
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
         ContentPanel.removeAll();
-        AboutUsPanel aboutus = new AboutUsPanel(this);
-        ContentPanel.add(aboutus);
-        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
+        ContentPanel.add(aboutUsPanel);
+        LoadChange();
         ContentPanel.validate();
         ContentPanel.repaint();
-        LoadChange();
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void BackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMouseClicked
-        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
-        
-        
-//        if(classname.contains(CurrentPanel))
-//        {
-//            BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/main_background.png")));
-//        }
+        Update();
     }//GEN-LAST:event_BackButtonMouseClicked
 
     public static void main(String args[]) {
@@ -258,26 +275,24 @@ public class MainInterface extends javax.swing.JFrame
     {
         return this.BackGround;
     }
+    public Buttonver2 getBackButton()
+    {
+        return this.BackButton;
+    }
+    public String getCurrentPanel() {
+        return CurrentPanel;
+    }
+
+    public String getPreviousPanel() {
+        return PreviousPanel;
+    }
     private void initComponentsCustom() 
     {
         ImageIcon icon = new ImageIcon("src/Image/StackOfBooksIcon.png");
         setIconImage(icon.getImage());
-        MainPanel main = new MainPanel(this);
+        
         ContentPanel.setLayout(new BorderLayout());
-        ContentPanel.add(main);
-        
-        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
-        PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
-        classname = new ArrayList<String>();      
-//        classname.add("UIClass.MainPanel");
-        classname.add("UIClass.AboutUsPanel");
-        classname.add("UIClass.BookManagementPanel");
-        classname.add("UIClass.HomePanel");
-        classname.add("UIClass.ReaderManagementPanel");
-        classname.add("UIClass.SettingPanel");
-        classname.add("UIClass.LoginPanel");
-        
-//        LoadChange();
+        ContentPanel.add(mainPanel);
     }
 
     

@@ -145,6 +145,7 @@ public class HomePanel extends JPanel {
         JPanel p = main.getPanel();
         p.removeAll();
         p.add(bookManagement);
+        main.LoadChange();
         p.validate();
         p.repaint();
     }//GEN-LAST:event_button1MouseClicked
@@ -154,6 +155,7 @@ public class HomePanel extends JPanel {
         JPanel p = main.getPanel();
         p.removeAll();
         p.add(readerManagement);
+        main.LoadChange();
         p.validate();
         p.repaint();
     }//GEN-LAST:event_button2MouseClicked
@@ -163,6 +165,8 @@ public class HomePanel extends JPanel {
         JPanel p = main.getPanel();
         p.removeAll();
         p.add(borrowManagement);
+        main.LoadChange();
+        borrowManagement.initCustom();
         p.validate();
         p.repaint();
     }//GEN-LAST:event_button4MouseClicked
@@ -172,6 +176,8 @@ public class HomePanel extends JPanel {
         JPanel p = main.getPanel();
         p.removeAll();
         p.add(returnManagement);
+        main.LoadChange();
+        returnManagement.initCustom();
         p.validate();
         p.repaint();
     }//GEN-LAST:event_button3MouseClicked

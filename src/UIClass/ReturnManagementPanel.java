@@ -8,10 +8,9 @@ public class ReturnManagementPanel extends javax.swing.JPanel
     {
         initComponents();
         this.main = main;
-        initCustom();
     }
     
-    private void initCustom() 
+    public void initCustom() 
     {
         main.getPictureBox().setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/background.png")));
         main.getPictureBox().repaint();

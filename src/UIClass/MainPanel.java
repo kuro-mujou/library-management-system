@@ -8,10 +8,14 @@ public class MainPanel extends JPanel
     MainInterface main;
     public MainPanel(MainInterface m) 
     {
-        initComponents();
         main = m;
+        initComponents();
+        
     }
-
+    private void initcustom() 
+    {
+        main.getBackButton().setVisible(true);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,10 +74,14 @@ public class MainPanel extends JPanel
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         LoginPanel login = new LoginPanel(main);
         JPanel p = main.getPanel();
+//        initcustom();
         p.removeAll();
         p.add(login);
+        main.LoadChange();
+        
         p.validate();
         p.repaint();
+        
     }//GEN-LAST:event_loginBtnActionPerformed
 
 
@@ -82,4 +90,6 @@ public class MainPanel extends JPanel
     private javax.swing.JLabel jLabel2;
     private swing.Button loginBtn;
     // End of variables declaration//GEN-END:variables
+
+    
 }

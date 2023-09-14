@@ -89,6 +89,7 @@ public class LoginPanel extends JPanel
         JPanel p = main.getPanel();
         p.removeAll();
         p.add(home);
+        main.LoadChange();
         p.validate();
         p.repaint();
     }//GEN-LAST:event_loginBtnMouseClicked
