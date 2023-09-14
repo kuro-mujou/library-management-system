@@ -2,25 +2,30 @@
 package UIClass;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import swing.Buttonver2;
 import swing.PictureBox;
 
 
-public class MainInterface extends javax.swing.JFrame {
-
-    public MainInterface() {
+public class MainInterface extends javax.swing.JFrame 
+{
+    private String CurrentPanel;
+    private String PreviousPanel;
+    private ArrayList<String> classname;
+    public MainInterface() 
+    {
         initComponents();
         initComponentsCustom();
+        LoadChange();
     }
-
+    private void LoadChange()
+    {
+        if(classname.contains(CurrentPanel))
+            BackButton.setVisible(true);
+        else if(CurrentPanel == "UIClass.MainPanel")
+            BackButton.setVisible(false);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,14 +38,15 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        ContentPanel = new javax.swing.JPanel();
         BackButton = new swing.Buttonver2();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LIBRARY MANAGEMENT SYSTEM");
         setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(1280, 800));
         setResizable(false);
-        setSize(new java.awt.Dimension(1280, 720));
+        setSize(new java.awt.Dimension(1280, 800));
 
         BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/main_background.png"))); // NOI18N
 
@@ -82,22 +88,27 @@ public class MainInterface extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setOpaque(false);
+        ContentPanel.setOpaque(false);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ContentPanelLayout = new javax.swing.GroupLayout(ContentPanel);
+        ContentPanel.setLayout(ContentPanelLayout);
+        ContentPanelLayout.setHorizontalGroup(
+            ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 586, Short.MAX_VALUE)
+        ContentPanelLayout.setVerticalGroup(
+            ContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         BackButton.setText("BACK");
         BackButton.setFont(new java.awt.Font("Poppins SemiBold", 1, 20)); // NOI18N
         BackButton.setIsBackButton(true);
+        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackButtonMouseClicked(evt);
+            }
+        });
 
         BackGround.setLayer(LaptopIcon, javax.swing.JLayeredPane.DEFAULT_LAYER);
         BackGround.setLayer(Group6Btn, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -105,7 +116,7 @@ public class MainInterface extends javax.swing.JFrame {
         BackGround.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         BackGround.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         BackGround.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        BackGround.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        BackGround.setLayer(ContentPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         BackGround.setLayer(BackButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout BackGroundLayout = new javax.swing.GroupLayout(BackGround);
@@ -128,7 +139,7 @@ public class MainInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
                         .addComponent(Group6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackGroundLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
@@ -149,13 +160,13 @@ public class MainInterface extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel6))
                             .addComponent(LaptopIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 541, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 584, Short.MAX_VALUE)
                 .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
             .addGroup(BackGroundLayout.createSequentialGroup()
                 .addGap(144, 144, 144)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
@@ -183,21 +194,27 @@ public class MainInterface extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        jPanel1.removeAll();
+        PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
+        ContentPanel.removeAll();
         MainPanel main = new MainPanel(this);
-        jPanel1.add(main);
-        jPanel1.validate();
-        jPanel1.repaint();
+        ContentPanel.add(main);
+        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
+        ContentPanel.validate();
+        ContentPanel.repaint();
+        LoadChange();
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        jPanel1.removeAll();
+        PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
+        ContentPanel.removeAll();
         SettingPanel setting = new SettingPanel(this);
-        jPanel1.add(setting);
-        jPanel1.validate();
-        jPanel1.repaint();
+        ContentPanel.add(setting);
+        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
+        ContentPanel.validate();
+        ContentPanel.repaint();
+        LoadChange();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -205,12 +222,25 @@ public class MainInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        jPanel1.removeAll();
+        PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
+        ContentPanel.removeAll();
         AboutUsPanel aboutus = new AboutUsPanel(this);
-        jPanel1.add(aboutus);
-        jPanel1.validate();
-        jPanel1.repaint();
+        ContentPanel.add(aboutus);
+        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
+        ContentPanel.validate();
+        ContentPanel.repaint();
+        LoadChange();
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void BackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMouseClicked
+        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
+        
+        
+//        if(classname.contains(CurrentPanel))
+//        {
+//            BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/main_background.png")));
+//        }
+    }//GEN-LAST:event_BackButtonMouseClicked
 
     public static void main(String args[]) {
 
@@ -222,9 +252,9 @@ public class MainInterface extends javax.swing.JFrame {
     }
     public JPanel getPanel()
     {
-        return this.jPanel1;
+        return this.ContentPanel;
     }
-    public PictureBox getPicktureBox()
+    public PictureBox getPictureBox()
     {
         return this.BackGround;
     }
@@ -233,8 +263,21 @@ public class MainInterface extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon("src/Image/StackOfBooksIcon.png");
         setIconImage(icon.getImage());
         MainPanel main = new MainPanel(this);
-        jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(main);
+        ContentPanel.setLayout(new BorderLayout());
+        ContentPanel.add(main);
+        
+        CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
+        PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
+        classname = new ArrayList<String>();      
+//        classname.add("UIClass.MainPanel");
+        classname.add("UIClass.AboutUsPanel");
+        classname.add("UIClass.BookManagementPanel");
+        classname.add("UIClass.HomePanel");
+        classname.add("UIClass.ReaderManagementPanel");
+        classname.add("UIClass.SettingPanel");
+        classname.add("UIClass.LoginPanel");
+        
+//        LoadChange();
     }
 
     
@@ -242,6 +285,7 @@ public class MainInterface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Buttonver2 BackButton;
     private swing.PictureBox BackGround;
+    private javax.swing.JPanel ContentPanel;
     private swing.Button Group6Btn;
     private swing.PictureBox LaptopIcon;
     private javax.swing.JPanel MainPanel;
@@ -249,6 +293,5 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
