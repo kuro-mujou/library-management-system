@@ -279,9 +279,9 @@
               <Table columnCount="7" rowCount="4">
                 <Column editable="true" title="MaSach" type="java.lang.Object"/>
                 <Column editable="true" title="TenSach" type="java.lang.Object"/>
-                <Column editable="true" title="MaNXB" type="java.lang.Object"/>
-                <Column editable="true" title="MaTheLoai" type="java.lang.Object"/>
                 <Column editable="true" title="MaTacGia" type="java.lang.Object"/>
+                <Column editable="true" title="MaTheLoai" type="java.lang.Object"/>
+                <Column editable="true" title="MaNXB" type="java.lang.Object"/>
                 <Column editable="true" title="SoLuong" type="java.lang.Object"/>
                 <Column editable="true" title="NamXB" type="java.lang.Object"/>
               </Table>

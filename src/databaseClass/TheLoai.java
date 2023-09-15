@@ -13,6 +13,10 @@ public class TheLoai
         this.MaTheLoai = MaTheLoai;
     }
 
+    public TheLoai(String TenTheLoai) {
+        this.TenTheLoai = TenTheLoai;
+    }
+
     public TheLoai(int MaTheLoai, String TenTheLoai) {
         this.MaTheLoai = MaTheLoai;
         this.TenTheLoai = TenTheLoai;

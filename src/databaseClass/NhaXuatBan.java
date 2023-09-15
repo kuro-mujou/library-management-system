@@ -9,6 +9,15 @@ public class NhaXuatBan
     private String Email;
     private String ThongTinNDD;
 
+    public NhaXuatBan(int MaNXB, String TenNXB) {
+        this.MaNXB = MaNXB;
+        this.TenNXB = TenNXB;
+    }
+
+    public NhaXuatBan(String TenNXB) {
+        this.TenNXB = TenNXB;
+    }
+    
     public NhaXuatBan() {
     }
 

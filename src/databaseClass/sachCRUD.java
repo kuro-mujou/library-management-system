@@ -99,24 +99,34 @@ public class sachCRUD {
         ResultSet rs = null;
         Statement sttm =null;
         try {
-            String sSQL = "select *from Sach";
+            String sSQL = "select Sach.MaSach,TenSach,TacGia.MaTacGia,TenTacGia,TheLoai.MaTheLoai,TenTheLoai,NhaXuatBan.MaNXB,TenNXB,SoLuong,NamXB"
+                    +"from (((Sach inner join TacGia on Sach.MaTacGia=TacGia.MaTacGia)inner join TheLoai on Sach.MaTheLoai=TheLoai.MaTheLoai) inner join NhaXuatBan on Sach.MaNXB=NhaXuatBan.MaNXB )";
             
+//                    String sSQL ="select * from Sach";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);
             while(rs.next())
             {
                 Sach sach = new Sach();
-                sach.setMaSach(rs.getInt(1));
-                sach.setTenSach(rs.getString(2));
-                sach.setMaNXB(new NhaXuatBan(rs.getInt(3)));
-                sach.setMaTacGia(new TacGia(rs.getInt(4)));
-                sach.setMaTheLoai(new TheLoai(rs.getInt(5)));
-                sach.setSoLuong(rs.getInt(6));
-                sach.setNamXB(rs.getInt(7));
-//                
-//                System.out.println(sach.getMaNXB().getMaNXB());
+                sach.setMaSach(rs.getInt("MaSach"));
+                sach.setTenSach(rs.getString("TenSach"));
+                sach.setMaTacGia(new TacGia(rs.getInt("MaTacGia"),rs.getString("TenTacGia")));
+                sach.setMaTheLoai(new TheLoai(rs.getInt("MaTheLoai"),rs.getString("TenTheLoai")));
+                sach.setMaNXB(new NhaXuatBan(rs.getInt("MaNXB"),rs.getString("TenNXB")));
+                sach.setSoLuong(rs.getInt("SoLuong"));
+                sach.setNamXB(rs.getInt("NamXB"));
+//                 Sach sach = new Sach();
+//                sach.setMaSach(rs.getInt("MaSach"));
+//                sach.setTenSach(rs.getString("TenSach"));
+//                sach.setMaNXB(new NhaXuatBan(rs.getInt("MaNXB")));
+//                sach.setMaTacGia(new TacGia(rs.getInt("MaTacGia")));
+//                sach.setMaTheLoai(new TheLoai(rs.getInt("MaTheLoai")));
+//                sach.setSoLuong(rs.getInt("SoLuong"));
+//                sach.setNamXB(rs.getInt("NamXB"));
+                System.out.println(">>>>"+sach.getMaNXB().getTenNXB());
                 ls.add(sach);
+                
             }
                
                 
@@ -146,8 +156,8 @@ public class sachCRUD {
             rs = sttm.executeQuery(sSQL);
             while(rs.next())
             {
-                 Sach sach = new Sach();
-                 sach.setMaSach(rs.getInt(1));
+                Sach sach = new Sach();
+                sach.setMaSach(rs.getInt(1));
                 sach.setTenSach(rs.getString(2));
                 sach.setMaNXB(new NhaXuatBan(rs.getInt(3)));
                 sach.setMaTacGia(new TacGia(rs.getInt(4)));
@@ -171,19 +181,18 @@ public class sachCRUD {
     }
     public static void main(String[] args) {
         sachCRUD a= new sachCRUD();
-        NhaXuatBan nhaXuatBan = new NhaXuatBan(1);
-        TacGia tacGia = new TacGia(1);
-        TheLoai theLoai = new TheLoai(1);
+        NhaXuatBan nhaXuatBan = new NhaXuatBan(1,"xb1");
+        TacGia tacGia = new TacGia(1,"tacgia1");
+        TheLoai theLoai = new TheLoai(1,"theloai1");
                 
         
-//        Sach sach = new Sach(4,"update",nhaXuatBan,tacGia,theLoai,2003);
-        
+        Sach sach = new Sach(4,"update",nhaXuatBan,tacGia,theLoai,100,2003);
         
         
 //        System.out.println(a.add(sach));
 //        System.out.println(a.update(sach));
 
-  a.getAll();
-        a.findSachById (5);
+//            a.getAll();
+//        a.findSachById (5);
     }
 }

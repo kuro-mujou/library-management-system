@@ -6,9 +6,16 @@ public class TacGia
     private int MaTacGia;
     private String TenTacGia;
     private String GhiChu;
-
+  public TacGia(int MaTacGia, String TenTacGia) {
+        this.MaTacGia = MaTacGia;
+        this.TenTacGia = TenTacGia;
+    }
     public TacGia(int MaTacGia) {
         this.MaTacGia = MaTacGia;
+    }
+
+    public TacGia(String TenTacGia) {
+        this.TenTacGia = TenTacGia;
     }
 
     public TacGia() {

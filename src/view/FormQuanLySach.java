@@ -145,7 +145,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "MaSach", "TenSach", "MaNXB", "MaTheLoai", "MaTacGia", "SoLuong", "NamXB"
+                "MaSach", "TenSach", "MaTacGia", "MaTheLoai", "MaNXB", "SoLuong", "NamXB"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -298,9 +298,9 @@ public class FormQuanLySach extends javax.swing.JFrame {
             Object  dataRow[] = new Object[7];
             dataRow[0]= b.getMaSach();
             dataRow[1]= b.getTenSach();
-            dataRow[2]= b.getMaTacGia().getMaTacGia();
-            dataRow[3]= b.getMaTheLoai().getMaTheLoai();
-            dataRow[4]= b.getMaNXB().getMaNXB();
+            dataRow[2]= b.getMaTacGia().getTenTacGia();
+            dataRow[3]= b.getMaTheLoai().getTenTheLoai();
+            dataRow[4]= b.getMaNXB().getTenNXB();
             dataRow[5]= b.getSoLuong();
             dataRow[6]= b.getNamXB();
               tbModel.addRow(dataRow);
@@ -312,7 +312,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
         Sach b = new Sach();
         b.setMaSach(Integer.parseInt(textMaSach.getText()));
         b.setTenSach(textTenSach.getText());
-        NhaXuatBan nxb = NXBDAO.findNhaXuatBanById(Integer.parseInt(textMaNXB.getText()));
+        NhaXuatBan nxb = NXBDAO.findNhaXuatBanById(1);
         b.setMaNXB(nxb);
         
         TacGia tacgia = tacgiaDAO.findTacGiaById(Integer.parseInt(textMaTacGia.getText()));

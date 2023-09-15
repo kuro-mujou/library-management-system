@@ -9,8 +9,8 @@ public class Sach
     private TacGia MaTacGia;
     private TheLoai MaTheLoai;
     private int SoLuong;
-     private int NamXB;
-
+    private int NamXB;
+    
     public Sach() {
     }
 
@@ -69,6 +69,7 @@ public class Sach
     }
 
     public void setMaSach(int MaSach) {
+        System.out.println(">>>thme mã sach");
         this.MaSach = MaSach;
     }
 
