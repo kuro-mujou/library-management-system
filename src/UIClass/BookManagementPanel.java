@@ -42,7 +42,7 @@ public class BookManagementPanel extends javax.swing.JPanel
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        text_find = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         textMaSach = new javax.swing.JTextField();
@@ -57,6 +57,8 @@ public class BookManagementPanel extends javax.swing.JPanel
         Btn_save = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         textSoLuong = new javax.swing.JTextField();
+        Btn_find = new javax.swing.JButton();
+        Btn_all = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -81,7 +83,11 @@ public class BookManagementPanel extends javax.swing.JPanel
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel7.setText("Category");
 
-        jTextField1.setText("Searchbox");
+        text_find.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_findActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,6 +162,20 @@ public class BookManagementPanel extends javax.swing.JPanel
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 0, 20)); // NOI18N
         jLabel8.setText("QUANTITY");
 
+        Btn_find.setText("FIND");
+        Btn_find.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_findActionPerformed(evt);
+            }
+        });
+
+        Btn_all.setText("ALL");
+        Btn_all.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_allActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,33 +184,24 @@ public class BookManagementPanel extends javax.swing.JPanel
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textMaTheLoai, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(textMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Btn_add)
-                        .addGap(60, 60, 60))
+                        .addGap(67, 67, 67)
+                        .addComponent(Btn_add))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Btn_delete)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(textMaTheLoai, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(315, 315, 315)
-                                        .addComponent(Btn_update))))
-                            .addComponent(Btn_save))
-                        .addContainerGap(59, Short.MAX_VALUE))))
+                        .addComponent(jLabel1)
+                        .addGap(57, 57, 57)
+                        .addComponent(text_find, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Btn_find, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(145, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -217,6 +228,16 @@ public class BookManagementPanel extends javax.swing.JPanel
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(textMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Btn_update)
+                                .addComponent(Btn_delete))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Btn_save)
+                                    .addComponent(Btn_all))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
@@ -227,7 +248,8 @@ public class BookManagementPanel extends javax.swing.JPanel
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(text_find, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_find))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,10 +265,11 @@ public class BookManagementPanel extends javax.swing.JPanel
                     .addComponent(Btn_delete)
                     .addComponent(textMaTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Btn_all)
+                        .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
@@ -289,14 +312,34 @@ public class BookManagementPanel extends javax.swing.JPanel
             Object  dataRow[] = new Object[7];
             dataRow[0]= b.getMaSach();
             dataRow[1]= b.getTenSach();
-            dataRow[2]= b.getMaTacGia().getMaTacGia();
-            dataRow[3]= b.getMaTheLoai().getMaTheLoai();
-            dataRow[4]= b.getMaNXB().getMaNXB();
+            dataRow[2]= b.getMaTacGia().getTenTacGia();
+            dataRow[3]= b.getMaTheLoai().getTenTheLoai();
+            dataRow[4]= b.getMaNXB().getTenNXB();
             dataRow[5]= b.getSoLuong();
             dataRow[6]= b.getNamXB();
               tbModel.addRow(dataRow);
         }
       
+    }
+         public void resetDataTable()
+    {
+        DefaultTableModel dm = (DefaultTableModel)jTable1.getModel();
+        dm.getDataVector().removeAllElements();
+        dm.fireTableDataChanged();
+    }
+          public void fillOneDataTable(Sach b)
+    {
+          DefaultTableModel tbModel = (DefaultTableModel)jTable1.getModel();
+        tbModel.setRowCount(0);
+        Object  dataRow[] = new Object[7];
+            dataRow[0]= b.getMaSach();
+            dataRow[1]= b.getTenSach();
+            dataRow[2]= b.getMaTacGia().getTenTacGia();
+            dataRow[3]= b.getMaTheLoai().getTenTheLoai();
+            dataRow[4]= b.getMaNXB().getTenNXB();
+            dataRow[5]= b.getSoLuong();
+            dataRow[6]= b.getNamXB();
+              tbModel.addRow(dataRow);
     }
         public Sach getModel()
     {
@@ -318,11 +361,11 @@ public class BookManagementPanel extends javax.swing.JPanel
     {
         textMaSach.setText(String.valueOf(b.getMaSach()));
         textTenSach.setText(b.getTenSach());
-        textMaNXB.setText(String.valueOf(b.getMaNXB().getMaNXB()));
+        textMaNXB.setText(b.getMaNXB().getTenNXB());
         textNamXB.setText(String.valueOf(b.getNamXB()));
         textSoLuong.setText(String.valueOf(b.getSoLuong()));
-        textMaTacGia.setText(String.valueOf(b.getMaTacGia().getMaTacGia()));
-        textMaTheLoai.setText(String.valueOf(b.getMaTheLoai().getMaTheLoai()));
+        textMaTacGia.setText( b.getMaTacGia().getTenTacGia());
+        textMaTheLoai.setText(b.getMaTheLoai().getTenTheLoai());
     }   
     private void textMaSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMaSachActionPerformed
         // TODO add your handling code here:
@@ -396,6 +439,32 @@ public class BookManagementPanel extends javax.swing.JPanel
                 setModel(sach);
             }
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void text_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_findActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_findActionPerformed
+
+    private void Btn_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_findActionPerformed
+        // TODO add your handling code here:
+        idSach = Integer.parseInt(textMaSach.getText());
+        System.out.println(">>>>>>>Id Sach"+idSach);
+        Sach sach = sachDAO.findSachById(idSach);
+            if(sach !=null)
+            {
+              
+                     resetDataTable();
+                 System.out.println("tim dc roi");
+                fillOneDataTable(sach);
+                       resetForm();
+            }
+            else System.out.println("khong tim duoc gia tri can tim");
+    }//GEN-LAST:event_Btn_findActionPerformed
+
+    private void Btn_allActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_allActionPerformed
+        // TODO add your handling code here:
+        resetDataTable();
+        fillDataTable();
+    }//GEN-LAST:event_Btn_allActionPerformed
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -407,7 +476,9 @@ public class BookManagementPanel extends javax.swing.JPanel
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_add;
+    private javax.swing.JButton Btn_all;
     private javax.swing.JButton Btn_delete;
+    private javax.swing.JButton Btn_find;
     private javax.swing.JButton Btn_save;
     private javax.swing.JButton Btn_update;
     private javax.swing.JLabel jLabel1;
@@ -420,7 +491,6 @@ public class BookManagementPanel extends javax.swing.JPanel
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField textMaNXB;
     private javax.swing.JTextField textMaSach;
     private javax.swing.JTextField textMaTacGia;
@@ -428,5 +498,6 @@ public class BookManagementPanel extends javax.swing.JPanel
     private javax.swing.JTextField textNamXB;
     private javax.swing.JTextField textSoLuong;
     private javax.swing.JTextField textTenSach;
+    private javax.swing.JTextField text_find;
     // End of variables declaration//GEN-END:variables
 }

@@ -34,6 +34,7 @@ public class NhaXuatBan
     }
 
     public int getMaNXB() {
+//        System.out.println("manhaxuat ban");
         return MaNXB;
     }
 
