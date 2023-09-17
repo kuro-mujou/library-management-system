@@ -12,10 +12,10 @@ import java.sql.*;
 public class DatabaseConnect {
     public static Connection getDBConnect()
     {
-        var server = "DESKTOP-IPDB6V8\\THER";
+        var server = "MSI\\TUONG";
         var user = "sa";
         var password ="123456";
-        var db = "quanlythuvienv1";
+        var db = "quanlythuvien";
         var port = 1433;
         SQLServerDataSource ds = new SQLServerDataSource();
         ds.setUser(user);
