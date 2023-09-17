@@ -9,7 +9,11 @@ public class ReaderManagementPanel extends javax.swing.JPanel
         initComponents();
         this.main = main;
     }
-
+    public void initCustom() 
+    {
+        main.getPictureBox().setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/background.png")));
+        main.getPictureBox().repaint();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

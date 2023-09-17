@@ -151,6 +151,7 @@ public class HomePanel extends JPanel {
         p.removeAll();
         p.add(bookManagement);
         main.LoadChange();
+        bookManagement.initCustom();
         p.validate();
         p.repaint();
     }//GEN-LAST:event_button1MouseClicked
@@ -161,6 +162,7 @@ public class HomePanel extends JPanel {
         p.removeAll();
         p.add(readerManagement);
         main.LoadChange();
+        readerManagement.initCustom();
         p.validate();
         p.repaint();
     }//GEN-LAST:event_button2MouseClicked
