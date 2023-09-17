@@ -449,6 +449,9 @@ public class BookManagementPanel extends javax.swing.JPanel
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
          textMaSach.setEnabled(false);
+           textMaNXB.setEnabled(false);
+            textMaTacGia.setEnabled(false);
+            textMaTheLoai.setEnabled(false);
             int position = jTable1.rowAtPoint(evt.getPoint());
             idSach = Integer.parseInt(jTable1.getValueAt(position,0).toString());
             Sach sach = sachDAO.findSachById(idSach);
