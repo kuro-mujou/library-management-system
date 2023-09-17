@@ -45,9 +45,9 @@ public class FormQuanLySach extends javax.swing.JFrame {
         LableQuanLySach = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        labelMaNXB = new javax.swing.JLabel();
+        labelMaTacGia = new javax.swing.JLabel();
+        labelMaTheLoai = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         textMaSach = new javax.swing.JTextField();
         textTenSach = new javax.swing.JTextField();
@@ -73,11 +73,11 @@ public class FormQuanLySach extends javax.swing.JFrame {
 
         jLabel3.setText("TenSach");
 
-        jLabel4.setText("TenNXB");
+        labelMaNXB.setText("TenNXB");
 
-        jLabel5.setText("TenTacGia");
+        labelMaTacGia.setText("TenTacGia");
 
-        jLabel6.setText("TenTheLoai");
+        labelMaTheLoai.setText("TenTheLoai");
 
         jLabel7.setText("NamXB");
 
@@ -187,12 +187,12 @@ public class FormQuanLySach extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
+                            .addComponent(labelMaTacGia)
+                            .addComponent(labelMaTheLoai)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel1)
                                 .addComponent(jLabel7))
-                            .addComponent(jLabel4))
+                            .addComponent(labelMaNXB))
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -247,7 +247,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
                                     .addComponent(btnDelete)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(textMaTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5))))
+                                        .addComponent(labelMaTacGia))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
                                 .addComponent(jLabel3)))
@@ -259,9 +259,9 @@ public class FormQuanLySach extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(textMaTheLoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
+                                    .addComponent(labelMaTheLoai))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel4)))
+                                .addComponent(labelMaNXB)))
                         .addGap(7, 7, 7))
                     .addComponent(textMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,6 +295,9 @@ public class FormQuanLySach extends javax.swing.JFrame {
         textMaTacGia.setText("");
         textSoLuong.setText("");
         textMaSach.setEnabled(true);
+            textMaNXB.setEnabled(true);
+            textMaTacGia.setEnabled(true);
+            textMaTheLoai.setEnabled(true);
     }
     public void fillDataTable()
     {
@@ -339,9 +342,23 @@ public class FormQuanLySach extends javax.swing.JFrame {
         Sach b = new Sach();
         b.setMaSach(Integer.parseInt(textMaSach.getText()));
         b.setTenSach(textTenSach.getText());
-        NhaXuatBan nxb = NXBDAO.findNhaXuatBanById(1);
+        NhaXuatBan nxb = NXBDAO.findNhaXuatBanByName(textMaNXB.getText());
         b.setMaNXB(nxb);
-        
+        TacGia tacgia = tacgiaDAO.findTacGiaByName(textMaTacGia.getText());
+        b.setMaTacGia(tacgia);
+        TheLoai theloai = theloaiDAO.findTheLoaiByName(textMaTheLoai.getText());
+        b.setMaTheLoai(theloai);
+        b.setSoLuong(Integer.parseInt(textSoLuong.getText()));
+        b.setNamXB(Integer.parseInt(textNamXB.getText()));
+        return b;
+    }
+      public Sach getModelId()
+    {
+        Sach b = new Sach();
+        b.setMaSach(Integer.parseInt(textMaSach.getText()));
+        b.setTenSach(textTenSach.getText());
+        NhaXuatBan nxb = NXBDAO.findNhaXuatBanById(Integer.parseInt(textMaNXB.getText()));
+        b.setMaNXB(nxb);
         TacGia tacgia = tacgiaDAO.findTacGiaById(Integer.parseInt(textMaTacGia.getText()));
         b.setMaTacGia(tacgia);
         TheLoai theloai = theloaiDAO.findTheLoaiById(Integer.parseInt(textMaTheLoai.getText()));
@@ -382,10 +399,11 @@ public class FormQuanLySach extends javax.swing.JFrame {
             Sach sach = getModel();
             if(sachDAO.update(sach)>0)
             {
-                System.out.println("update xong");
+     
                 fillDataTable();
                 resetForm();
             }
+            else System.out.println("chua updata dc");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -396,12 +414,12 @@ public class FormQuanLySach extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         try {
-            Sach sach = getModel();
+            Sach sach = getModelId();
             if(sachDAO.add(sach)>0)
             {
-                System.out.println("them thanh cong ");
                 fillDataTable();
             }
+            else System.out.println("them khogn thanh con");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -413,6 +431,9 @@ public class FormQuanLySach extends javax.swing.JFrame {
 //        if(evt.getClickCount()==2)
 //        {
             textMaSach.setEnabled(false);
+            textMaNXB.setEnabled(false);
+            textMaTacGia.setEnabled(false);
+            textMaTheLoai.setEnabled(false);
             int position = jTable1.rowAtPoint(evt.getPoint());
             idSach = Integer.parseInt(jTable1.getValueAt(position,0).toString());
             Sach sach = sachDAO.findSachById(idSach);
@@ -426,6 +447,9 @@ public class FormQuanLySach extends javax.swing.JFrame {
     private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
         // TODO add your handling code here:
         resetForm();
+        labelMaNXB.setText("MaNXB");
+        labelMaTacGia.setText("MaTacGia");
+        labelMaTheLoai.setText("MaTheLoai");
     }//GEN-LAST:event_BtnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -436,7 +460,6 @@ public class FormQuanLySach extends javax.swing.JFrame {
             Sach sach = getModel();
             if(sachDAO.delete(sach)>0 )
             {
-                System.out.println("xoa thanh cong");
                 fillDataTable();
                 resetForm();
             }
@@ -512,12 +535,12 @@ public class FormQuanLySach extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    javax.swing.JLabel labelMaNXB;
+    private javax.swing.JLabel labelMaTacGia;
+    private javax.swing.JLabel labelMaTheLoai;
     private javax.swing.JTextField textMaNXB;
     private javax.swing.JTextField textMaSach;
     private javax.swing.JTextField textMaTacGia;

@@ -50,4 +50,36 @@ public class TacGiaCRUD {
         }
         return null;
     }
+        public TacGia  findTacGiaByName (String TenTacGia)
+    {
+        ResultSet rs = null;
+        Statement sttm =null;
+        try {
+            String sSQL ="select *from TacGia where TenTacGia='"+TenTacGia+"'";
+            
+            conn = DatabaseConnect.getDBConnect();
+            sttm = conn.createStatement();
+            rs = sttm.executeQuery(sSQL);
+            while(rs.next())
+            {
+                 TacGia tacgia = new TacGia();
+                 tacgia.setMaTacGia(rs.getInt(1));
+                 tacgia.setTenTacGia(rs.getString(2));
+                 tacgia.setGhiChuTG(rs.getString(3));
+                   System.out.println("Nhaxuatban1");
+                return tacgia;
+            }
+                
+        } catch (Exception e) {
+        }
+        finally {
+            try {
+                rs.close();
+                sttm.close();
+                conn.close();
+            } catch (Exception e) {
+            }
+        }
+        return null;
+    }
 }

@@ -69,22 +69,21 @@ public class Sach
     }
 
     public void setMaSach(int MaSach) {
-        System.out.println(">>>thme mã sach"+MaSach);
         this.MaSach = MaSach;
     }
 
     public void setTenSach(String TenSach) {
-        System.out.println(">>>thme ten sach"+TenSach);
+      
         this.TenSach = TenSach;
     }
 
     public void setNamXB(int NamXB) {
-        System.out.println(">>>thme ten sach"+NamXB);
+      
         this.NamXB = NamXB;
     }
 
     public void setMaNXB(NhaXuatBan MaNXB) {
-        System.out.println(">>>thme MaXB"+MaNXB.getMaNXB());
+   
         this.MaNXB = MaNXB;
     }
 

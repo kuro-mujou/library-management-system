@@ -256,10 +256,11 @@ public class BookManagementPanel extends javax.swing.JPanel
                     .addComponent(textMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Btn_add))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textTenSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Btn_update))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Btn_update)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textTenSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Btn_delete)
@@ -302,6 +303,9 @@ public class BookManagementPanel extends javax.swing.JPanel
         textMaTacGia.setText("");
         textSoLuong.setText("");
         textMaSach.setEnabled(true);
+              textMaNXB.setEnabled(true);
+            textMaTacGia.setEnabled(true);
+            textMaTheLoai.setEnabled(true);
     }
         public void fillDataTable()
     {
@@ -343,12 +347,26 @@ public class BookManagementPanel extends javax.swing.JPanel
     }
         public Sach getModel()
     {
+             Sach b = new Sach();
+        b.setMaSach(Integer.parseInt(textMaSach.getText()));
+        b.setTenSach(textTenSach.getText());
+        NhaXuatBan nxb = NXBDAO.findNhaXuatBanByName(textMaNXB.getText());
+        b.setMaNXB(nxb);
+        TacGia tacgia = tacgiaDAO.findTacGiaByName(textMaTacGia.getText());
+        b.setMaTacGia(tacgia);
+        TheLoai theloai = theloaiDAO.findTheLoaiByName(textMaTheLoai.getText());
+        b.setMaTheLoai(theloai);
+        b.setSoLuong(Integer.parseInt(textSoLuong.getText()));
+        b.setNamXB(Integer.parseInt(textNamXB.getText()));
+        return b;
+    }
+           public Sach getModelId()
+    {
         Sach b = new Sach();
         b.setMaSach(Integer.parseInt(textMaSach.getText()));
         b.setTenSach(textTenSach.getText());
         NhaXuatBan nxb = NXBDAO.findNhaXuatBanById(Integer.parseInt(textMaNXB.getText()));
         b.setMaNXB(nxb);
-        
         TacGia tacgia = tacgiaDAO.findTacGiaById(Integer.parseInt(textMaTacGia.getText()));
         b.setMaTacGia(tacgia);
         TheLoai theloai = theloaiDAO.findTheLoaiById(Integer.parseInt(textMaTheLoai.getText()));
@@ -417,7 +435,7 @@ public class BookManagementPanel extends javax.swing.JPanel
     private void Btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_saveActionPerformed
         // TODO add your handling code here:
         try {
-            Sach sach = getModel();
+            Sach sach = getModelId();
             if(sachDAO.add(sach)>0)
             {
                 System.out.println("them thanh cong ");
@@ -446,7 +464,7 @@ public class BookManagementPanel extends javax.swing.JPanel
 
     private void Btn_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_findActionPerformed
         // TODO add your handling code here:
-        idSach = Integer.parseInt(textMaSach.getText());
+        idSach = Integer.parseInt(text_find.getText());
         System.out.println(">>>>>>>Id Sach"+idSach);
         Sach sach = sachDAO.findSachById(idSach);
             if(sach !=null)

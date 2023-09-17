@@ -99,8 +99,9 @@ public class sachCRUD {
         ResultSet rs = null;
         Statement sttm =null;
        try {
-            String sSQL = "select Sach.MaSach,TenSach,TenTacGia,TenTheLoai,TenNXB,SoLuong,NamXB from (((Sach inner join TacGia on Sach.MaTacGia=TacGia.MaTacGia)inner join TheLoai on Sach.MaTheLoai=TheLoai.MaTheLoai) inner join NhaXuatBan on Sach.MaNXB=NhaXuatBan.MaNXB )";
+//            String sSQL = "select Sach.MaSach,TenSach,TenTacGia,TenTheLoai,TenNXB,SoLuong,NamXB from (((Sach inner join TacGia on Sach.MaTacGia=TacGia.MaTacGia)inner join TheLoai on Sach.MaTheLoai=TheLoai.MaTheLoai) inner join NhaXuatBan on Sach.MaNXB=NhaXuatBan.MaNXB )";
 //                    String sSQL ="select Sach.MaSach,TenSach,MaTheLoai,MaNXB,SoLuong,NamXB from Sach";
+String sSQL = "select Sach.MaSach,TenSach,Sach.MaTacGia,TenTacGia,Sach.MaTheLoai,TenTheLoai,Sach.MaNXB,TenNXB,SoLuong,NamXB from (((Sach inner join TacGia on Sach.MaTacGia=TacGia.MaTacGia)inner join TheLoai on Sach.MaTheLoai=TheLoai.MaTheLoai) inner join NhaXuatBan on Sach.MaNXB=NhaXuatBan.MaNXB )";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();  
            rs = sttm.executeQuery(sSQL);
@@ -117,12 +118,13 @@ public class sachCRUD {
 //                 Sach sach = new Sach();
                 sach.setMaSach(rs.getInt(1));
                 sach.setTenSach(rs.getString(2));
-                sach.setMaTacGia(new TacGia(rs.getString(3)));
-                sach.setMaTheLoai(new TheLoai(rs.getString(4)));
-                sach.setMaNXB(new NhaXuatBan(rs.getString(5)));
-                sach.setSoLuong(rs.getInt(6));
-                sach.setNamXB(rs.getInt(7));
-                System.out.println(">>>>"+sach.getMaNXB().getTenNXB());
+                sach.setMaTacGia(new TacGia(rs.getInt(3),rs.getString(4)));
+                sach.setMaTheLoai(new TheLoai(rs.getInt(5),rs.getString(6)));
+                sach.setMaNXB(new NhaXuatBan(rs.getInt(7),rs.getString(8)));
+                sach.setSoLuong(rs.getInt(9));
+                sach.setNamXB(rs.getInt(10));
+                System.out.println(">>>>"+sach.getMaTacGia().getMaTacGia());
+                System.out.println(">>>>"+sach.getMaNXB().getMaNXB());
                 ls.add(sach);
                 
             }

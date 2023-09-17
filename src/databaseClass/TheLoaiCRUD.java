@@ -55,7 +55,7 @@ public class TheLoaiCRUD {
         ResultSet rs = null;
         Statement sttm =null;
         try {
-            String sSQL ="select *from TheLoai where MaTheLoai="+TenTheLoai;
+            String sSQL ="select *from TheLoai where TenTheLoai='"+TenTheLoai+"'";
             
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
