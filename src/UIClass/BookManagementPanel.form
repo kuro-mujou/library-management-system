@@ -65,7 +65,7 @@
                   </Group>
                   <Component id="jScrollPane2" alignment="0" min="-2" pref="686" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="868" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -243,10 +243,10 @@
     </Component>
     <Component class="swing.Button" name="btn_Find">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+        <Property name="text" type="java.lang.String" value="FIND"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d5" green="d5" red="d5" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="FIND"/>
         <Property name="radius" type="int" value="15"/>
       </Properties>
       <Events>
@@ -259,6 +259,9 @@
           <Color blue="d5" green="d5" red="d5" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="SAVE"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="d5" green="d5" red="d5" type="rgb"/>
+        </Property>
         <Property name="radius" type="int" value="15"/>
       </Properties>
       <Events>
@@ -271,6 +274,9 @@
           <Color blue="d5" green="d5" red="d5" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ADD"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="d5" green="d5" red="d5" type="rgb"/>
+        </Property>
         <Property name="radius" type="int" value="15"/>
       </Properties>
       <Events>
@@ -280,6 +286,9 @@
     <Component class="swing.Button" name="btn_Delete">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="d5" green="d5" red="d5" type="rgb"/>
+        </Property>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d5" green="d5" red="d5" type="rgb"/>
         </Property>
         <Property name="label" type="java.lang.String" value="DELETE"/>
@@ -295,6 +304,9 @@
           <Color blue="d5" green="d5" red="d5" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="UPDATE"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="d5" green="d5" red="d5" type="rgb"/>
+        </Property>
         <Property name="radius" type="int" value="15"/>
       </Properties>
       <Events>
@@ -307,6 +319,9 @@
           <Color blue="d5" green="d5" red="d5" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ALL"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="d5" green="d5" red="d5" type="rgb"/>
+        </Property>
         <Property name="radius" type="int" value="15"/>
       </Properties>
       <Events>

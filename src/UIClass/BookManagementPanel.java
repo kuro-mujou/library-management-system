@@ -104,8 +104,8 @@ public class BookManagementPanel extends javax.swing.JPanel
 
         textSoLuong.setBorder(null);
 
-        btn_Find.setBackground(new java.awt.Color(213, 213, 213));
         btn_Find.setText("FIND");
+        btn_Find.setColor(new java.awt.Color(213, 213, 213));
         btn_Find.setRadius(15);
         btn_Find.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -115,6 +115,7 @@ public class BookManagementPanel extends javax.swing.JPanel
 
         btn_Save.setBackground(new java.awt.Color(213, 213, 213));
         btn_Save.setText("SAVE");
+        btn_Save.setColor(new java.awt.Color(213, 213, 213));
         btn_Save.setRadius(15);
         btn_Save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -124,6 +125,7 @@ public class BookManagementPanel extends javax.swing.JPanel
 
         btn_Add.setBackground(new java.awt.Color(213, 213, 213));
         btn_Add.setText("ADD");
+        btn_Add.setColor(new java.awt.Color(213, 213, 213));
         btn_Add.setRadius(15);
         btn_Add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -132,6 +134,7 @@ public class BookManagementPanel extends javax.swing.JPanel
         });
 
         btn_Delete.setBackground(new java.awt.Color(213, 213, 213));
+        btn_Delete.setColor(new java.awt.Color(213, 213, 213));
         btn_Delete.setLabel("DELETE");
         btn_Delete.setRadius(15);
         btn_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -142,6 +145,7 @@ public class BookManagementPanel extends javax.swing.JPanel
 
         btn_Update.setBackground(new java.awt.Color(213, 213, 213));
         btn_Update.setText("UPDATE");
+        btn_Update.setColor(new java.awt.Color(213, 213, 213));
         btn_Update.setRadius(15);
         btn_Update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -151,6 +155,7 @@ public class BookManagementPanel extends javax.swing.JPanel
 
         btn_All.setBackground(new java.awt.Color(213, 213, 213));
         btn_All.setText("ALL");
+        btn_All.setColor(new java.awt.Color(213, 213, 213));
         btn_All.setRadius(15);
         btn_All.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -217,7 +222,7 @@ public class BookManagementPanel extends javax.swing.JPanel
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(text_Find, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(868, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

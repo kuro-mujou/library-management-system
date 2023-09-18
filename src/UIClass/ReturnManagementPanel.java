@@ -73,9 +73,11 @@ public class ReturnManagementPanel extends javax.swing.JPanel
         jLabel4.setText("Return date");
 
         button1.setText("Borrow");
+        button1.setColor(new java.awt.Color(213, 213, 213));
         button1.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
 
         button2.setText("Cancel");
+        button2.setColor(new java.awt.Color(213, 213, 213));
         button2.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
@@ -163,7 +165,7 @@ public class ReturnManagementPanel extends javax.swing.JPanel
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(153, 153, 153)
+                        .addGap(111, 111, 111)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)

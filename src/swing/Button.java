@@ -14,7 +14,7 @@ public class Button extends JButton
 {
     public Button() {
         //  Init Color
-        setColor(Color.WHITE);
+        setBackground(color);
         colorOver = new Color(230, 230, 230);
         colorClick = new Color(209,209,209);
         setContentAreaFilled(false);
@@ -34,6 +34,7 @@ public class Button extends JButton
             }
             @Override
             public void mousePressed(MouseEvent me) {
+                
                 setBackground(colorClick);
             }
 

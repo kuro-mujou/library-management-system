@@ -239,6 +239,9 @@
     <Component class="swing.Button" name="button1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Borrow"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="d5" green="d5" red="d5" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="20" style="0"/>
         </Property>
@@ -247,6 +250,9 @@
     <Component class="swing.Button" name="button2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="d5" green="d5" red="d5" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="20" style="0"/>
         </Property>

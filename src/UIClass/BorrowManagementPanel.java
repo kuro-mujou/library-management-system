@@ -75,9 +75,11 @@ public class BorrowManagementPanel extends javax.swing.JPanel
         jLabel5.setText("Phone number");
 
         button1.setText("Borrow");
+        button1.setColor(new java.awt.Color(213, 213, 213));
         button1.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
 
         button2.setText("Cancel");
+        button2.setColor(new java.awt.Color(213, 213, 213));
         button2.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
