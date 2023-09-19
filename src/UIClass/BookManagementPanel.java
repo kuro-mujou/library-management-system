@@ -62,7 +62,7 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_All = new swing.Button();
         text_Find = new swing.TextField_noLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new swing.TableDark();
+        jTable1 = new swing.TableWhite();
 
         setOpaque(false);
 
@@ -449,7 +449,7 @@ public class BookManagementPanel extends javax.swing.JPanel
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane2;
-    private swing.TableDark jTable1;
+    private swing.TableWhite jTable1;
     private javax.swing.JTextField textMaNXB;
     private javax.swing.JTextField textMaSach;
     private javax.swing.JTextField textMaTacGia;

@@ -3,10 +3,8 @@ package UIClass;
 
 import java.awt.Color;
 import java.awt.Desktop;
-import java.io.File;
 import java.net.URI;
 import java.net.URL;
-import javax.swing.JScrollPane;
 
 public class AboutUsPanel extends javax.swing.JPanel 
 {

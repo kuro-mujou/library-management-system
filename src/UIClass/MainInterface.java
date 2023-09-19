@@ -3,7 +3,6 @@ package UIClass;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import swing.Buttonver2;
