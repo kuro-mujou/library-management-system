@@ -1,4 +1,3 @@
-
 package swing;
 
 import java.awt.Color;
@@ -27,89 +26,102 @@ public class PasswordField extends JPasswordField
     private boolean show;
     private String labelText = "label";
 
-    public String getLabelText() {
+    public String getLabelText()
+    {
         return labelText;
     }
 
-    public void setLabelText(String labelText) {
+    public void setLabelText(String labelText)
+    {
         this.labelText = labelText;
     }
 
-    public Color getLineColor() {
+    public Color getLineColor()
+    {
         return lineColor;
     }
 
-    public void setLineColor(Color lineColor) {
+    public void setLineColor(Color lineColor)
+    {
         this.lineColor = lineColor;
     }
 
-    public int getRadius() {
+    public int getRadius()
+    {
         return radius;
     }
 
-    public void setRadius(int radius) {
+    public void setRadius(int radius)
+    {
         this.radius = radius;
     }
-    private Color lineColor = new Color(3,155,216);
+    private Color lineColor = new Color(3, 155, 216);
     private int radius = 50;
+
     public PasswordField()
     {
-        setBorder(new EmptyBorder(20,3,10,3));
-        setSelectionColor(new Color(76,204,255));
-        addMouseListener(new MouseAdapter(){
+        setBorder(new EmptyBorder(20, 3, 10, 3));
+        setSelectionColor(new Color(76, 204, 255));
+        addMouseListener(new MouseAdapter()
+        {
             @Override
-            public void mouseEntered(MouseEvent e) {
+            public void mouseEntered(MouseEvent e)
+            {
                 mouseOver = true;
                 repaint();
             }
 
             @Override
-            public void mouseExited(MouseEvent e) {
+            public void mouseExited(MouseEvent e)
+            {
                 mouseOver = false;
                 repaint();
             }
-            
+
         });
         addFocusListener(new FocusAdapter()
         {
             @Override
-            public void focusGained(FocusEvent e) {
+            public void focusGained(FocusEvent e)
+            {
                 showing(false);
             }
 
             @Override
-            public void focusLost(FocusEvent e) {
+            public void focusLost(FocusEvent e)
+            {
                 showing(true);
             }
-            
-            
+
         });
         TimingTarget target = new TimingTargetAdapter()
         {
             @Override
-            public void begin() {
+            public void begin()
+            {
                 animateHinText = String.valueOf(getPassword()).equals("");
             }
 
             @Override
-            public void timingEvent(float fraction) {
+            public void timingEvent(float fraction)
+            {
                 location = fraction;
                 repaint();
             }
-            
+
         };
         animator = new Animator(300, target);
         animator.setResolution(0);
         animator.setAcceleration(0.5f);
         animator.setDeceleration(0.5f);
     }
+
     private void showing(boolean action)
     {
-        if(animator.isRunning())
+        if (animator.isRunning())
         {
             animator.stop();
-        }
-        else
+        } else
         {
             location = 1;
         }
@@ -118,66 +130,79 @@ public class PasswordField extends JPasswordField
         location = 1f - location;
         animator.start();
     }
-    
+
     @Override
-    public void paint(Graphics g) {
-        super.paint(g); 
-        Graphics2D g2 = (Graphics2D)g;
+    public void paint(Graphics g)
+    {
+        super.paint(g);
+        Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
         int height = getHeight();
         int width = getWidth();
-        if(mouseOver)
+        if (mouseOver)
         {
             g2.setColor(lineColor);
-        }
-        else
+        } else
         {
-            g2.setColor(new Color(150,150,150));
+            g2.setColor(new Color(150, 150, 150));
         }
         g2.fillRect(2, height - 1, width - 4, 1);
         createHintText(g2);
         createLineStyle(g2);
         g2.dispose();
     }
+
     private void createHintText(Graphics2D g2)
     {
         Insets in = getInsets();
-        g2.setColor(new Color(150,150,150));
+        g2.setColor(new Color(150, 150, 150));
         FontMetrics ft = g2.getFontMetrics();
         Rectangle2D r2 = ft.getStringBounds(labelText, g2);
         double height = getHeight() - in.top - in.bottom;
         double textY = (height - r2.getHeight()) / 2;
         double size;
-        if (animateHinText) {
-            if (show) {
+        if (animateHinText)
+        {
+            if (show)
+            {
                 size = 18 * (1 - location);
-            } else {
+            } else
+            {
                 size = 18 * location;
             }
-        } else {
+        } else
+        {
             size = 18;
         }
         g2.drawString(labelText, in.right, (int) (in.top + textY + ft.getAscent() - size));
     }
-    private void createLineStyle(Graphics2D g2) {
-        if (isFocusOwner()) {
+
+    private void createLineStyle(Graphics2D g2)
+    {
+        if (isFocusOwner())
+        {
             double width = getWidth() - 4;
             int height = getHeight();
             g2.setColor(lineColor);
             double size;
-            if (show) {
+            if (show)
+            {
                 size = width * (1 - location);
-            } else {
+            } else
+            {
                 size = width * location;
             }
             double x = (width - size) / 2;
             g2.fillRect((int) (x + 2), height - 2, (int) size, 2);
         }
     }
+
     @Override
-    public void setText(String string) {
-        if (!String.valueOf(getPassword()).equals(string)) {
+    public void setText(String string)
+    {
+        if (!String.valueOf(getPassword()).equals(string))
+        {
             showing(string.equals(""));
         }
         super.setText(string);

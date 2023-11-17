@@ -1,15 +1,16 @@
-
 package UIClass;
 
 import javax.swing.JPanel;
 
-public class SettingPanel extends JPanel 
+public class SettingPanel extends JPanel
 {
     MainInterface main;
-    public SettingPanel(MainInterface main) {
+
+    public SettingPanel(MainInterface main)
+    {
         this.main = main;
         initComponents();
-        
+
     }
 
     @SuppressWarnings("unchecked")

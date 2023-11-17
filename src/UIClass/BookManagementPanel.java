@@ -1,4 +1,3 @@
-
 package UIClass;
 
 import databaseClass.NhaXuatBan;
@@ -12,7 +11,7 @@ import databaseClass.TheLoaiCRUD;
 
 import javax.swing.table.DefaultTableModel;
 
-public class BookManagementPanel extends javax.swing.JPanel 
+public class BookManagementPanel extends javax.swing.JPanel
 {
     SachCRUD sachDAO = new SachCRUD();
     NhaXuatBanCRUD NXBDAO = new NhaXuatBanCRUD();
@@ -20,25 +19,30 @@ public class BookManagementPanel extends javax.swing.JPanel
     TheLoaiCRUD theloaiDAO = new TheLoaiCRUD();
     int idSach = -1;
     MainInterface main;
-    public BookManagementPanel(MainInterface main) 
+
+    public BookManagementPanel(MainInterface main)
     {
         initComponents();
         this.main = main;
         fillDataTable();
     }
-    public BookManagementPanel() 
+
+    public BookManagementPanel()
     {
         initComponents();
         fillDataTable();
     }
-    public void initCustom() 
+
+    public void initCustom()
     {
         main.getPictureBox().setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/background.png")));
         main.getPictureBox().repaint();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -108,8 +112,10 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Find.setText("FIND");
         btn_Find.setColor(new java.awt.Color(213, 213, 213));
         btn_Find.setRadius(15);
-        btn_Find.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        btn_Find.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 btn_FindMouseClicked(evt);
             }
         });
@@ -118,8 +124,10 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Save.setText("SAVE");
         btn_Save.setColor(new java.awt.Color(213, 213, 213));
         btn_Save.setRadius(15);
-        btn_Save.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        btn_Save.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 btn_SaveMouseClicked(evt);
             }
         });
@@ -128,8 +136,10 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Add.setText("ADD");
         btn_Add.setColor(new java.awt.Color(213, 213, 213));
         btn_Add.setRadius(15);
-        btn_Add.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        btn_Add.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 btn_AddMouseClicked(evt);
             }
         });
@@ -138,8 +148,10 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Delete.setColor(new java.awt.Color(213, 213, 213));
         btn_Delete.setLabel("DELETE");
         btn_Delete.setRadius(15);
-        btn_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        btn_Delete.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 btn_DeleteMouseClicked(evt);
             }
         });
@@ -148,8 +160,10 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Update.setText("UPDATE");
         btn_Update.setColor(new java.awt.Color(213, 213, 213));
         btn_Update.setRadius(15);
-        btn_Update.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        btn_Update.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 btn_UpdateMouseClicked(evt);
             }
         });
@@ -158,25 +172,32 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_All.setText("ALL");
         btn_All.setColor(new java.awt.Color(213, 213, 213));
         btn_All.setRadius(15);
-        btn_All.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        btn_All.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 btn_AllMouseClicked(evt);
             }
         });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Book ID", "Book name", "Author ID", "Category ID", "Publisher ID", "Quantity", "Publication year"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
+        )
+        {
+            boolean[] canEdit = new boolean []
+            {
                 false, false, false, false, false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
                 return canEdit [columnIndex];
             }
         });
@@ -247,20 +268,23 @@ public class BookManagementPanel extends javax.swing.JPanel
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textMaTacGia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textMaTheLoai, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textMaTheLoai, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textMaNXB, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textMaNXB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_All, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(jLabel8))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textSoLuong, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_All, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNamXB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,7 +295,6 @@ public class BookManagementPanel extends javax.swing.JPanel
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
     public void resetForm()
     {
         textMaSach.setText("");
@@ -286,47 +309,51 @@ public class BookManagementPanel extends javax.swing.JPanel
         textMaTacGia.setEnabled(true);
         textMaTheLoai.setEnabled(true);
     }
+
     public void fillDataTable()
     {
-        DefaultTableModel tbModel = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel tbModel = (DefaultTableModel) jTable1.getModel();
         tbModel.setRowCount(0);
-        for(Sach b: sachDAO.getAll())
+        for (Sach b : sachDAO.getAll())
         {
-            Object  dataRow[] = new Object[7];
-            dataRow[0]= b.getMaSach();
-            dataRow[1]= b.getTenSach();
-            dataRow[2]= b.getMaTacGia().getTenTacGia();
-            dataRow[3]= b.getMaTheLoai().getTenTheLoai();
-            dataRow[4]= b.getMaNXB().getTenNXB();
-            dataRow[5]= b.getSoLuong();
-            dataRow[6]= b.getNamXB();
+            Object dataRow[] = new Object[7];
+            dataRow[0] = b.getMaSach();
+            dataRow[1] = b.getTenSach();
+            dataRow[2] = b.getMaTacGia().getTenTacGia();
+            dataRow[3] = b.getMaTheLoai().getTenTheLoai();
+            dataRow[4] = b.getMaNXB().getTenNXB();
+            dataRow[5] = b.getSoLuong();
+            dataRow[6] = b.getNamXB();
             tbModel.addRow(dataRow);
         }
-      
+
     }
+
     public void resetDataTable()
     {
-        DefaultTableModel dm = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
         dm.getDataVector().removeAllElements();
         dm.fireTableDataChanged();
     }
+
     public void fillOneDataTable(Sach b)
     {
-        DefaultTableModel tbModel = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel tbModel = (DefaultTableModel) jTable1.getModel();
         tbModel.setRowCount(0);
-        Object  dataRow[] = new Object[7];
-        dataRow[0]= b.getMaSach();
-        dataRow[1]= b.getTenSach();
-        dataRow[2]= b.getMaTacGia().getTenTacGia();
-        dataRow[3]= b.getMaTheLoai().getTenTheLoai();
-        dataRow[4]= b.getMaNXB().getTenNXB();
-        dataRow[5]= b.getSoLuong();
-        dataRow[6]= b.getNamXB();
+        Object dataRow[] = new Object[7];
+        dataRow[0] = b.getMaSach();
+        dataRow[1] = b.getTenSach();
+        dataRow[2] = b.getMaTacGia().getTenTacGia();
+        dataRow[3] = b.getMaTheLoai().getTenTheLoai();
+        dataRow[4] = b.getMaNXB().getTenNXB();
+        dataRow[5] = b.getSoLuong();
+        dataRow[6] = b.getNamXB();
         tbModel.addRow(dataRow);
     }
+
     public Sach getModel()
     {
-             Sach b = new Sach();
+        Sach b = new Sach();
         b.setMaSach(Integer.parseInt(textMaSach.getText()));
         b.setTenSach(textTenSach.getText());
         NhaXuatBan nxb = NXBDAO.findNhaXuatBanByName(textMaNXB.getText());
@@ -339,6 +366,7 @@ public class BookManagementPanel extends javax.swing.JPanel
         b.setNamXB(Integer.parseInt(textNamXB.getText()));
         return b;
     }
+
     public Sach getModelId()
     {
         Sach b = new Sach();
@@ -354,39 +382,42 @@ public class BookManagementPanel extends javax.swing.JPanel
         b.setNamXB(Integer.parseInt(textNamXB.getText()));
         return b;
     }
-    public void setModel(Sach b)         
+
+    public void setModel(Sach b)
     {
         textMaSach.setText(String.valueOf(b.getMaSach()));
         textTenSach.setText(b.getTenSach());
         textMaNXB.setText(b.getMaNXB().getTenNXB());
         textNamXB.setText(String.valueOf(b.getNamXB()));
         textSoLuong.setText(String.valueOf(b.getSoLuong()));
-        textMaTacGia.setText( b.getMaTacGia().getTenTacGia());
+        textMaTacGia.setText(b.getMaTacGia().getTenTacGia());
         textMaTheLoai.setText(b.getMaTheLoai().getTenTheLoai());
-    }   
+    }
     private void btn_FindMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_FindMouseClicked
         idSach = Integer.parseInt(text_Find.getText());
-        System.out.println(">>>>>>>Id Sach"+idSach);
+        System.out.println(">>>>>>>Id Sach" + idSach);
         Sach sach = sachDAO.findSachById(idSach);
-        if(sach !=null)
+        if (sach != null)
         {
             resetDataTable();
             System.out.println("tim dc roi");
             fillOneDataTable(sach);
             resetForm();
-        }
-        else System.out.println("khong tim duoc gia tri can tim");
+        } else
+            System.out.println("khong tim duoc gia tri can tim");
     }//GEN-LAST:event_btn_FindMouseClicked
 
     private void btn_SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SaveMouseClicked
-        try {
+        try
+        {
             Sach sach = getModelId();
-            if(sachDAO.add(sach)>0)
+            if (sachDAO.add(sach) > 0)
             {
                 System.out.println("them thanh cong ");
                 fillDataTable();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }//GEN-LAST:event_btn_SaveMouseClicked
@@ -397,7 +428,7 @@ public class BookManagementPanel extends javax.swing.JPanel
 
     private void btn_DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DeleteMouseClicked
         Sach sach = getModel();
-        if(sachDAO.delete(sach)>0 )
+        if (sachDAO.delete(sach) > 0)
         {
             System.out.println("xoa thanh cong");
             fillDataTable();
@@ -406,15 +437,17 @@ public class BookManagementPanel extends javax.swing.JPanel
     }//GEN-LAST:event_btn_DeleteMouseClicked
 
     private void btn_UpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_UpdateMouseClicked
-        try {
+        try
+        {
             Sach sach = getModel();
-            if(sachDAO.update(sach)>0)
+            if (sachDAO.update(sach) > 0)
             {
                 System.out.println("update xong");
                 fillDataTable();
                 resetForm();
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }//GEN-LAST:event_btn_UpdateMouseClicked

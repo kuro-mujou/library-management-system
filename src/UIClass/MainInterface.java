@@ -1,4 +1,3 @@
-
 package UIClass;
 
 import java.awt.BorderLayout;
@@ -8,8 +7,7 @@ import javax.swing.JPanel;
 import swing.Buttonver2;
 import swing.PictureBox;
 
-
-public class MainInterface extends javax.swing.JFrame 
+public class MainInterface extends javax.swing.JFrame
 {
     private String CurrentPanel;
     private String PreviousPanel;
@@ -18,47 +16,53 @@ public class MainInterface extends javax.swing.JFrame
     private HomePanel homePanel = new HomePanel(this);
     private MainPanel mainPanel = new MainPanel(this);
     private SettingPanel settingPanel = new SettingPanel(this);
-    
+
     private ArrayList<String> classname;
-    public MainInterface() 
+
+    public MainInterface()
     {
         initComponents();
         initComponentsCustom();
         LoadChange();
     }
+
     public void LoadChange()
     {
         CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
         PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
-        if(CurrentPanel == "UIClass.MainPanel" || CurrentPanel == "UIClass.HomePanel")
+        if (CurrentPanel == "UIClass.MainPanel" || CurrentPanel == "UIClass.HomePanel")
+        {
             BackButton.setVisible(false);
-        else 
+        } else
+        {
             BackButton.setVisible(true);
+        }
     }
+
     public void Update()
     {
-        if(CurrentPanel == "UIClass.AboutUsPanel" || CurrentPanel == "UIClass.SettingPanel" || CurrentPanel == "UIClass.LoginPanel")
+        if (CurrentPanel == "UIClass.AboutUsPanel" || CurrentPanel == "UIClass.SettingPanel" || CurrentPanel == "UIClass.LoginPanel")
         {
             ContentPanel.removeAll();
             ContentPanel.add(mainPanel);
             LoadChange();
             ContentPanel.validate();
             ContentPanel.repaint();
+        } else if (CurrentPanel == "UIClass.BookManagementPanel" || CurrentPanel == "UIClass.BorrowManagementPanel" || CurrentPanel == "UIClass.ReaderManagementPanel" || CurrentPanel == "UIClass.ReturnManagementPanel")
+        {
+            ContentPanel.removeAll();
+            ContentPanel.add(homePanel);
+            BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/main_background.png")));
+            LoadChange();
+            ContentPanel.validate();
+            ContentPanel.repaint();
         }
-        else
-            if(CurrentPanel == "UIClass.BookManagementPanel" || CurrentPanel == "UIClass.BorrowManagementPanel" || CurrentPanel == "UIClass.ReaderManagementPanel" || CurrentPanel == "UIClass.ReturnManagementPanel")
-            {
-                ContentPanel.removeAll();
-                ContentPanel.add(homePanel);
-                BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/main_background.png")));
-                LoadChange();
-                ContentPanel.validate();
-                ContentPanel.repaint();
-            }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         MainPanel = new javax.swing.JPanel();
         BackGround = new swing.PictureBox();
@@ -88,32 +92,40 @@ public class MainInterface extends javax.swing.JFrame
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel3.setText("Home");
         jLabel3.setFocusable(false);
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jLabel3MouseClicked(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel4.setText("About Us");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jLabel4MouseClicked(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel5.setText("Setting");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jLabel5MouseClicked(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel6.setText("Exit");
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jLabel6MouseClicked(evt);
             }
         });
@@ -134,8 +146,10 @@ public class MainInterface extends javax.swing.JFrame
         BackButton.setText("BACK");
         BackButton.setFont(new java.awt.Font("Poppins SemiBold", 1, 20)); // NOI18N
         BackButton.setIsBackButton(true);
-        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        BackButton.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 BackButtonMouseClicked(evt);
             }
         });
@@ -224,9 +238,9 @@ public class MainInterface extends javax.swing.JFrame
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        
+
         ContentPanel.removeAll();
         ContentPanel.add(mainPanel);
         LoadChange();
@@ -250,7 +264,7 @@ public class MainInterface extends javax.swing.JFrame
         ContentPanel.removeAll();
         ContentPanel.add(aboutUsPanel);
         LoadChange();
-        
+
         ContentPanel.validate();
         ContentPanel.repaint();
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -259,44 +273,53 @@ public class MainInterface extends javax.swing.JFrame
         Update();
     }//GEN-LAST:event_BackButtonMouseClicked
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new MainInterface().setVisible(true);
             }
         });
     }
+
     public JPanel getPanel()
     {
         return this.ContentPanel;
     }
+
     public PictureBox getPictureBox()
     {
         return this.BackGround;
     }
+
     public Buttonver2 getBackButton()
     {
         return this.BackButton;
     }
-    public String getCurrentPanel() {
+
+    public String getCurrentPanel()
+    {
         return CurrentPanel;
     }
 
-    public String getPreviousPanel() {
+    public String getPreviousPanel()
+    {
         return PreviousPanel;
     }
-    private void initComponentsCustom() 
+
+    private void initComponentsCustom()
     {
         ImageIcon icon = new ImageIcon("src/Image/StackOfBooksIcon.png");
         setIconImage(icon.getImage());
-        
+
         ContentPanel.setLayout(new BorderLayout());
         ContentPanel.add(mainPanel);
     }
 
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Buttonver2 BackButton;
     private swing.PictureBox BackGround;

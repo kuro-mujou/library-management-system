@@ -1,51 +1,57 @@
-
 package databaseClass;
 
-public class NhanVien 
+public class NhanVien
 {
     private int MaNhanVien;
     private String Hoten;
     private Date NgaySinh;
     private String SoDienThoai;
-    
-    
-    NhanVien(int maNhanVien, String hoten, Date ngaySinh, String soDienThoai) {
-		MaNhanVien = maNhanVien;
-		Hoten = hoten;
-		NgaySinh = ngaySinh;
-		SoDienThoai = soDienThoai;
-	}
-    
-    
-    public int getMaNhanVien() {
-		return MaNhanVien;
-	}
 
-	public void setMaNhanVien(int maNhanVien) {
-		MaNhanVien = maNhanVien;
-	}
+    NhanVien(int maNhanVien, String hoten, Date ngaySinh, String soDienThoai)
+    {
+        MaNhanVien = maNhanVien;
+        Hoten = hoten;
+        NgaySinh = ngaySinh;
+        SoDienThoai = soDienThoai;
+    }
 
-	public String getHoten() {
-		return Hoten;
-	}
+    public int getMaNhanVien()
+    {
+        return MaNhanVien;
+    }
 
-	public void setHoten(String hoten) {
-		Hoten = hoten;
-	}
+    public void setMaNhanVien(int maNhanVien)
+    {
+        MaNhanVien = maNhanVien;
+    }
 
-	public Date getNgaySinh() {
-		return NgaySinh;
-	}
+    public String getHoten()
+    {
+        return Hoten;
+    }
 
-	public void setNgaySinh(Date ngaySinh) {
-		NgaySinh = ngaySinh;
-	}
+    public void setHoten(String hoten)
+    {
+        Hoten = hoten;
+    }
 
-	public String getSoDienThoai() {
-		return SoDienThoai;
-	}
+    public Date getNgaySinh()
+    {
+        return NgaySinh;
+    }
 
-	public void setSoDienThoai(String soDienThoai) {
-		SoDienThoai = soDienThoai;
-	}
+    public void setNgaySinh(Date ngaySinh)
+    {
+        NgaySinh = ngaySinh;
+    }
+
+    public String getSoDienThoai()
+    {
+        return SoDienThoai;
+    }
+
+    public void setSoDienThoai(String soDienThoai)
+    {
+        SoDienThoai = soDienThoai;
+    }
 }

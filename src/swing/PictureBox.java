@@ -11,21 +11,26 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLayeredPane;
 
-public class PictureBox extends JLayeredPane {
+public class PictureBox extends JLayeredPane
+{
 
-    public Icon getImage() {
+    public Icon getImage()
+    {
         return image;
     }
 
-    public void setImage(Icon image) {
+    public void setImage(Icon image)
+    {
         this.image = image;
     }
 
     private Icon image;
 
     @Override
-    protected void paintComponent(Graphics grphcs) {
-        if (image != null) {
+    protected void paintComponent(Graphics grphcs)
+    {
+        if (image != null)
+        {
             Graphics2D g2 = (Graphics2D) grphcs;
             Rectangle size = getAutoSize(image);
             g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
@@ -34,13 +39,16 @@ public class PictureBox extends JLayeredPane {
         super.paintComponent(grphcs);
     }
 
-    private Rectangle getAutoSize(Icon image) {
+    private Rectangle getAutoSize(Icon image)
+    {
         int w = getWidth();
         int h = getHeight();
-        if (w > image.getIconWidth()) {
+        if (w > image.getIconWidth())
+        {
             w = image.getIconWidth();
         }
-        if (h > image.getIconHeight()) {
+        if (h > image.getIconHeight())
+        {
             h = image.getIconHeight();
         }
         int iw = image.getIconWidth();
@@ -55,7 +63,8 @@ public class PictureBox extends JLayeredPane {
         return new Rectangle(new Point(x, y), new Dimension(width, height));
     }
 
-    private Image toImage(Icon icon) {
+    private Image toImage(Icon icon)
+    {
         return ((ImageIcon) icon).getImage();
     }
 }

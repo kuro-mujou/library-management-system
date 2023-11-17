@@ -1,4 +1,3 @@
-
 package swing;
 
 import java.awt.Color;
@@ -16,13 +15,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
-public class TableWhite extends JTable 
+public class TableWhite extends JTable
 {
 
     private TableHeader header;
     private TableCell cell;
 
-    public TableWhite() {
+    public TableWhite()
+    {
         header = new TableHeader();
         cell = new TableCell();
         getTableHeader().setDefaultRenderer(header);
@@ -31,15 +31,18 @@ public class TableWhite extends JTable
         setRowHeight(30);
     }
 
-    public void setColumnAlignment(int column, int align) {
+    public void setColumnAlignment(int column, int align)
+    {
         header.setAlignment(column, align);
     }
 
-    public void setCellAlignment(int column, int align) {
+    public void setCellAlignment(int column, int align)
+    {
         cell.setAlignment(column, align);
     }
 
-    public void setColumnWidth(int column, int width) {
+    public void setColumnWidth(int column, int width)
+    {
         getColumnModel().getColumn(column).setPreferredWidth(width);
         getColumnModel().getColumn(column).setMinWidth(width);
         getColumnModel().getColumn(column).setMaxWidth(width);
@@ -47,7 +50,8 @@ public class TableWhite extends JTable
         getColumnModel().getColumn(column).setMaxWidth(10000);
     }
 
-    public void fixTable(JScrollPane scroll) {
+    public void fixTable(JScrollPane scroll)
+    {
         scroll.setVerticalScrollBar(new TableScrollbarCustom());
         JPanel panel = new JPanel();
         panel.setBackground(new Color(255, 255, 255));
@@ -56,59 +60,75 @@ public class TableWhite extends JTable
         scroll.setBorder(BorderFactory.createLineBorder(new Color(232, 232, 232), 2));
     }
 
-    private class TableHeader extends DefaultTableCellRenderer {
+    private class TableHeader extends DefaultTableCellRenderer
+    {
 
         private Map<Integer, Integer> alignment = new HashMap<>();
 
-        public void setAlignment(int column, int align) {
+        public void setAlignment(int column, int align)
+        {
             alignment.put(column, align);
         }
 
         @Override
-        public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
+        public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1)
+        {
             Component com = super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1);
-            com.setBackground(new Color(252,210,79));
+            com.setBackground(new Color(252, 210, 79));
             com.setForeground(new Color(0, 0, 0));
             com.setFont(com.getFont().deriveFont(Font.BOLD, 12));
-            setBorder(new LineBorder(new Color(217, 181, 68,100),1));
-            if (alignment.containsKey(i1)) {
+            setBorder(new LineBorder(new Color(217, 181, 68, 100), 1));
+            if (alignment.containsKey(i1))
+            {
                 setHorizontalAlignment(alignment.get(i1));
-            } else {
+            } else
+            {
                 setHorizontalAlignment(JLabel.LEFT);
             }
             return com;
         }
     }
 
-    private class TableCell extends DefaultTableCellRenderer {
+    private class TableCell extends DefaultTableCellRenderer
+    {
 
         private Map<Integer, Integer> alignment = new HashMap<>();
 
-        public void setAlignment(int column, int align) {
+        public void setAlignment(int column, int align)
+        {
             alignment.put(column, align);
         }
 
         @Override
-        public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int row, int column) {
+        public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int row, int column)
+        {
             Component com = super.getTableCellRendererComponent(jtable, o, bln, bln1, row, column);
-            if (isCellSelected(row, column)) {
-                if (row % 2 == 0) {
+            if (isCellSelected(row, column))
+            {
+                if (row % 2 == 0)
+                {
                     com.setBackground(new Color(179, 222, 252));
-                } else {
+                } else
+                {
                     com.setBackground(new Color(163, 217, 255));
                 }
-            } else {
-                if (row % 2 == 0) {
+            } else
+            {
+                if (row % 2 == 0)
+                {
                     com.setBackground(new Color(255, 255, 255));
-                } else {
+                } else
+                {
                     com.setBackground(new Color(245, 245, 245));
                 }
             }
             com.setForeground(new Color(0, 0, 0));
-            setBorder(new LineBorder(new Color(217, 181, 68,100),1));
-            if (alignment.containsKey(column)) {
+            setBorder(new LineBorder(new Color(217, 181, 68, 100), 1));
+            if (alignment.containsKey(column))
+            {
                 setHorizontalAlignment(alignment.get(column));
-            } else {
+            } else
+            {
                 setHorizontalAlignment(JLabel.LEFT);
             }
             return com;

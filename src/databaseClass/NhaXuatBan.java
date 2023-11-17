@@ -1,7 +1,6 @@
-
 package databaseClass;
 
-public class NhaXuatBan 
+public class NhaXuatBan
 {
     private int MaNXB;
     private String TenNXB;
@@ -9,23 +8,28 @@ public class NhaXuatBan
     private String Email;
     private String ThongTinNDD;
 
-    public NhaXuatBan(int MaNXB, String TenNXB) {
+    public NhaXuatBan(int MaNXB, String TenNXB)
+    {
         this.MaNXB = MaNXB;
         this.TenNXB = TenNXB;
     }
 
-    public NhaXuatBan(String TenNXB) {
+    public NhaXuatBan(String TenNXB)
+    {
         this.TenNXB = TenNXB;
     }
-    
-    public NhaXuatBan() {
+
+    public NhaXuatBan()
+    {
     }
 
-    public NhaXuatBan(int MaNXB) {
+    public NhaXuatBan(int MaNXB)
+    {
         this.MaNXB = MaNXB;
     }
 
-    public NhaXuatBan(int MaNXB, String TenNXB, String DiaChiNXB, String Email, String ThongTinNDD) {
+    public NhaXuatBan(int MaNXB, String TenNXB, String DiaChiNXB, String Email, String ThongTinNDD)
+    {
         this.MaNXB = MaNXB;
         this.TenNXB = TenNXB;
         this.DiaChi = DiaChiNXB;
@@ -33,46 +37,55 @@ public class NhaXuatBan
         this.ThongTinNDD = ThongTinNDD;
     }
 
-    public int getMaNXB() {
+    public int getMaNXB()
+    {
 //        System.out.println("manhaxuat ban");
         return MaNXB;
     }
 
-    public String getTenNXB() {
+    public String getTenNXB()
+    {
         return TenNXB;
     }
 
-    public String getDiaChiNXB() {
+    public String getDiaChiNXB()
+    {
         return DiaChi;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return Email;
     }
 
-    public String getThongTinNDD() {
+    public String getThongTinNDD()
+    {
         return ThongTinNDD;
     }
 
-    public void setMaNXB(int MaNXB) {
+    public void setMaNXB(int MaNXB)
+    {
         this.MaNXB = MaNXB;
     }
 
-    public void setTenNXB(String TenNXB) {
+    public void setTenNXB(String TenNXB)
+    {
         this.TenNXB = TenNXB;
     }
 
-    public void setDiaChiNXB(String DiaChiNXB) {
+    public void setDiaChiNXB(String DiaChiNXB)
+    {
         this.DiaChi = DiaChiNXB;
     }
 
-    public void setEmail(String Email) {
+    public void setEmail(String Email)
+    {
         this.Email = Email;
     }
 
-    public void setThongTinNDD(String ThongTinNDD) {
+    public void setThongTinNDD(String ThongTinNDD)
+    {
         this.ThongTinNDD = ThongTinNDD;
     }
-    
-    
+
 }

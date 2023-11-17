@@ -1,41 +1,48 @@
-
 package databaseClass;
 
-public class TheLoai 
+public class TheLoai
 {
     private int MaTheLoai;
     private String TenTheLoai;
 
-    public TheLoai() {
+    public TheLoai()
+    {
     }
 
-    public TheLoai(int MaTheLoai) {
+    public TheLoai(int MaTheLoai)
+    {
         this.MaTheLoai = MaTheLoai;
     }
 
-    public TheLoai(String TenTheLoai) {
+    public TheLoai(String TenTheLoai)
+    {
         this.TenTheLoai = TenTheLoai;
     }
 
-    public TheLoai(int MaTheLoai, String TenTheLoai) {
+    public TheLoai(int MaTheLoai, String TenTheLoai)
+    {
         this.MaTheLoai = MaTheLoai;
         this.TenTheLoai = TenTheLoai;
     }
 
-    public int getMaTheLoai() {
+    public int getMaTheLoai()
+    {
         return MaTheLoai;
     }
 
-    public String getTenTheLoai() {
+    public String getTenTheLoai()
+    {
         return TenTheLoai;
     }
 
-    public void setMaTheLoai(int MaTheLoai) {
+    public void setMaTheLoai(int MaTheLoai)
+    {
         this.MaTheLoai = MaTheLoai;
     }
 
-    public void setTenTheLoai(String TenTheLoai) {
+    public void setTenTheLoai(String TenTheLoai)
+    {
         this.TenTheLoai = TenTheLoai;
     }
-    
+
 }

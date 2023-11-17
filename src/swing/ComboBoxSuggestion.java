@@ -2,9 +2,11 @@ package swing;
 
 import javax.swing.JComboBox;
 
-public class ComboBoxSuggestion<E> extends JComboBox<E> {
+public class ComboBoxSuggestion<E> extends JComboBox<E>
+{
 
-    public ComboBoxSuggestion() {
+    public ComboBoxSuggestion()
+    {
         setUI(new ComboSuggestionUI());
     }
 }

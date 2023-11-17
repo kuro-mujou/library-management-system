@@ -11,33 +11,39 @@ import javax.swing.JComponent;
 import javax.swing.JScrollBar;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
-public class ModernScrollBarUI extends BasicScrollBarUI {
+public class ModernScrollBarUI extends BasicScrollBarUI
+{
 
     private static final int SCROLL_BAR_ALPHA_ROLLOVER = 100;
     private static final int SCROLL_BAR_ALPHA = 50;
     private static final int THUMB_SIZE = 5;
     private static final Color THUMB_COLOR = Color.BLACK;
 
-    public ModernScrollBarUI() {
+    public ModernScrollBarUI()
+    {
 
     }
 
     @Override
-    protected JButton createDecreaseButton(int orientation) {
+    protected JButton createDecreaseButton(int orientation)
+    {
         return new InvisibleScrollBarButton();
     }
 
     @Override
-    protected JButton createIncreaseButton(int orientation) {
+    protected JButton createIncreaseButton(int orientation)
+    {
         return new InvisibleScrollBarButton();
     }
 
     @Override
-    protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
+    protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds)
+    {
     }
 
     @Override
-    protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
+    protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds)
+    {
         int alpha = isThumbRollover() ? SCROLL_BAR_ALPHA_ROLLOVER : SCROLL_BAR_ALPHA;
         int orientation = scrollbar.getOrientation();
         int x = thumbBounds.x;
@@ -53,9 +59,11 @@ public class ModernScrollBarUI extends BasicScrollBarUI {
         graphics2D.dispose();
     }
 
-    private static class InvisibleScrollBarButton extends JButton {
+    private static class InvisibleScrollBarButton extends JButton
+    {
 
-        private InvisibleScrollBarButton() {
+        private InvisibleScrollBarButton()
+        {
             setOpaque(false);
             setFocusable(false);
             setFocusPainted(false);

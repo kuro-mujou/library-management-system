@@ -1,57 +1,66 @@
-
 package databaseClass;
 
-public class TacGia 
+public class TacGia
 {
     private int MaTacGia;
     private String TenTacGia;
     private String GhiChu;
-  public TacGia(int MaTacGia, String TenTacGia) {
+
+    public TacGia(int MaTacGia, String TenTacGia)
+    {
         this.MaTacGia = MaTacGia;
         this.TenTacGia = TenTacGia;
     }
-    public TacGia(int MaTacGia) {
+
+    public TacGia(int MaTacGia)
+    {
         this.MaTacGia = MaTacGia;
     }
 
-    public TacGia(String TenTacGia) {
+    public TacGia(String TenTacGia)
+    {
         this.TenTacGia = TenTacGia;
     }
 
-    public TacGia() {
+    public TacGia()
+    {
     }
 
-    public TacGia(int MaTacGia, String TenTacGia, String GhiChuTG) {
+    public TacGia(int MaTacGia, String TenTacGia, String GhiChuTG)
+    {
         this.MaTacGia = MaTacGia;
         this.TenTacGia = TenTacGia;
         this.GhiChu = GhiChuTG;
     }
 
- 
-
-    public int getMaTacGia() {
+    public int getMaTacGia()
+    {
         return MaTacGia;
     }
 
-    public String getTenTacGia() {
+    public String getTenTacGia()
+    {
         return TenTacGia;
     }
 
-    public void setMaTacGia(int MaTacGia) {
+    public void setMaTacGia(int MaTacGia)
+    {
         this.MaTacGia = MaTacGia;
     }
 
-    public void setTenTacGia(String TenTacGia) {
+    public void setTenTacGia(String TenTacGia)
+    {
         this.TenTacGia = TenTacGia;
     }
 
-    public void setGhiChuTG(String GhiChuTG) {
+    public void setGhiChuTG(String GhiChuTG)
+    {
         this.GhiChu = GhiChuTG;
     }
-    
 
-    public String getGhiChuTG() {
+    public String getGhiChuTG()
+    {
         return GhiChu;
     }
-    
+
 }

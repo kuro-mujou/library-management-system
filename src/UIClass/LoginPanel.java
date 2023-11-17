@@ -1,12 +1,12 @@
-
 package UIClass;
 
 import javax.swing.JPanel;
 
-public class LoginPanel extends JPanel 
+public class LoginPanel extends JPanel
 {
     MainInterface main;
-    public LoginPanel(MainInterface m) 
+
+    public LoginPanel(MainInterface m)
     {
         initComponents();
         main = m;

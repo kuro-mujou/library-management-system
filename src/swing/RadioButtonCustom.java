@@ -7,39 +7,50 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JRadioButton;
 
-public class RadioButtonCustom extends JRadioButton {
+public class RadioButtonCustom extends JRadioButton
+{
 
-    public RadioButtonCustom() {
+    public RadioButtonCustom()
+    {
         setOpaque(false);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         setBackground(new Color(255, 255, 255));
     }
 
     @Override
-    public void paint(Graphics grphcs) {
+    public void paint(Graphics grphcs)
+    {
         super.paint(grphcs);
         Graphics2D g2 = (Graphics2D) grphcs;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         int ly = (getHeight() - 16) / 2;
-        if (isSelected()) {
-            if (isEnabled()) {
+        if (isSelected())
+        {
+            if (isEnabled())
+            {
                 g2.setColor(Color.BLACK);
-            } else {
+            } else
+            {
                 g2.setColor(Color.BLACK);
             }
             g2.fillOval(1, ly, 16, 16);
             g2.setColor(Color.WHITE);
             g2.fillOval(2, ly + 1, 14, 14);
-            if (isEnabled()) {
+            if (isEnabled())
+            {
                 g2.setColor(Color.BLACK);
-            } else {
+            } else
+            {
                 g2.setColor(Color.BLACK);
             }
             g2.fillOval(5, ly + 4, 8, 8);
-        } else {
-            if (isFocusOwner()) {
+        } else
+        {
+            if (isFocusOwner())
+            {
                 g2.setColor(Color.BLACK);
-            } else {
+            } else
+            {
                 g2.setColor(Color.BLACK);
             }
             g2.fillOval(1, ly, 16, 16);

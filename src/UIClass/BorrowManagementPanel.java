@@ -1,24 +1,25 @@
-
 package UIClass;
 
-
-public class BorrowManagementPanel extends javax.swing.JPanel 
+public class BorrowManagementPanel extends javax.swing.JPanel
 {
     MainInterface main;
-    public BorrowManagementPanel(MainInterface main) 
+
+    public BorrowManagementPanel(MainInterface main)
     {
         initComponents();
         this.main = main;
     }
-    
-    public void initCustom() 
+
+    public void initCustom()
     {
         main.getPictureBox().setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/background.png")));
         main.getPictureBox().repaint();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLabel1 = new javax.swing.JLabel();
         textField_noLabel1 = new swing.TextField_noLabel();
@@ -104,10 +105,11 @@ public class BorrowManagementPanel extends javax.swing.JPanel
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField_noLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textField_noLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameReaderID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,7 +134,6 @@ public class BorrowManagementPanel extends javax.swing.JPanel
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ReaderAddressTextField;
@@ -151,5 +152,4 @@ public class BorrowManagementPanel extends javax.swing.JPanel
     private swing.TextField_noLabel textField_noLabel1;
     // End of variables declaration//GEN-END:variables
 
-    
 }

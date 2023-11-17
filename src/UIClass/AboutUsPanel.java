@@ -1,4 +1,3 @@
-
 package UIClass;
 
 import java.awt.Color;
@@ -6,23 +5,27 @@ import java.awt.Desktop;
 import java.net.URI;
 import java.net.URL;
 
-public class AboutUsPanel extends javax.swing.JPanel 
+public class AboutUsPanel extends javax.swing.JPanel
 {
     MainInterface main;
-    public AboutUsPanel(MainInterface main) 
+
+    public AboutUsPanel(MainInterface main)
     {
         initComponents();
         initcustom();
         this.main = main;
     }
-    private void initcustom() {
+
+    private void initcustom()
+    {
         jScrollPane1.getViewport().setOpaque(false);
         jScrollPane1.setOpaque(false);
         jTextArea1.setOpaque(false);
-        jTextArea1.setBackground(new Color(0,0,0,0));
+        jTextArea1.setBackground(new Color(0, 0, 0, 0));
         jTextArea1.setLineWrap(true);
         jTextArea1.setWrapStyleWord(true);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -178,47 +181,57 @@ public class AboutUsPanel extends javax.swing.JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void pictureBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pictureBox1MouseClicked
-        try {
-            URI uri = new URL("https://www.facebook.com/huaphu.minhhieu").toURI(); 
+        try
+        {
+            URI uri = new URL("https://www.facebook.com/huaphu.minhhieu").toURI();
             Desktop.getDesktop().browse(uri);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
-        
+
     }//GEN-LAST:event_pictureBox1MouseClicked
 
     private void pictureBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pictureBox4MouseClicked
-        try {
-            URI uri = new URL("https://www.facebook.com/ven.vungve2003").toURI(); 
+        try
+        {
+            URI uri = new URL("https://www.facebook.com/ven.vungve2003").toURI();
             Desktop.getDesktop().browse(uri);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }//GEN-LAST:event_pictureBox4MouseClicked
 
     private void pictureBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pictureBox2MouseClicked
-        try {
-            URI uri = new URL("https://www.facebook.com/minx.minx.3348/").toURI(); 
+        try
+        {
+            URI uri = new URL("https://www.facebook.com/minx.minx.3348/").toURI();
             Desktop.getDesktop().browse(uri);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }//GEN-LAST:event_pictureBox2MouseClicked
 
     private void pictureBox5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pictureBox5MouseClicked
-        try {
-            URI uri = new URL("https://www.facebook.com/tuong.huynhhuu.961").toURI(); 
+        try
+        {
+            URI uri = new URL("https://www.facebook.com/tuong.huynhhuu.961").toURI();
             Desktop.getDesktop().browse(uri);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }//GEN-LAST:event_pictureBox5MouseClicked
 
     private void pictureBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pictureBox3MouseClicked
-        try {
-            URI uri = new URL("https://www.facebook.com/profile.php?id=100027489230914").toURI(); 
+        try
+        {
+            URI uri = new URL("https://www.facebook.com/profile.php?id=100027489230914").toURI();
             Desktop.getDesktop().browse(uri);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }//GEN-LAST:event_pictureBox3MouseClicked
@@ -241,5 +254,4 @@ public class AboutUsPanel extends javax.swing.JPanel
     private swing.PictureBox pictureBox5;
     // End of variables declaration//GEN-END:variables
 
-   
 }

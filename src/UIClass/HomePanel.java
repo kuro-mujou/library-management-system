@@ -1,17 +1,20 @@
-
 package UIClass;
 
 import java.awt.Color;
 import javax.swing.JPanel;
 
-public class HomePanel extends JPanel {
-    Color foreground = new Color(0,0,0,100);
+public class HomePanel extends JPanel
+{
+    Color foreground = new Color(0, 0, 0, 100);
     MainInterface main;
-    public HomePanel(MainInterface main) {
+
+    public HomePanel(MainInterface main)
+    {
         initComponents();
         initcustom();
         this.main = main;
     }
+
     void initcustom()
     {
         jLabel1.setForeground(foreground);
@@ -19,6 +22,7 @@ public class HomePanel extends JPanel {
         jLabel3.setForeground(foreground);
         jLabel4.setForeground(foreground);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

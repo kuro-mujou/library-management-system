@@ -1,14 +1,15 @@
-
 package databaseClass;
+
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import java.sql.*;
 
-public class DatabaseConnect {
+public class DatabaseConnect
+{
     public static Connection getDBConnect()
     {
         var server = "THEWORLD";
         var user = "sa";
-        var password ="123456";
+        var password = "123456";
         var db = "quanlythuvien";
         var port = 1433;
         SQLServerDataSource ds = new SQLServerDataSource();
@@ -18,14 +19,16 @@ public class DatabaseConnect {
         ds.setServerName(server);
         ds.setPortNumber(port);
         ds.setEncrypt(false);
-        Connection conn =null;
-         try {
+        Connection conn = null;
+        try
+        {
             conn = ds.getConnection();
             return conn;
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
-         return null;
+        return null;
     }
 //    public static void main(String[] args) {
 //        DatabaseConnect a =new DatabaseConnect();

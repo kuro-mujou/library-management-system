@@ -11,54 +11,67 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class MainPanel extends JPanel {
+public class MainPanel extends JPanel
+{
 
-    public Icon getImage() {
+    public Icon getImage()
+    {
         return image;
     }
 
-    public void setImage(Icon image) {
+    public void setImage(Icon image)
+    {
         this.image = image;
     }
 
-    public Icon getImageOld() {
+    public Icon getImageOld()
+    {
         return imageOld;
     }
 
-    public void setImageOld(Icon imageOld) {
+    public void setImageOld(Icon imageOld)
+    {
         this.imageOld = imageOld;
     }
 
-    public Point getImageLocation() {
+    public Point getImageLocation()
+    {
         return imageLocation;
     }
 
-    public void setImageLocation(Point imageLocation) {
+    public void setImageLocation(Point imageLocation)
+    {
         this.imageLocation = imageLocation;
         repaint();
     }
 
-    public Dimension getImageSize() {
+    public Dimension getImageSize()
+    {
         return imageSize;
     }
 
-    public void setImageSize(Dimension imageSize) {
+    public void setImageSize(Dimension imageSize)
+    {
         this.imageSize = imageSize;
     }
 
-    public Point getTargetLocation() {
+    public Point getTargetLocation()
+    {
         return targetLocation;
     }
 
-    public void setTargetLocation(Point targetLocation) {
+    public void setTargetLocation(Point targetLocation)
+    {
         this.targetLocation = targetLocation;
     }
 
-    public Dimension getTargetSize() {
+    public Dimension getTargetSize()
+    {
         return targetSize;
     }
 
-    public void setTargetSize(Dimension targetSize) {
+    public void setTargetSize(Dimension targetSize)
+    {
         this.targetSize = targetSize;
     }
 
@@ -69,33 +82,40 @@ public class MainPanel extends JPanel {
     private Point targetLocation = new Point(20, -20);
     private Dimension targetSize = new Dimension(250, 250);
 
-    public MainPanel() {
+    public MainPanel()
+    {
         setOpaque(false);
     }
 
     @Override
-    public void paint(Graphics grphcs) {
+    public void paint(Graphics grphcs)
+    {
         super.paint(grphcs);
         Graphics2D g2 = (Graphics2D) grphcs.create();
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        if (imageOld != null) {
+        if (imageOld != null)
+        {
             Rectangle size = getAutoSize(imageOld, targetSize);
             g2.drawImage(toImage(imageOld), targetLocation.x, targetLocation.y, size.getSize().width, size.getSize().height, null);
         }
-        if (image != null) {
+        if (image != null)
+        {
             Rectangle size = getAutoSize(image, imageSize);
             g2.drawImage(toImage(image), imageLocation.x, imageLocation.y, size.getSize().width, size.getSize().height, null);
         }
         g2.dispose();
     }
 
-    private Rectangle getAutoSize(Icon image, Dimension size) {
+    private Rectangle getAutoSize(Icon image, Dimension size)
+    {
         int w = size.width;
         int h = size.height;
-        if (w > image.getIconWidth()) {
+        if (w > image.getIconWidth())
+        {
             w = image.getIconWidth();
         }
-        if (h > image.getIconHeight()) {
+        if (h > image.getIconHeight())
+        {
             h = image.getIconHeight();
         }
         int iw = image.getIconWidth();
@@ -110,7 +130,8 @@ public class MainPanel extends JPanel {
         return new Rectangle(new Point(x, y), new Dimension(width, height));
     }
 
-    private Image toImage(Icon icon) {
+    private Image toImage(Icon icon)
+    {
         return ((ImageIcon) icon).getImage();
     }
 }

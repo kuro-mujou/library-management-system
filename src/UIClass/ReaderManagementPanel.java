@@ -1,24 +1,24 @@
-
 package UIClass;
 
 import databaseClass.Sach;
 import databaseClass.SachCRUD;
 
-
-public class ReaderManagementPanel extends javax.swing.JPanel 
+public class ReaderManagementPanel extends javax.swing.JPanel
 {
     MainInterface main;
-    public ReaderManagementPanel(MainInterface main) 
+
+    public ReaderManagementPanel(MainInterface main)
     {
         initComponents();
         this.main = main;
     }
-    
-    public void initCustom() 
+
+    public void initCustom()
     {
         main.getPictureBox().setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/background.png")));
         main.getPictureBox().repaint();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -251,14 +251,14 @@ public class ReaderManagementPanel extends javax.swing.JPanel
         // TODO add your handling code here:
     }//GEN-LAST:event_inputSearchActionPerformed
 
-    
+
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         SachCRUD queryDB = new SachCRUD();
-        
+
         String id = inputSearch.getText();
         // Search data 
         Sach resultData = queryDB.findSachById(Integer.parseInt(id));
-        
+
         // Render data in UI
 //        valType.setText(resultData.getType());
 //        valAuthorName.setText(resultData.getName());
@@ -294,5 +294,4 @@ public class ReaderManagementPanel extends javax.swing.JPanel
     private javax.swing.JTextField valReaderName;
     // End of variables declaration//GEN-END:variables
 
-    
 }

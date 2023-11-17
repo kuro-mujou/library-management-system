@@ -1,50 +1,61 @@
-
 package databaseClass;
 
-public class DocGia 
+public class DocGia
 {
     private int MaDocGia;
     private String TenDocGia;
     private String DiaChiDG;
-    private int SoThe; 
+    private int SoThe;
 
-    
-    
-    DocGia(){}
-    DocGia(int maDocGia,String tenDocGia,String diaChiDG,int SoThe){
+    DocGia()
+    {
+    }
+
+    DocGia(int maDocGia, String tenDocGia, String diaChiDG, int SoThe)
+    {
         setMaDocGia(maDocGia);
         setTenDocGia(tenDocGia);
         setDiaChiDG(diaChiDG);
         setSoThe(SoThe);
     }
-    public int getMaDocGia() {
+
+    public int getMaDocGia()
+    {
         return MaDocGia;
     }
 
-    public void setMaDocGia(int maDocGia) {
+    public void setMaDocGia(int maDocGia)
+    {
         MaDocGia = maDocGia;
     }
 
-    public String getTenDocGia() {
+    public String getTenDocGia()
+    {
         return TenDocGia;
     }
 
-    public void setTenDocGia(String tenDocGia) {
+    public void setTenDocGia(String tenDocGia)
+    {
         TenDocGia = tenDocGia;
     }
 
-    public String getDiaChiDG() {
+    public String getDiaChiDG()
+    {
         return DiaChiDG;
     }
 
-    public void setDiaChiDG(String diaChiDG) {
+    public void setDiaChiDG(String diaChiDG)
+    {
         DiaChiDG = diaChiDG;
     }
-    public int getSoThe() {
+
+    public int getSoThe()
+    {
         return SoThe;
     }
 
-    public void setSoThe(int SoThe) {
+    public void setSoThe(int SoThe)
+    {
         this.SoThe = SoThe;
     }
 }

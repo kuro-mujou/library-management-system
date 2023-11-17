@@ -1,23 +1,24 @@
-
 package UIClass;
 
 import databaseClass.Sach;
 import databaseClass.SachCRUD;
 
-public class ReturnManagementPanel extends javax.swing.JPanel 
+public class ReturnManagementPanel extends javax.swing.JPanel
 {
     MainInterface main;
-    public ReturnManagementPanel(MainInterface main) 
+
+    public ReturnManagementPanel(MainInterface main)
     {
         initComponents();
         this.main = main;
     }
-    
-    public void initCustom() 
+
+    public void initCustom()
     {
         main.getPictureBox().setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/background.png")));
         main.getPictureBox().repaint();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -461,14 +462,14 @@ public class ReturnManagementPanel extends javax.swing.JPanel
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    
+
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         SachCRUD queryDB = new SachCRUD();
-        
+
         String id = inputSearch.getText();
         // Search data 
         Sach resultData = queryDB.findSachById(Integer.parseInt(id));
-        
+
         // Render data in UI
 //        valType.setText(resultData.getType());
 //        valAuthorName.setText(resultData.getName());
@@ -522,5 +523,4 @@ public class ReturnManagementPanel extends javax.swing.JPanel
     private javax.swing.JTextField valType;
     // End of variables declaration//GEN-END:variables
 
-    
 }
