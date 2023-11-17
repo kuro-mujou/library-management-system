@@ -2,7 +2,7 @@
 package UIClass;
 
 import databaseClass.Sach;
-import databaseClass.SachCRUD;
+import databaseClass.sachCRUD;
 
 public class ReturnManagementPanel extends javax.swing.JPanel 
 {
@@ -463,7 +463,7 @@ public class ReturnManagementPanel extends javax.swing.JPanel
 
     
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        SachCRUD queryDB = new SachCRUD();
+        sachCRUD queryDB = new sachCRUD();
         
         String id = inputSearch.getText();
         // Search data 
