@@ -177,21 +177,21 @@ String sSQL = "select Sach.MaSach,TenSach,Sach.MaTacGia,TenTacGia,Sach.MaTheLoai
         }
         return null;
     }
-    public static void main(String[] args) {
-        sachCRUD a= new sachCRUD();
-        NhaXuatBan nhaXuatBan = new NhaXuatBan(1,"xb1");
-        TacGia tacGia = new TacGia(1,"tacgia1");
-        TheLoai theLoai = new TheLoai(1,"theloai1");
-                
-        
-        Sach sach = new Sach(4,"update",nhaXuatBan,tacGia,theLoai,100,2003);
-        
-        
-//        System.out.println(a.add(sach));
-//        System.out.println(a.update(sach));
-
-//            a.getAll();
-//        a.findSachById (5);
-            System.out.println(a.getAll());
-    }
+//    public static void main(String[] args) {
+//        sachCRUD a= new sachCRUD();
+//        NhaXuatBan nhaXuatBan = new NhaXuatBan(1,"xb1");
+//        TacGia tacGia = new TacGia(1,"tacgia1");
+//        TheLoai theLoai = new TheLoai(1,"theloai1");
+//                
+//        
+//        Sach sach = new Sach(4,"update",nhaXuatBan,tacGia,theLoai,100,2003);
+//        
+//        
+////        System.out.println(a.add(sach));
+////        System.out.println(a.update(sach));
+//
+////            a.getAll();
+////        a.findSachById (5);
+//            System.out.println(a.getAll());
+//    }
 }

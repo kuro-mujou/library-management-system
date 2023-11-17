@@ -11,7 +11,7 @@ import databaseClass.TacGia;
 import databaseClass.TacGiaCRUD;
 import databaseClass.TheLoai;
 import databaseClass.TheLoaiCRUD;
-import databaseClass.SachCRUD;
+import databaseClass.sachCRUD;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,7 +23,7 @@ public class FormQuanLySach extends javax.swing.JFrame {
     /**
      * Creates new form FormQuanLySach
      */
-    SachCRUD sachDAO = new SachCRUD();
+    sachCRUD sachDAO = new sachCRUD();
     NhaXuatBanCRUD NXBDAO = new NhaXuatBanCRUD();
     TacGiaCRUD tacgiaDAO = new TacGiaCRUD();
     TheLoaiCRUD theloaiDAO = new TheLoaiCRUD();
