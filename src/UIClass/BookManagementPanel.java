@@ -4,7 +4,7 @@ package UIClass;
 import databaseClass.NhaXuatBan;
 import databaseClass.NhaXuatBanCRUD;
 import databaseClass.Sach;
-import databaseClass.sachCRUD;
+import databaseClass.SachCRUD;
 import databaseClass.TacGia;
 import databaseClass.TacGiaCRUD;
 import databaseClass.TheLoai;
@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class BookManagementPanel extends javax.swing.JPanel 
 {
-    sachCRUD sachDAO = new sachCRUD();
+    SachCRUD sachDAO = new SachCRUD();
     NhaXuatBanCRUD NXBDAO = new NhaXuatBanCRUD();
     TacGiaCRUD tacgiaDAO = new TacGiaCRUD();
     TheLoaiCRUD theloaiDAO = new TheLoaiCRUD();
