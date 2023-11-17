@@ -10,14 +10,14 @@ package login;
  */
 public class main {
 
-    public static void main(String args[]) {
-        
-       IPasswords  idandPasswords = new IPasswords();
-     
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginPages( idandPasswords.getLoginInfo()).setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        
+//       IPasswords  idandPasswords = new IPasswords();
+//     
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new LoginPages( idandPasswords.getLoginInfo()).setVisible(true);
+//            }
+//        });
+//    }
 }

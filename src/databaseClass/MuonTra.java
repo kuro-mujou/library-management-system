@@ -33,12 +33,15 @@ public class MuonTra
     
     private boolean Datra(){
         Date d = new Date();
-        if (NgayTra.getNam().compareTo(NgayMuon.getNam())>0) return true;
-        else if(NgayTra.getThang().compareTo(NgayMuon.getThang())>0) return true;
-        else if (NgayTra.getNgay().compareTo(NgayMuon.getNgay())>=0 && NgayMuon.toString().compareTo(d.toString())>0) return true;
-        // da tinh toan den truong hop muon va tra trong cung 1 ngay...
-        else return false;
+        if (NgayTra.getNam().compareTo(NgayMuon.getNam())>0) 
+            return true;
+        else if(NgayTra.getThang().compareTo(NgayMuon.getThang())>0) 
+            return true;
+        else if (NgayTra.getNgay().compareTo(NgayMuon.getNgay())>=0 && NgayMuon.toString().compareTo(d.toString())>0) 
+            return true;
+        else 
+            return false;
     }
     
-    
+    // da tinh toan den truong hop muon va tra trong cung 1 ngay...
 }

@@ -2,7 +2,8 @@
 package UIClass;
 
 import databaseClass.Sach;
-import databaseClass.sachCRUD;
+import databaseClass.SachCRUD;
+
 
 public class ReaderManagementPanel extends javax.swing.JPanel 
 {
@@ -25,8 +26,8 @@ public class ReaderManagementPanel extends javax.swing.JPanel
         Header = new javax.swing.JLabel();
         inputSearch = new javax.swing.JTextField();
         readerCardNumber = new java.awt.Panel();
-        valCardNumber = new javax.swing.JTextField();
         nameCardNumber = new javax.swing.JLabel();
+        valCardNumber = new javax.swing.JTextField();
         readerReaderID = new java.awt.Panel();
         valReaderID = new javax.swing.JTextField();
         nameReaderID = new javax.swing.JLabel();
@@ -67,16 +68,15 @@ public class ReaderManagementPanel extends javax.swing.JPanel
         readerCardNumberLayout.setHorizontalGroup(
             readerCardNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(readerCardNumberLayout.createSequentialGroup()
-                .addComponent(nameCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(valCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(nameCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(valCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         readerCardNumberLayout.setVerticalGroup(
             readerCardNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(readerCardNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(nameCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(valCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                .addComponent(nameCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(valCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         readerReaderID.setPreferredSize(new java.awt.Dimension(341, 31));
@@ -231,8 +231,7 @@ public class ReaderManagementPanel extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(inputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(inputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(readerReaderID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -254,7 +253,7 @@ public class ReaderManagementPanel extends javax.swing.JPanel
 
     
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        sachCRUD queryDB = new sachCRUD();
+        SachCRUD queryDB = new SachCRUD();
         
         String id = inputSearch.getText();
         // Search data 
