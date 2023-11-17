@@ -9,10 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author ADMIN
- */
 public class SachCRUD {
     SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-mm-dd");
     Connection conn = null;
