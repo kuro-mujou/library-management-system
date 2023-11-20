@@ -264,7 +264,6 @@ public class MainInterface extends javax.swing.JFrame
         ContentPanel.removeAll();
         ContentPanel.add(aboutUsPanel);
         LoadChange();
-
         ContentPanel.validate();
         ContentPanel.repaint();
     }//GEN-LAST:event_jLabel4MouseClicked

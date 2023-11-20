@@ -58,6 +58,7 @@ CREATE TABLE NhanVien (
 CREATE TABLE MuonTra (
     MaMuonTra INT  PRIMARY KEY,
     SoThe INT NOT NULL,
+    MaSach INT NOT NULL,
     MaNhanVien INT NOT NULL,
     NgayMuon DATE NOT NULL,
     DaTra BIT NOT NULL,
@@ -66,7 +67,7 @@ CREATE TABLE MuonTra (
 
 CREATE TABLE ChiTietMuonTra (
     MaMuonTra INT NOT NULL,
-    MaSach INT NOT NULL,
+    
     GhiChu NVARCHAR(255),
     PRIMARY KEY (MaMuonTra, MaSach),
     FOREIGN KEY (MaMuonTra) REFERENCES MuonTra(MaMuonTra),
