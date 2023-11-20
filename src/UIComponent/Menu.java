@@ -2,6 +2,7 @@
 package UIComponent;
 
 import UIModel.ModelMenu;
+import event.EventMenuSelected;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -10,7 +11,12 @@ import java.awt.RenderingHints;
 
 public class Menu extends javax.swing.JPanel
 {
-
+    private EventMenuSelected event;
+    
+    public void addEventMenuSelect(EventMenuSelected event){
+        this.event = event;
+        listMenu1.addEventMenuSelect(event);
+    }
     public Menu()
     {
         initComponents();

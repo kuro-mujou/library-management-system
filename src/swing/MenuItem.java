@@ -9,8 +9,8 @@ import java.awt.RenderingHints;
 
 public class MenuItem extends javax.swing.JPanel
 {
-
     private boolean selected;
+    private boolean over;
 
     public MenuItem(ModelMenu data)
     {
@@ -20,8 +20,7 @@ public class MenuItem extends javax.swing.JPanel
         {
             lbIcon.setImage(data.toIcon());
             lbName.setText(data.getName());
-        } 
-        else if (data.getType() == ModelMenu.MenuType.TITLE)
+        } else if (data.getType() == ModelMenu.MenuType.TITLE)
         {
             lbIcon.setVisible(false);
             lbName.setFont(new Font("sansserif", 1, 12));
@@ -35,6 +34,12 @@ public class MenuItem extends javax.swing.JPanel
     public void setSelected(boolean selected)
     {
         this.selected = selected;
+        repaint();
+    }
+
+    public void setOver(boolean over)
+    {
+        this.over = over;
         repaint();
     }
 
@@ -54,7 +59,7 @@ public class MenuItem extends javax.swing.JPanel
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(lbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(lbName)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -64,7 +69,7 @@ public class MenuItem extends javax.swing.JPanel
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
@@ -73,12 +78,18 @@ public class MenuItem extends javax.swing.JPanel
     @Override
     public void paintComponent(Graphics g)
     {
-        if (selected)
+        if (selected || over)
         {
             Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2.setColor(new Color(255, 255, 255, 80));
-            g2.fillRoundRect(10, 5, getWidth() -20, getHeight()-10, 5, 5);
+            if (selected)
+            {
+                g2.setColor(new Color(255, 255, 255, 80));
+            } else
+            {
+                g2.setColor(new Color(255, 255, 255, 40));
+            }
+            g2.fillRoundRect(10, 5, getWidth() - 20, getHeight() - 10, 5, 5);
         }
         super.paintComponent(g);
     }
