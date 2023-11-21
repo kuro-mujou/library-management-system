@@ -8,6 +8,11 @@ import javax.swing.JPanel;
 
 public class DashboardTest extends javax.swing.JFrame
 {
+    Transaction transaction = new Transaction();
+    ReaderManagement readerManagement = new ReaderManagement();
+    BookManagement bookManagement = new BookManagement();
+    TransactionManagement transactionManagement = new TransactionManagement();
+    Setting setting = new Setting();
 
     public DashboardTest()
     {
@@ -28,32 +33,32 @@ public class DashboardTest extends javax.swing.JFrame
                 switch (index)
                 {
                     case 1:
-                        BookManagement bookManagement = new BookManagement();
                         updatePanel(bookManagement);
                         break;
                     case 2:
-                        ReaderManagement readerManagement = new ReaderManagement();
+
                         updatePanel(readerManagement);
                         break;
                     case 3:
-                        Transaction transaction = new Transaction();
+
                         updatePanel(transaction);
                         break;
                     case 4:
-                        TransactionManagement transactionManagement = new TransactionManagement();
+
                         updatePanel(transactionManagement);
-                        break; 
+                        break;
                     case 6:
-                        Setting setting = new Setting();
+
                         updatePanel(setting);
                         break;
                     default:
-                        throw new AssertionError();
+                        updatePanel(bookManagement);
                 }
             }
 
         });
     }
+
     private void updatePanel(JComponent com)
     {
         MainPanel.removeAll();
@@ -61,6 +66,7 @@ public class DashboardTest extends javax.swing.JFrame
         MainPanel.validate();
         MainPanel.repaint();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
@@ -77,14 +83,19 @@ public class DashboardTest extends javax.swing.JFrame
 
         background1.setRound(15);
 
+        MainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        MainPanel.setOpaque(false);
         MainPanel.setLayout(new java.awt.BorderLayout());
+
+        HeaderPanel.setBackground(new java.awt.Color(255, 255, 255));
+        HeaderPanel.setOpaque(false);
 
         javax.swing.GroupLayout HeaderPanelLayout = new javax.swing.GroupLayout(HeaderPanel);
         HeaderPanel.setLayout(HeaderPanelLayout);
         HeaderPanelLayout.setHorizontalGroup(
             HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderPanelLayout.createSequentialGroup()
-                .addGap(0, 811, Short.MAX_VALUE)
+                .addGap(0, 1032, Short.MAX_VALUE)
                 .addComponent(winButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         HeaderPanelLayout.setVerticalGroup(
@@ -114,7 +125,7 @@ public class DashboardTest extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+            .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -4,11 +4,11 @@ public class Sach
 {
     private int MaSach;
     private String TenSach;
-    private NhaXuatBan MaNXB;
     private TacGia MaTacGia;
     private TheLoai MaTheLoai;
     private int SoLuong;
     private int NamXB;
+    private String moTa;
 
     public Sach()
     {
@@ -18,7 +18,6 @@ public class Sach
     {
         this.MaSach = MaSach;
         this.TenSach = TenSach;
-        this.MaNXB = MaNXB;
         this.MaTacGia = MaTacGia;
         this.MaTheLoai = MaTheLoai;
         this.SoLuong = SoLuong;
@@ -33,7 +32,6 @@ public class Sach
     public Sach(String TenSach, NhaXuatBan MaNXB, TacGia MaTacGia, TheLoai MaTheLoai, int SoLuong, int NamXB)
     {
         this.TenSach = TenSach;
-        this.MaNXB = MaNXB;
         this.MaTacGia = MaTacGia;
         this.MaTheLoai = MaTheLoai;
         this.SoLuong = SoLuong;
@@ -53,11 +51,6 @@ public class Sach
     public int getNamXB()
     {
         return NamXB;
-    }
-
-    public NhaXuatBan getMaNXB()
-    {
-        return MaNXB;
     }
 
     public TacGia getMaTacGia()
@@ -92,12 +85,6 @@ public class Sach
         this.NamXB = NamXB;
     }
 
-    public void setMaNXB(NhaXuatBan MaNXB)
-    {
-
-        this.MaNXB = MaNXB;
-    }
-
     public void setMaTacGia(TacGia MaTacGia)
     {
         this.MaTacGia = MaTacGia;
@@ -113,4 +100,13 @@ public class Sach
         this.SoLuong = SoLuong;
     }
 
+    public String getMoTa()
+    {
+        return moTa;
+    }
+
+    public void setMoTa(String moTa)
+    {
+        this.moTa = moTa;
+    }
 }

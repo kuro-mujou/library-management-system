@@ -321,7 +321,7 @@ public class BookManagementPanel extends javax.swing.JPanel
             dataRow[1] = b.getTenSach();
             dataRow[2] = b.getMaTacGia().getTenTacGia();
             dataRow[3] = b.getMaTheLoai().getTenTheLoai();
-            dataRow[4] = b.getMaNXB().getTenNXB();
+//            dataRow[4] = b.getMaNXB().getTenNXB();
             dataRow[5] = b.getSoLuong();
             dataRow[6] = b.getNamXB();
             tbModel.addRow(dataRow);
@@ -345,7 +345,7 @@ public class BookManagementPanel extends javax.swing.JPanel
         dataRow[1] = b.getTenSach();
         dataRow[2] = b.getMaTacGia().getTenTacGia();
         dataRow[3] = b.getMaTheLoai().getTenTheLoai();
-        dataRow[4] = b.getMaNXB().getTenNXB();
+//        dataRow[4] = b.getMaNXB().getTenNXB();
         dataRow[5] = b.getSoLuong();
         dataRow[6] = b.getNamXB();
         tbModel.addRow(dataRow);
@@ -357,7 +357,7 @@ public class BookManagementPanel extends javax.swing.JPanel
         b.setMaSach(Integer.parseInt(textMaSach.getText()));
         b.setTenSach(textTenSach.getText());
         NhaXuatBan nxb = NXBDAO.findNhaXuatBanByName(textMaNXB.getText());
-        b.setMaNXB(nxb);
+//        b.setMaNXB(nxb);
         TacGia tacgia = tacgiaDAO.findTacGiaByName(textMaTacGia.getText());
         b.setMaTacGia(tacgia);
         TheLoai theloai = theloaiDAO.findTheLoaiByName(textMaTheLoai.getText());
@@ -373,7 +373,7 @@ public class BookManagementPanel extends javax.swing.JPanel
         b.setMaSach(Integer.parseInt(textMaSach.getText()));
         b.setTenSach(textTenSach.getText());
         NhaXuatBan nxb = NXBDAO.findNhaXuatBanById(Integer.parseInt(textMaNXB.getText()));
-        b.setMaNXB(nxb);
+//        b.setMaNXB(nxb);
         TacGia tacgia = tacgiaDAO.findTacGiaById(Integer.parseInt(textMaTacGia.getText()));
         b.setMaTacGia(tacgia);
         TheLoai theloai = theloaiDAO.findTheLoaiById(Integer.parseInt(textMaTheLoai.getText()));
@@ -387,7 +387,7 @@ public class BookManagementPanel extends javax.swing.JPanel
     {
         textMaSach.setText(String.valueOf(b.getMaSach()));
         textTenSach.setText(b.getTenSach());
-        textMaNXB.setText(b.getMaNXB().getTenNXB());
+//        textMaNXB.setText(b.getMaNXB().getTenNXB());
         textNamXB.setText(String.valueOf(b.getNamXB()));
         textSoLuong.setText(String.valueOf(b.getSoLuong()));
         textMaTacGia.setText(b.getMaTacGia().getTenTacGia());

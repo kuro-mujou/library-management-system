@@ -62,7 +62,7 @@
                   <Component id="MainPanel" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="Menu" alignment="0" pref="561" max="32767" attributes="0"/>
+              <Component id="Menu" alignment="0" pref="630" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -70,16 +70,28 @@
         <Component class="UIComponent.Menu" name="Menu">
         </Component>
         <Container class="javax.swing.JPanel" name="MainPanel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="opaque" type="boolean" value="false"/>
+          </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
         </Container>
         <Container class="javax.swing.JPanel" name="HeaderPanel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="opaque" type="boolean" value="false"/>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="811" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="1032" max="32767" attributes="0"/>
                       <Component id="winButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>

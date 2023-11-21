@@ -27,7 +27,7 @@ public class SachCRUD
             sttm.setString(2, sach.getTenSach());
             sttm.setInt(3, sach.getMaTacGia().getMaTacGia());
             sttm.setInt(4, sach.getMaTheLoai().getMaTheLoai());
-            sttm.setInt(5, sach.getMaNXB().getMaNXB());
+//            sttm.setInt(5, sach.getMaNXB().getMaNXB());
             sttm.setInt(6, sach.getSoLuong());
             sttm.setInt(7, sach.getNamXB());
             System.out.println("abc:"
@@ -55,7 +55,7 @@ public class SachCRUD
             sttm.setString(1, sach.getTenSach());
             sttm.setInt(2, sach.getMaTacGia().getMaTacGia());
             sttm.setInt(3, sach.getMaTheLoai().getMaTheLoai());
-            sttm.setInt(4, sach.getMaNXB().getMaNXB());
+//            sttm.setInt(4, sach.getMaNXB().getMaNXB());
             sttm.setInt(5, sach.getSoLuong());
             sttm.setInt(6, sach.getNamXB());
 
@@ -123,11 +123,11 @@ public class SachCRUD
                 sach.setTenSach(rs.getString(2));
                 sach.setMaTacGia(new TacGia(rs.getInt(3), rs.getString(4)));
                 sach.setMaTheLoai(new TheLoai(rs.getInt(5), rs.getString(6)));
-                sach.setMaNXB(new NhaXuatBan(rs.getInt(7), rs.getString(8)));
+//                sach.setMaNXB(new NhaXuatBan(rs.getInt(7), rs.getString(8)));
                 sach.setSoLuong(rs.getInt(9));
                 sach.setNamXB(rs.getInt(10));
                 System.out.println(">>>>" + sach.getMaTacGia().getMaTacGia());
-                System.out.println(">>>>" + sach.getMaNXB().getMaNXB());
+//                System.out.println(">>>>" + sach.getMaNXB().getMaNXB());
                 ls.add(sach);
 
             }
@@ -166,7 +166,7 @@ public class SachCRUD
                 sach.setTenSach(rs.getString(2));
                 sach.setMaTacGia(new TacGia(rs.getString(3)));
                 sach.setMaTheLoai(new TheLoai(rs.getString(4)));
-                sach.setMaNXB(new NhaXuatBan(rs.getString(5)));
+//                sach.setMaNXB(new NhaXuatBan(rs.getString(5)));
                 sach.setSoLuong(rs.getInt(6));
                 sach.setNamXB(rs.getInt(7));
                 System.out.println("tim dc roi");
