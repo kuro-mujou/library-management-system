@@ -7,9 +7,6 @@ public class DocGia
     private String DiaChiDG;
     private int SoThe;
 
-    DocGia()
-    {
-    }
 
     DocGia(int maDocGia, String tenDocGia, String diaChiDG, int SoThe)
     {
@@ -17,6 +14,11 @@ public class DocGia
         setTenDocGia(tenDocGia);
         setDiaChiDG(diaChiDG);
         setSoThe(SoThe);
+    }
+
+    public DocGia()
+    {
+        
     }
 
     public int getMaDocGia()

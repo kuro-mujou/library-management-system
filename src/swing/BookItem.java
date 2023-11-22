@@ -1,8 +1,6 @@
 package swing;
 
 import databaseClass.Sach;
-import java.awt.BorderLayout;
-import javax.swing.JPanel;
 
 public class BookItem extends javax.swing.JPanel
 {
@@ -16,24 +14,17 @@ public class BookItem extends javax.swing.JPanel
 //        BookQuantity.setText(data.getSoLuong()+"");
 //        BookType.setText(data.getMaTheLoai().getTenTheLoai());
 //        BookYear.setText(data.getNamXB()+"");
-//        itemMenu = new ItemMenu(data);
+//        BookDescription.setText(data.getMoTa());
         init();
     }
     private void init()
     {
         setOpaque(false);
-//        ItemMenuPanel.add(itemMenu);
         ItemMenuPanel.setVisible(false);
-    }
-    public void setContent(JPanel content)
-    {
-        
-//        DropDownIcon.setSelected(false);
     }
 
     private void toggleCollapsibleState()
     {
-        // Toggle the visibility of the content panel when the button is clicked
         ItemMenuPanel.setVisible(!ItemMenuPanel.isVisible());
         revalidate();
         repaint();
@@ -54,10 +45,9 @@ public class BookItem extends javax.swing.JPanel
         ItemMenuPanel = new javax.swing.JPanel();
         deleteBtn = new swing.PictureBox();
         editBtn = new swing.PictureBox();
-        descriptionText = new javax.swing.JLabel();
+        BookDescription = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         BookID.setText("ID");
         BookID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -87,31 +77,31 @@ public class BookItem extends javax.swing.JPanel
 
         editBtn.setImage(new javax.swing.ImageIcon(getClass().getResource("/Icon/edit.png"))); // NOI18N
 
-        descriptionText.setBackground(new java.awt.Color(255, 255, 255));
-        descriptionText.setText("Mo ta");
+        BookDescription.setBackground(new java.awt.Color(255, 255, 255));
+        BookDescription.setText("Mo ta");
 
         javax.swing.GroupLayout ItemMenuPanelLayout = new javax.swing.GroupLayout(ItemMenuPanel);
         ItemMenuPanel.setLayout(ItemMenuPanelLayout);
         ItemMenuPanelLayout.setHorizontalGroup(
             ItemMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ItemMenuPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(descriptionText, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(BookDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         ItemMenuPanelLayout.setVerticalGroup(
             ItemMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ItemMenuPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addGroup(ItemMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descriptionText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(BookDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -129,7 +119,7 @@ public class BookItem extends javax.swing.JPanel
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BookQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BookAuthor, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                        .addComponent(BookAuthor, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BookType, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -141,7 +131,7 @@ public class BookItem extends javax.swing.JPanel
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BookID, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(BookName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -151,20 +141,20 @@ public class BookItem extends javax.swing.JPanel
                     .addComponent(BookYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DropDownIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ItemMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(ItemMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void DropDownIconMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_DropDownIconMouseClicked
     {//GEN-HEADEREND:event_DropDownIconMouseClicked
-        System.out.println("icon");
         toggleCollapsibleState();
     }//GEN-LAST:event_DropDownIconMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BookAuthor;
+    private javax.swing.JLabel BookDescription;
     private javax.swing.JLabel BookID;
     private javax.swing.JLabel BookName;
     private javax.swing.JLabel BookQuantity;
@@ -173,7 +163,6 @@ public class BookItem extends javax.swing.JPanel
     private swing.PictureBox DropDownIcon;
     private javax.swing.JPanel ItemMenuPanel;
     private swing.PictureBox deleteBtn;
-    private javax.swing.JLabel descriptionText;
     private swing.PictureBox editBtn;
     // End of variables declaration//GEN-END:variables
 }
