@@ -1,56 +1,44 @@
 package swing;
 
 import databaseClass.Sach;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 public class BookItem extends javax.swing.JPanel
 {
-    private boolean selected;
-    private ItemMenu itemMenu;
-    public void setSelected(boolean selected)
-    {
-        this.selected = selected;
-        repaint();
-    }
     public BookItem(Sach data)
     {
         initComponents();
-        setOpaque(false);
+        
 //        BookAuthor.setText(data.getMaTacGia().getTenTacGia());
 //        BookID.setText(""+data.getMaSach());
 //        BookName.setText(data.getTenSach());
 //        BookQuantity.setText(data.getSoLuong()+"");
 //        BookType.setText(data.getMaTheLoai().getTenTheLoai());
 //        BookYear.setText(data.getNamXB()+"");
-
-        itemMenu = new ItemMenu(data);
+//        itemMenu = new ItemMenu(data);
+        init();
     }
-    public void UpdateItemMenuPanel(JList list)
+    private void init()
     {
-        System.out.println("passthrough BookItem");
-        ItemMenuPanel.add(itemMenu);
-        ItemMenuPanel.validate();
-        ItemMenuPanel.repaint();
-        list.validate();
-        list.repaint();
+        setOpaque(false);
+//        ItemMenuPanel.add(itemMenu);
+        ItemMenuPanel.setVisible(false);
     }
-//    @Override
-//    protected void paintComponent(Graphics g)
-//    {
-//////        System.out.println("pressed");
-////        Graphics2D g2 = (Graphics2D) g;
-////        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-////        g2.setColor(new Color(0, 0, 0, 80));
-////        JOptionPane.showMessageDialog(null, "Button clicked!");
-////        System.out.println("repainted");
-//        super.paintComponent(g);
-//    }
-    
+    public void setContent(JPanel content)
+    {
+        
+//        DropDownIcon.setSelected(false);
+    }
+
+    private void toggleCollapsibleState()
+    {
+        // Toggle the visibility of the content panel when the button is clicked
+        ItemMenuPanel.setVisible(!ItemMenuPanel.isVisible());
+        revalidate();
+        repaint();
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
@@ -64,8 +52,12 @@ public class BookItem extends javax.swing.JPanel
         BookYear = new javax.swing.JLabel();
         DropDownIcon = new swing.PictureBox();
         ItemMenuPanel = new javax.swing.JPanel();
+        deleteBtn = new swing.PictureBox();
+        editBtn = new swing.PictureBox();
+        descriptionText = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(229, 229, 229));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         BookID.setText("ID");
         BookID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -91,17 +83,35 @@ public class BookItem extends javax.swing.JPanel
             }
         });
 
-        ItemMenuPanel.setOpaque(false);
+        deleteBtn.setImage(new javax.swing.ImageIcon(getClass().getResource("/Icon/delete.png"))); // NOI18N
+
+        editBtn.setImage(new javax.swing.ImageIcon(getClass().getResource("/Icon/edit.png"))); // NOI18N
+
+        descriptionText.setBackground(new java.awt.Color(255, 255, 255));
+        descriptionText.setText("Mo ta");
 
         javax.swing.GroupLayout ItemMenuPanelLayout = new javax.swing.GroupLayout(ItemMenuPanel);
         ItemMenuPanel.setLayout(ItemMenuPanelLayout);
         ItemMenuPanelLayout.setHorizontalGroup(
             ItemMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ItemMenuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(descriptionText, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         ItemMenuPanelLayout.setVerticalGroup(
             ItemMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(ItemMenuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ItemMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(descriptionText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -115,7 +125,7 @@ public class BookItem extends javax.swing.JPanel
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BookID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BookName, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                        .addComponent(BookName, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BookQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -148,8 +158,8 @@ public class BookItem extends javax.swing.JPanel
 
     private void DropDownIconMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_DropDownIconMouseClicked
     {//GEN-HEADEREND:event_DropDownIconMouseClicked
-            System.out.println("icon");
-
+        System.out.println("icon");
+        toggleCollapsibleState();
     }//GEN-LAST:event_DropDownIconMouseClicked
 
 
@@ -162,5 +172,8 @@ public class BookItem extends javax.swing.JPanel
     private javax.swing.JLabel BookYear;
     private swing.PictureBox DropDownIcon;
     private javax.swing.JPanel ItemMenuPanel;
+    private swing.PictureBox deleteBtn;
+    private javax.swing.JLabel descriptionText;
+    private swing.PictureBox editBtn;
     // End of variables declaration//GEN-END:variables
 }
