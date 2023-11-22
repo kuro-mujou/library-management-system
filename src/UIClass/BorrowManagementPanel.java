@@ -192,37 +192,37 @@ public class BorrowManagementPanel extends javax.swing.JPanel
 
     private void FindBtnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_FindBtnActionPerformed
     {//GEN-HEADEREND:event_FindBtnActionPerformed
-        try
-        {
-            int input = Integer.parseInt(TextFindReader.getText());
-            DocGia docgia = docGiaDAO.FindDocGiaTheoID(input);
-            if (docgia != null)
-            {
-                ReaderIDTextField.setText(""+docgia.getMaDocGia());
-                ReaderNameTextField.setText(docgia.getTenDocGia());
-                ReaderAddressTextField.setText(docgia.getDiaChiDG());
-                ReaderCardIDTextField.setText(""+docgia.getSoThe());
-            } else
-            {
-                System.out.println("int");
-                JOptionPane.showMessageDialog(this,"Khong tim thay doc gia");
-            }
-        } catch (Exception e)
-        {
-            String input =TextFindReader.getText();
-            DocGia docgia = docGiaDAO.FindDocGiaTheoTen(input);
-            if (docgia != null)
-            {
-                ReaderIDTextField.setText(""+docgia.getMaDocGia());
-                ReaderNameTextField.setText(docgia.getTenDocGia());
-                ReaderAddressTextField.setText(docgia.getDiaChiDG());
-                ReaderCardIDTextField.setText(""+docgia.getSoThe());
-            } else
-            {
-                System.out.println("string");
-                JOptionPane.showMessageDialog(this,"Khong tim thay doc gia");
-            }
-        }
+//        try
+//        {
+//            int input = Integer.parseInt(TextFindReader.getText());
+//            DocGia docgia = docGiaDAO.FindDocGiaTheoID(input);
+//            if (docgia != null)
+//            {
+//                ReaderIDTextField.setText(""+docgia.getMaDocGia());
+//                ReaderNameTextField.setText(docgia.getTenDocGia());
+//                ReaderAddressTextField.setText(docgia.getDiaChiDG());
+//                ReaderCardIDTextField.setText(""+docgia.getSoThe());
+//            } else
+//            {
+//                System.out.println("int");
+//                JOptionPane.showMessageDialog(this,"Khong tim thay doc gia");
+//            }
+//        } catch (Exception e)
+//        {
+//            String input =TextFindReader.getText();
+//            DocGia docgia = docGiaDAO.FindDocGiaTheoTen(input);
+//            if (docgia != null)
+//            {
+//                ReaderIDTextField.setText(""+docgia.getMaDocGia());
+//                ReaderNameTextField.setText(docgia.getTenDocGia());
+//                ReaderAddressTextField.setText(docgia.getDiaChiDG());
+//                ReaderCardIDTextField.setText(""+docgia.getSoThe());
+//            } else
+//            {
+//                System.out.println("string");
+//                JOptionPane.showMessageDialog(this,"Khong tim thay doc gia");
+//            }
+//        }
     }//GEN-LAST:event_FindBtnActionPerformed
 
 

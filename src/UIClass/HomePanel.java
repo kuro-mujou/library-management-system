@@ -155,7 +155,7 @@ public class HomePanel extends JPanel
         p.removeAll();
         p.add(bookManagement);
         main.LoadChange();
-        bookManagement.initCustom();
+//        bookManagement.initCustom();
         p.validate();
         p.repaint();
     }//GEN-LAST:event_button1MouseClicked

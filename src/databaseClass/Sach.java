@@ -1,112 +1,97 @@
 package databaseClass;
-
+/**
+ *
+ * @author Ther
+ */
 public class Sach
 {
-    private int MaSach;
-    private String TenSach;
-    private TacGia MaTacGia;
-    private TheLoai MaTheLoai;
-    private int SoLuong;
-    private int NamXB;
-    private String moTa;
+    private int BookId;
+    private String NameBook;
+    private String Description;
+    private String Type;
+    private String Writing;
+    private int Quantity;
+    private int YearRelease;
 
-    public Sach()
-    {
+    public Sach() {
     }
 
-    public Sach(int MaSach, String TenSach, NhaXuatBan MaNXB, TacGia MaTacGia, TheLoai MaTheLoai, int SoLuong, int NamXB)
-    {
-        this.MaSach = MaSach;
-        this.TenSach = TenSach;
-        this.MaTacGia = MaTacGia;
-        this.MaTheLoai = MaTheLoai;
-        this.SoLuong = SoLuong;
-        this.NamXB = NamXB;
+    public Sach(int BookId, String NameBook, String Description, String Type, String Writing, int Quantity, int YearRelease) {
+        this.BookId = BookId;
+        this.NameBook = NameBook;
+        this.Description = Description;
+        this.Type = Type;
+        this.Writing = Writing;
+        this.Quantity = Quantity;
+        this.YearRelease = YearRelease;
     }
 
-    public Sach(int MaSach)
-    {
-        this.MaSach = MaSach;
+    public Sach(String NameBook, String Description, String Type, String Writing, int Quantity, int YearRelease) {
+        this.NameBook = NameBook;
+        this.Description = Description;
+        this.Type = Type;
+        this.Writing = Writing;
+        this.Quantity = Quantity;
+        this.YearRelease = YearRelease;
     }
 
-    public Sach(String TenSach, NhaXuatBan MaNXB, TacGia MaTacGia, TheLoai MaTheLoai, int SoLuong, int NamXB)
-    {
-        this.TenSach = TenSach;
-        this.MaTacGia = MaTacGia;
-        this.MaTheLoai = MaTheLoai;
-        this.SoLuong = SoLuong;
-        this.NamXB = NamXB;
+    public int getBookId() {
+        return BookId;
     }
 
-    public int getMaSach()
-    {
-        return MaSach;
+    public String getNameBook() {
+        return NameBook;
     }
 
-    public String getTenSach()
-    {
-        return TenSach;
+    public String getDescription() {
+        return Description;
     }
 
-    public int getNamXB()
-    {
-        return NamXB;
+    public String getType() {
+        return Type;
     }
 
-    public TacGia getMaTacGia()
-    {
-        return MaTacGia;
+    public String getWriting() {
+        return Writing;
     }
 
-    public TheLoai getMaTheLoai()
-    {
-        return MaTheLoai;
+    public int getQuantity() {
+        return Quantity;
     }
 
-    public int getSoLuong()
-    {
-        return SoLuong;
+    public int getYearRelease() {
+        return YearRelease;
     }
 
-    public void setMaSach(int MaSach)
-    {
-        this.MaSach = MaSach;
+    public void setBookId(int BookId) {
+        this.BookId = BookId;
     }
 
-    public void setTenSach(String TenSach)
-    {
-
-        this.TenSach = TenSach;
+    public void setNameBook(String NameBook) {
+        this.NameBook = NameBook;
     }
 
-    public void setNamXB(int NamXB)
-    {
-
-        this.NamXB = NamXB;
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
 
-    public void setMaTacGia(TacGia MaTacGia)
-    {
-        this.MaTacGia = MaTacGia;
+    public void setType(String Type) {
+        this.Type = Type;
     }
 
-    public void setMaTheLoai(TheLoai MaTheLoai)
-    {
-        this.MaTheLoai = MaTheLoai;
+    public void setWriting(String Writing) {
+        this.Writing = Writing;
     }
 
-    public void setSoLuong(int SoLuong)
-    {
-        this.SoLuong = SoLuong;
+    public void setQuantity(int Quantity) {
+        this.Quantity = Quantity;
     }
 
-    public String getMoTa()
-    {
-        return moTa;
+    public void setYearRelease(int YearRelease) {
+        this.YearRelease = YearRelease;
     }
 
-    public void setMoTa(String moTa)
-    {
-        this.moTa = moTa;
-    }
+    
+    
+   
 }

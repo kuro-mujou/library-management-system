@@ -1,16 +1,21 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package databaseClass;
-
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import java.sql.*;
-
-public class DatabaseConnect
-{
+/**
+ *
+ * @author ADMIN
+ */
+public class DatabaseConnect {
     public static Connection getDBConnect()
     {
-        var server = "THEWORLD";
+        var server = "DESKTOP-IPDB6V8\\THER";
         var user = "sa";
-        var password = "123456";
-        var db = "quanlythuvien";
+        var password ="123456";
+        var db = "librarytesting";
         var port = 1433;
         SQLServerDataSource ds = new SQLServerDataSource();
         ds.setUser(user);
@@ -19,19 +24,13 @@ public class DatabaseConnect
         ds.setServerName(server);
         ds.setPortNumber(port);
         ds.setEncrypt(false);
-        Connection conn = null;
-        try
-        {
+        Connection conn =null;
+         try {
             conn = ds.getConnection();
             return conn;
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+         return null;
     }
-//    public static void main(String[] args) {
-//        DatabaseConnect a =new DatabaseConnect();
-//        a.getDBConnect();
-//    }
 }
