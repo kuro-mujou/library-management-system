@@ -5,7 +5,7 @@ import databaseClass.Sach;
 import javax.swing.BoxLayout;
 import swing.BookItem;
 import swing.ScrollBarCustom;
-import swing.TableActionCellRenderer;
+import swing.BookTableActionCellRenderer;
 
 public class BookManagement extends javax.swing.JPanel
 {
@@ -16,7 +16,7 @@ public class BookManagement extends javax.swing.JPanel
     }
     private void init()
     {
-        Table.getColumnModel().getColumn(6).setCellRenderer(new TableActionCellRenderer());
+        Table.getColumnModel().getColumn(6).setCellRenderer(new BookTableActionCellRenderer());
     }
     
     @SuppressWarnings("unchecked")

@@ -1,5 +1,5 @@
 
-package UIComponent;
+package swing;
 
 public class BookButton extends javax.swing.JPanel
 {
