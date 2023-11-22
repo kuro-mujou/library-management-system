@@ -1,75 +1,49 @@
-create database quanlythuvien
+create database librarytesting
+go 
+use librarytesting
 go
-use quanlythuvien
+create table book(
+    bookid int primary key,
+	nameBook nvarchar(255),
+	description nvarchar(255),
+	type nvarchar(255),
+	writing nvarchar(255),
+	quantity int ,
+	yearRelease int
+)
+
+create table Users(
+    userID int primary key,
+	name nvarchar(255),
+	phone nvarchar(255),
+	address nvarchar(255),
+	email nvarchar(255),
+	gender nvarchar(255) ,
+)
+
+create table transactions(
+     transactionId int primary key,
+     startDay int,
+     endDay int,
+     quantity int,
+     bookid int FOREIGN KEY REFERENCES book (bookid),
+     userID int FOREIGN KEY REFERENCES Users(userID)
+)
+create table resume(
+     bookid int FOREIGN KEY REFERENCES book (bookid),
+     userID int FOREIGN KEY REFERENCES Users(userID),
+	 transactionId int FOREIGN KEY REFERENCES transactions(transactionId),
+	 status nvarchar(255),
+	 resumeid int primary key
+ )
 
 
-CREATE TABLE TacGia (
-    MaTacGia INT PRIMARY KEY ,
-    TenTacGia NVARCHAR(255) NOT NULL,
-    GhiChu NVARCHAR(255)
-);
-
-CREATE TABLE TheLoai (
-    MaTheLoai INT  PRIMARY KEY,
-    TenTheLoai NVARCHAR(255) NOT NULL
-);
-
-CREATE TABLE NhaXuatBan (
-    MaNXB INT  PRIMARY KEY,
-    TenNXB NVARCHAR(255) NOT NULL,
-    DiaChi NVARCHAR(255),
-    Email NVARCHAR(255),
-    ThongTinNDD NVARCHAR(255)
-);
-
-CREATE TABLE Sach (
-    MaSach INT  PRIMARY KEY,
-    TenSach NVARCHAR(255) NOT NULL,
-    MaTacGia INT NOT NULL,
-    MaTheLoai INT NOT NULL,
-    MaNXB INT NOT NULL,
-    SoLuong INT NOT NULL,
-    NamXB INT NOT NULL,
-    FOREIGN KEY (MaTacGia) REFERENCES TacGia(MaTacGia),
-    FOREIGN KEY (MaTheLoai) REFERENCES TheLoai(MaTheLoai),
-    FOREIGN KEY (MaNXB) REFERENCES NhaXuatBan(MaNXB)
-);
-CREATE TABLE DocGia (
-    MaDocGia INT PRIMARY KEY,
-    TenDocGia NVARCHAR(255) NOT NULL,
-    DiaChi NVARCHAR(255),
-    SoThe INT NOT NULL
-);
-
-CREATE TABLE TheThuVien (
-    SoThe INT  PRIMARY KEY,
-    NgayBatDau DATE NOT NULL,
-    NgayHetHan DATE NOT NULL,
-    GhiChu NVARCHAR(255)
-);
-
-CREATE TABLE NhanVien (
-    MaNhanVien INT  PRIMARY KEY,
-    HoTen NVARCHAR(255) NOT NULL,
-    NgaySinh DATE,
-    SoDienThoai NVARCHAR(20)
-);
-
-CREATE TABLE MuonTra (
-    MaMuonTra INT  PRIMARY KEY,
-    SoThe INT NOT NULL,
-    MaSach INT NOT NULL,
-    MaNhanVien INT NOT NULL,
-    NgayMuon DATE NOT NULL,
-    DaTra BIT NOT NULL,
-    NgayTra DATE
-);
-
-CREATE TABLE ChiTietMuonTra (
-    MaMuonTra INT NOT NULL,
-    
-    GhiChu NVARCHAR(255),
-    PRIMARY KEY (MaMuonTra, MaSach),
-    FOREIGN KEY (MaMuonTra) REFERENCES MuonTra(MaMuonTra),
-    FOREIGN KEY (MaSach) REFERENCES Sach(MaSach)
-);
+create table librarian(
+    libID int primary key,
+	name nvarchar(255),
+	phone nvarchar(255),
+	address nvarchar(255),
+	email nvarchar(255),
+	password nvarchar(255),
+	gender nvarchar(255) 
+ )

@@ -1,22 +1,11 @@
 package UIClass;
-
-import databaseClass.NhaXuatBan;
-import databaseClass.NhaXuatBanCRUD;
 import databaseClass.Sach;
 import databaseClass.SachCRUD;
-import databaseClass.TacGia;
-import databaseClass.TacGiaCRUD;
-import databaseClass.TheLoai;
-import databaseClass.TheLoaiCRUD;
-
 import javax.swing.table.DefaultTableModel;
 
 public class BookManagementPanel extends javax.swing.JPanel
 {
     SachCRUD sachDAO = new SachCRUD();
-    NhaXuatBanCRUD NXBDAO = new NhaXuatBanCRUD();
-    TacGiaCRUD tacgiaDAO = new TacGiaCRUD();
-    TheLoaiCRUD theloaiDAO = new TheLoaiCRUD();
     int idSach = -1;
     MainInterface main;
 
@@ -41,8 +30,7 @@ public class BookManagementPanel extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -112,11 +100,14 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Find.setText("FIND");
         btn_Find.setColor(new java.awt.Color(213, 213, 213));
         btn_Find.setRadius(15);
-        btn_Find.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btn_Find.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_FindMouseClicked(evt);
+            }
+        });
+        btn_Find.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_FindActionPerformed(evt);
             }
         });
 
@@ -124,10 +115,8 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Save.setText("SAVE");
         btn_Save.setColor(new java.awt.Color(213, 213, 213));
         btn_Save.setRadius(15);
-        btn_Save.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btn_Save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_SaveMouseClicked(evt);
             }
         });
@@ -136,10 +125,8 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Add.setText("ADD");
         btn_Add.setColor(new java.awt.Color(213, 213, 213));
         btn_Add.setRadius(15);
-        btn_Add.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btn_Add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_AddMouseClicked(evt);
             }
         });
@@ -148,10 +135,8 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Delete.setColor(new java.awt.Color(213, 213, 213));
         btn_Delete.setLabel("DELETE");
         btn_Delete.setRadius(15);
-        btn_Delete.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btn_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_DeleteMouseClicked(evt);
             }
         });
@@ -160,10 +145,8 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_Update.setText("UPDATE");
         btn_Update.setColor(new java.awt.Color(213, 213, 213));
         btn_Update.setRadius(15);
-        btn_Update.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btn_Update.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_UpdateMouseClicked(evt);
             }
         });
@@ -172,32 +155,30 @@ public class BookManagementPanel extends javax.swing.JPanel
         btn_All.setText("ALL");
         btn_All.setColor(new java.awt.Color(213, 213, 213));
         btn_All.setRadius(15);
-        btn_All.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btn_All.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_AllMouseClicked(evt);
+            }
+        });
+        btn_All.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AllActionPerformed(evt);
             }
         });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Book ID", "Book name", "Author ID", "Category ID", "Publisher ID", "Quantity", "Publication year"
             }
-        )
-        {
-            boolean[] canEdit = new boolean []
-            {
+        ) {
+            boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
@@ -316,14 +297,14 @@ public class BookManagementPanel extends javax.swing.JPanel
         tbModel.setRowCount(0);
         for (Sach b : sachDAO.getAll())
         {
-            Object dataRow[] = new Object[7];
-            dataRow[0] = b.getMaSach();
-            dataRow[1] = b.getTenSach();
-            dataRow[2] = b.getMaTacGia().getTenTacGia();
-            dataRow[3] = b.getMaTheLoai().getTenTheLoai();
-//            dataRow[4] = b.getMaNXB().getTenNXB();
-            dataRow[5] = b.getSoLuong();
-            dataRow[6] = b.getNamXB();
+             Object dataRow[] = new Object[7];
+            dataRow[0] = b.getBookId();
+           dataRow[1] = b.getNameBook();
+            dataRow[2] = b.getWriting();
+            dataRow[3] = b.getQuantity();
+            dataRow[4] = b.getType();
+            dataRow[5] = b.getYearRelease();
+            dataRow[6] = b.getDescription();
             tbModel.addRow(dataRow);
         }
 
@@ -341,57 +322,51 @@ public class BookManagementPanel extends javax.swing.JPanel
         DefaultTableModel tbModel = (DefaultTableModel) jTable1.getModel();
         tbModel.setRowCount(0);
         Object dataRow[] = new Object[7];
-        dataRow[0] = b.getMaSach();
-        dataRow[1] = b.getTenSach();
-        dataRow[2] = b.getMaTacGia().getTenTacGia();
-        dataRow[3] = b.getMaTheLoai().getTenTheLoai();
-//        dataRow[4] = b.getMaNXB().getTenNXB();
-        dataRow[5] = b.getSoLuong();
-        dataRow[6] = b.getNamXB();
+       dataRow[0] = b.getBookId();
+           dataRow[1] = b.getNameBook();
+            dataRow[2] = b.getWriting();
+            dataRow[3] = b.getQuantity();
+            dataRow[4] = b.getType();
+            dataRow[5] = b.getYearRelease();
+            dataRow[6] = b.getDescription();
         tbModel.addRow(dataRow);
     }
 
     public Sach getModel()
     {
         Sach b = new Sach();
-        b.setMaSach(Integer.parseInt(textMaSach.getText()));
-        b.setTenSach(textTenSach.getText());
-        NhaXuatBan nxb = NXBDAO.findNhaXuatBanByName(textMaNXB.getText());
-//        b.setMaNXB(nxb);
-        TacGia tacgia = tacgiaDAO.findTacGiaByName(textMaTacGia.getText());
-        b.setMaTacGia(tacgia);
-        TheLoai theloai = theloaiDAO.findTheLoaiByName(textMaTheLoai.getText());
-        b.setMaTheLoai(theloai);
-        b.setSoLuong(Integer.parseInt(textSoLuong.getText()));
-        b.setNamXB(Integer.parseInt(textNamXB.getText()));
+        b.setBookId(Integer.parseInt(textMaSach.getText()));
+        b.setNameBook(textTenSach.getText());
+        b.setDescription(textMaNXB.getText());
+        b.setWriting(textMaTacGia.getText());
+        b.setType(textMaTheLoai.getText());
+        b.setQuantity(Integer.parseInt(textSoLuong.getText()));
+        b.setYearRelease(Integer.parseInt(textNamXB.getText()));
         return b;
     }
 
     public Sach getModelId()
     {
         Sach b = new Sach();
-        b.setMaSach(Integer.parseInt(textMaSach.getText()));
-        b.setTenSach(textTenSach.getText());
-        NhaXuatBan nxb = NXBDAO.findNhaXuatBanById(Integer.parseInt(textMaNXB.getText()));
-//        b.setMaNXB(nxb);
-        TacGia tacgia = tacgiaDAO.findTacGiaById(Integer.parseInt(textMaTacGia.getText()));
-        b.setMaTacGia(tacgia);
-        TheLoai theloai = theloaiDAO.findTheLoaiById(Integer.parseInt(textMaTheLoai.getText()));
-        b.setMaTheLoai(theloai);
-        b.setSoLuong(Integer.parseInt(textSoLuong.getText()));
-        b.setNamXB(Integer.parseInt(textNamXB.getText()));
+        b.setBookId(Integer.parseInt(textMaSach.getText()));
+        b.setNameBook(textTenSach.getText());
+        b.setDescription(textMaNXB.getText());
+        b.setWriting(textMaTacGia.getText());
+        b.setType(textMaTheLoai.getText());
+        b.setQuantity(Integer.parseInt(textSoLuong.getText()));
+        b.setYearRelease(Integer.parseInt(textNamXB.getText()));
         return b;
     }
 
     public void setModel(Sach b)
     {
-        textMaSach.setText(String.valueOf(b.getMaSach()));
-        textTenSach.setText(b.getTenSach());
-//        textMaNXB.setText(b.getMaNXB().getTenNXB());
-        textNamXB.setText(String.valueOf(b.getNamXB()));
-        textSoLuong.setText(String.valueOf(b.getSoLuong()));
-        textMaTacGia.setText(b.getMaTacGia().getTenTacGia());
-        textMaTheLoai.setText(b.getMaTheLoai().getTenTheLoai());
+        textMaSach.setText(String.valueOf(b.getBookId()));
+        textTenSach.setText(b.getNameBook());
+        textMaNXB.setText(b.getDescription());
+        textNamXB.setText(String.valueOf(b.getYearRelease()));
+        textSoLuong.setText(String.valueOf(b.getQuantity()));
+        textMaTacGia.setText(b.getWriting());
+        textMaTheLoai.setText(b.getType());
     }
     private void btn_FindMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_FindMouseClicked
         idSach = Integer.parseInt(text_Find.getText());
@@ -456,6 +431,14 @@ public class BookManagementPanel extends javax.swing.JPanel
         resetDataTable();
         fillDataTable();
     }//GEN-LAST:event_btn_AllMouseClicked
+
+    private void btn_AllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AllActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AllActionPerformed
+
+    private void btn_FindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FindActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_FindActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
