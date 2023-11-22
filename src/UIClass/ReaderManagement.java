@@ -2,10 +2,13 @@
 package UIClass;
 
 import databaseClass.Sach;
+import event.TableActionEvent;
 import javax.swing.BoxLayout;
+import javax.swing.table.DefaultTableModel;
 import swing.BookItem;
 import swing.ScrollBarCustom;
 import swing.BookTableActionCellRenderer;
+import swing.TableActionCellEditor;
 
 public class ReaderManagement extends javax.swing.JPanel
 {
@@ -16,7 +19,30 @@ public class ReaderManagement extends javax.swing.JPanel
     }
     private void init()
     {
+        TableActionEvent event = new TableActionEvent()
+        {
+            @Override
+            public void onEdit(int row)
+            {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+
+            @Override
+            public void onDelete(int row)
+            {
+                DefaultTableModel model = (DefaultTableModel)Table.getModel();
+                model.removeRow(row);
+                //thieu remove data trong database
+            }
+
+            @Override
+            public void onView(int row)
+            {
+                
+            }
+        };
         Table.getColumnModel().getColumn(6).setCellRenderer(new BookTableActionCellRenderer());
+        Table.getColumnModel().getColumn(6).setCellEditor(new TableActionCellEditor(event));
     }
     
     @SuppressWarnings("unchecked")
@@ -45,7 +71,7 @@ public class ReaderManagement extends javax.swing.JPanel
         {
             boolean[] canEdit = new boolean []
             {
-                false, false, false, false, false, true, false
+                false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex)

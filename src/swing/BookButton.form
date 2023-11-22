@@ -49,9 +49,6 @@
           <Image iconType="3" name="/Icon/delete.png"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemDeleteActionPerformed"/>
-      </Events>
     </Component>
     <Component class="swing.ActionButton" name="ItemEdit">
       <Properties>
@@ -59,9 +56,6 @@
           <Image iconType="3" name="/Icon/edit.png"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemEditActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

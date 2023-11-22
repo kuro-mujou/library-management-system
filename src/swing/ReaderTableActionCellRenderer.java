@@ -1,6 +1,7 @@
 
 package swing;
 
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -13,6 +14,14 @@ public class ReaderTableActionCellRenderer extends DefaultTableCellRenderer
         
         Component com = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         ReaderButton readerButton = new ReaderButton();
+        if(isSelected == false && row % 2 == 0)
+        {
+            readerButton.setBackground(Color.WHITE);
+        }
+        else
+        {
+            readerButton.setBackground(com.getBackground());
+        }
         return readerButton;
     }
     

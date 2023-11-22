@@ -1,6 +1,10 @@
 
 package swing;
 
+import event.TableActionEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class ReaderButton extends javax.swing.JPanel
 {
 
@@ -8,7 +12,33 @@ public class ReaderButton extends javax.swing.JPanel
     {
         initComponents();
     }
-
+    public void initEvent(TableActionEvent event, int row)
+    {
+        ItemEdit.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                event.onEdit(row);
+            }
+        
+        });
+        ItemDelete.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                event.onDelete(row);
+            }
+        
+        });
+        ItemDetail.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                event.onView(row);
+            }
+        
+        });
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()

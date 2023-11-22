@@ -45,8 +45,8 @@
                 <Column editable="false" title="Title 3" type="java.lang.Object"/>
                 <Column editable="false" title="Title 4" type="java.lang.Object"/>
                 <Column editable="false" title="null" type="java.lang.Object"/>
-                <Column editable="true" title="null" type="java.lang.Object"/>
-                <Column editable="false" title="Action" type="java.lang.Object"/>
+                <Column editable="false" title="null" type="java.lang.Object"/>
+                <Column editable="true" title="Action" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

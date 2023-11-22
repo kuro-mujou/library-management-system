@@ -1,6 +1,10 @@
 
 package swing;
 
+import event.TableActionEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class BookButton extends javax.swing.JPanel
 {
 
@@ -8,7 +12,33 @@ public class BookButton extends javax.swing.JPanel
     {
         initComponents();
     }
-
+    public void initEvent(TableActionEvent event, int row)
+    {
+        ItemEdit.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                event.onEdit(row);
+            }
+        
+        });
+        ItemDelete.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                event.onDelete(row);
+            }
+        
+        });
+        ItemDetail.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                event.onView(row);
+            }
+        
+        });
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
@@ -21,22 +51,8 @@ public class BookButton extends javax.swing.JPanel
         ItemDetail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/menuIcon.png"))); // NOI18N
 
         ItemDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/delete.png"))); // NOI18N
-        ItemDelete.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                ItemDeleteActionPerformed(evt);
-            }
-        });
 
         ItemEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/edit.png"))); // NOI18N
-        ItemEdit.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                ItemEditActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,16 +74,6 @@ public class BookButton extends javax.swing.JPanel
             .addComponent(ItemDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ItemDeleteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ItemDeleteActionPerformed
-    {//GEN-HEADEREND:event_ItemDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ItemDeleteActionPerformed
-
-    private void ItemEditActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ItemEditActionPerformed
-    {//GEN-HEADEREND:event_ItemEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ItemEditActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
