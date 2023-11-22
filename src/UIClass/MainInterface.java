@@ -11,9 +11,9 @@ public class MainInterface extends javax.swing.JFrame
 {
     private String CurrentPanel;
     private String PreviousPanel;
-
+    
     private AboutUsPanel aboutUsPanel = new AboutUsPanel(this);
-    private HomePanel homePanel = new HomePanel(this);
+    
     private MainPanel mainPanel = new MainPanel(this);
     private SettingPanel settingPanel = new SettingPanel(this);
 
@@ -30,7 +30,7 @@ public class MainInterface extends javax.swing.JFrame
     {
         CurrentPanel = ContentPanel.getComponent(0).getClass().getName();
         PreviousPanel = ContentPanel.getComponent(0).getClass().getName();
-        if (CurrentPanel == "UIClass.MainPanel" || CurrentPanel == "UIClass.HomePanel")
+        if (CurrentPanel == "UIClass.MainPanel")
         {
             BackButton.setVisible(false);
         } else
@@ -45,14 +45,6 @@ public class MainInterface extends javax.swing.JFrame
         {
             ContentPanel.removeAll();
             ContentPanel.add(mainPanel);
-            LoadChange();
-            ContentPanel.validate();
-            ContentPanel.repaint();
-        } else if (CurrentPanel == "UIClass.BookManagementPanel" || CurrentPanel == "UIClass.BorrowManagementPanel" || CurrentPanel == "UIClass.ReaderManagementPanel" || CurrentPanel == "UIClass.ReturnManagementPanel")
-        {
-            ContentPanel.removeAll();
-            ContentPanel.add(homePanel);
-            BackGround.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/main_background.png")));
             LoadChange();
             ContentPanel.validate();
             ContentPanel.repaint();

@@ -2,11 +2,12 @@ package UIClass;
 
 import event.EventMenuSelected;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class DashboardTest extends javax.swing.JFrame
+public class MainDashboard extends javax.swing.JFrame
 {
     Transaction transaction = new Transaction();
     ReaderManagement readerManagement = new ReaderManagement();
@@ -14,7 +15,7 @@ public class DashboardTest extends javax.swing.JFrame
     TransactionManagement transactionManagement = new TransactionManagement();
     Setting setting = new Setting();
 
-    public DashboardTest()
+    public MainDashboard()
     {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
@@ -23,6 +24,8 @@ public class DashboardTest extends javax.swing.JFrame
 
     private void init()
     {
+        ImageIcon icon = new ImageIcon("src/Image/StackOfBooksIcon.png");
+        setIconImage(icon.getImage());
         winButton1.initEvent(this, background1);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         Menu.addEventMenuSelect(new EventMenuSelected()
@@ -143,16 +146,6 @@ public class DashboardTest extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void main(String args[])
-    {
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                new DashboardTest().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HeaderPanel;

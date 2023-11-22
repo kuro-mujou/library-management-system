@@ -1,6 +1,6 @@
-
 package UIClass;
 
+import UIComponent.ReaderDetail;
 import databaseClass.Sach;
 import event.TableActionEvent;
 import javax.swing.BoxLayout;
@@ -17,6 +17,7 @@ public class ReaderManagement extends javax.swing.JPanel
         initComponents();
         init();
     }
+
     private void init()
     {
         TableActionEvent event = new TableActionEvent()
@@ -24,13 +25,19 @@ public class ReaderManagement extends javax.swing.JPanel
             @Override
             public void onEdit(int row)
             {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                //code ham edit table row
+                //them data vao new bookdetail(data go here)
+                new ReaderDetail(true).setVisible(true);
             }
 
             @Override
             public void onDelete(int row)
             {
-                DefaultTableModel model = (DefaultTableModel)Table.getModel();
+                if (Table.isEditing())
+                {
+                    Table.getCellEditor().stopCellEditing();
+                }
+                DefaultTableModel model = (DefaultTableModel) Table.getModel();
                 model.removeRow(row);
                 //thieu remove data trong database
             }
@@ -38,13 +45,15 @@ public class ReaderManagement extends javax.swing.JPanel
             @Override
             public void onView(int row)
             {
-                
+                //hien thi chi tiet thong tin sach
+                //them data vao new bookdetail(data go here)
+                new ReaderDetail(false).setVisible(true);
             }
         };
         Table.getColumnModel().getColumn(6).setCellRenderer(new BookTableActionCellRenderer());
         Table.getColumnModel().getColumn(6).setCellEditor(new TableActionCellEditor(event));
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()

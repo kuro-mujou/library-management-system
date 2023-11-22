@@ -85,13 +85,9 @@ public class LoginPanel extends JPanel
 
     private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
         //check login info ( missing )
-        HomePanel home = new HomePanel(main);
-        JPanel p = main.getPanel();
-        p.removeAll();
-        p.add(home);
-        main.LoadChange();
-        p.validate();
-        p.repaint();
+        main.dispose();
+        MainDashboard mainDashboard = new MainDashboard();
+        mainDashboard.setVisible(true);
     }//GEN-LAST:event_loginBtnMouseClicked
 
 
