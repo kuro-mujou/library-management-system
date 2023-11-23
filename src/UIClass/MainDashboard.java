@@ -5,15 +5,14 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class MainDashboard extends javax.swing.JFrame
 {
     Transaction transaction = new Transaction();
     ReaderManagement readerManagement = new ReaderManagement();
     BookManagement bookManagement = new BookManagement();
-    TransactionManagement transactionManagement = new TransactionManagement();
-    Setting setting = new Setting();
+    TransactionHistory transactionManagement = new TransactionHistory();
+    Setting setting = new Setting(this);
 
     public MainDashboard()
     {

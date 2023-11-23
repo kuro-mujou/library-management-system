@@ -1,14 +1,14 @@
 package UIClass;
 
-import UIComponent.ReaderDetail;
+import UIComponent.TransactionDetail;
 import event.TableActionEvent;
 import javax.swing.table.DefaultTableModel;
 import swing.ThreeFunctionActionCellRenderer;
 import swing.TableActionCellEditor;
 
-public class ReaderManagement extends javax.swing.JPanel
+public class TransactionHistory extends javax.swing.JPanel
 {
-    public ReaderManagement()
+    public TransactionHistory()
     {
         initComponents();
         init();
@@ -22,8 +22,8 @@ public class ReaderManagement extends javax.swing.JPanel
             public void onEdit(int row)
             {
                 //code ham edit table row
-                //them data vao new bookdetail(data go here)
-                new ReaderDetail(true).setVisible(true);
+                //them data vao new TransactionDetail(data go here)
+                new TransactionDetail(true).setVisible(true);
             }
 
             @Override
@@ -41,9 +41,9 @@ public class ReaderManagement extends javax.swing.JPanel
             @Override
             public void onView(int row)
             {
-                //hien thi chi tiet thong tin sach
-                //them data vao new bookdetail(data go here)
-                new ReaderDetail(false).setVisible(true);
+                //hien thi chi tiet thong tin
+                //them data vao new TransactionDetail(data go here)
+                new TransactionDetail(false).setVisible(true);
             }
         };
         Table.getColumnModel().getColumn(6).setCellRenderer(new ThreeFunctionActionCellRenderer());
@@ -57,7 +57,6 @@ public class ReaderManagement extends javax.swing.JPanel
 
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
-        AddTableItem = new swing.Button();
         SearchTable = new swing.Button();
         textField1 = new swing.TextField();
         jLabel1 = new javax.swing.JLabel();
@@ -92,17 +91,6 @@ public class ReaderManagement extends javax.swing.JPanel
         Table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(Table);
 
-        AddTableItem.setText("ADD NEW READER");
-        AddTableItem.setColor(new java.awt.Color(255, 204, 0));
-        AddTableItem.setRadius(15);
-        AddTableItem.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                AddTableItemActionPerformed(evt);
-            }
-        });
-
         SearchTable.setText("Search");
         SearchTable.setColor(new java.awt.Color(255, 204, 0));
         SearchTable.setRadius(15);
@@ -123,11 +111,7 @@ public class ReaderManagement extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textField1, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
@@ -136,23 +120,15 @@ public class ReaderManagement extends javax.swing.JPanel
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(textField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(SearchTable, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AddTableItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddTableItemActionPerformed
-    {//GEN-HEADEREND:event_AddTableItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddTableItemActionPerformed
 
     private void SearchTableActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SearchTableActionPerformed
     {//GEN-HEADEREND:event_SearchTableActionPerformed
@@ -161,7 +137,6 @@ public class ReaderManagement extends javax.swing.JPanel
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private swing.Button AddTableItem;
     private swing.Button SearchTable;
     private javax.swing.JTable Table;
     private javax.swing.JLabel jLabel1;

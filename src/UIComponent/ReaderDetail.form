@@ -273,6 +273,9 @@
               <Color blue="0" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Confirm"/>
+            <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="radius" type="int" value="20"/>
           </Properties>
           <Events>

@@ -1,44 +1,48 @@
-
 package swing;
 
 import event.TableActionEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BookButton extends javax.swing.JPanel
+public class ThreeFunctionButton extends javax.swing.JPanel
 {
 
-    public BookButton()
+    public ThreeFunctionButton()
     {
         initComponents();
     }
+
     public void initEvent(TableActionEvent event, int row)
     {
-        ItemEdit.addActionListener(new ActionListener(){
+        ItemEdit.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 event.onEdit(row);
             }
-        
+
         });
-        ItemDelete.addActionListener(new ActionListener(){
+        ItemDelete.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 event.onDelete(row);
             }
-        
+
         });
-        ItemDetail.addActionListener(new ActionListener(){
+        ItemDetail.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 event.onView(row);
             }
-        
+
         });
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()

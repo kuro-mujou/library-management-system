@@ -8,12 +8,12 @@ public class BookDetail extends javax.swing.JFrame
     {
         this.isEditRequest = request;
         initComponents();
-        //them data vao new initBookData(data go here)
-        initBookData();
+        //them data vao new initData(data go here)
+        initData();
         initUI();
     }
     //them data vao new initBookData(data go here)
-    private void initBookData()
+    private void initData()
     {
         //code hien thi thong tin sach o day:
 //        textMaSach.setText();
@@ -114,6 +114,7 @@ public class BookDetail extends javax.swing.JFrame
 
         button1.setBackground(new java.awt.Color(204, 204, 0));
         button1.setText("Confirm");
+        button1.setColor(new java.awt.Color(204, 204, 0));
         button1.setRadius(20);
         button1.addActionListener(new java.awt.event.ActionListener()
         {

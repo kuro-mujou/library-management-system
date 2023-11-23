@@ -1,6 +1,7 @@
 package UIClass;
 
 import javax.swing.JPanel;
+import login.IPasswords;
 
 public class MainPanel extends JPanel
 {
@@ -17,7 +18,7 @@ public class MainPanel extends JPanel
     {
         main.getBackButton().setVisible(true);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -74,7 +75,8 @@ public class MainPanel extends JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        LoginPanel login = new LoginPanel(main);
+        IPasswords passwords = new IPasswords();
+        LoginPanel login = new LoginPanel(main,passwords.getLoginInfo());
         JPanel p = main.getPanel();
 //        initcustom();
         p.removeAll();

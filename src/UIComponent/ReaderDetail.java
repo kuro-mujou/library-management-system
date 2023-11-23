@@ -8,12 +8,12 @@ public class ReaderDetail extends javax.swing.JFrame
     {
         this.isEditRequest = request;
         initComponents();
-        //them data vao new initBookData(data go here)
-        initBookData();
+        //them data vao new initData(data go here)
+        initData();
         initUI();
     }
     //them data vao new initBookData(data go here)
-    private void initBookData()
+    private void initData()
     {
         //code hien thi thong tin sach o day:
         //them truong du lieu vao di luoi sua qua :)
@@ -127,6 +127,7 @@ public class ReaderDetail extends javax.swing.JFrame
 
         button1.setBackground(new java.awt.Color(204, 204, 0));
         button1.setText("Confirm");
+        button1.setColor(new java.awt.Color(204, 204, 0));
         button1.setRadius(20);
         button1.addActionListener(new java.awt.event.ActionListener()
         {
@@ -333,15 +334,7 @@ public class ReaderDetail extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button button1;
-    private swing.Button button2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -355,17 +348,12 @@ public class ReaderDetail extends javax.swing.JFrame
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField textAddress;
     private javax.swing.JTextField textBorrowDay;
     private javax.swing.JTextField textGender;
-    private javax.swing.JTextField textGhiChu1;
     private javax.swing.JTextField textGmail;
-    private javax.swing.JTextField textMaSach1;
-    private javax.swing.JTextField textNamXuatBan1;
     private javax.swing.JTextField textPhoneNumber;
     private javax.swing.JTextField textReaderAge;
     private javax.swing.JTextField textReaderID;
@@ -373,10 +361,6 @@ public class ReaderDetail extends javax.swing.JFrame
     private javax.swing.JTextField textReturnDay;
     private javax.swing.JTextField textReturnStatus;
     private javax.swing.JTextField textSoLuong;
-    private javax.swing.JTextField textSoLuong1;
-    private javax.swing.JTextField textTacGia1;
     private javax.swing.JTextField textTenSach;
-    private javax.swing.JTextField textTenSach1;
-    private javax.swing.JTextField textTheLoai1;
     // End of variables declaration//GEN-END:variables
 }

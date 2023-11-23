@@ -1,6 +1,7 @@
 package swing;
 
 import event.TableActionEvent;
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
@@ -19,9 +20,8 @@ public class TableActionCellEditor extends DefaultCellEditor
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
     {
-        BookButton button = new BookButton();
-        button.initEvent(event, row);
-        button.setBackground(table.getSelectionBackground());
-        return button;
+        ThreeFunctionButton bookButton = new ThreeFunctionButton();
+        bookButton.initEvent(event, row);
+        return bookButton;
     }
 }
