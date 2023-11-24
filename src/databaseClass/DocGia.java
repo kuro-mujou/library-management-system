@@ -8,25 +8,28 @@ public class DocGia
     private String email;
     private String adrress;
     private String gender;
+    private int age;
 
     public DocGia() {
     }
 
-    public DocGia(int userID, String name, String phone, String email, String adrress, String gender) {
+    public DocGia(int userID, String name, String phone, String email, String adrress, String gender, int age) {
         this.userID = userID;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.adrress = adrress;
         this.gender = gender;
+        this.age = age;
     }
 
-    public DocGia(String name, String phone, String email, String adrress, String gender) {
+    public DocGia(String name, String phone, String email, String adrress, String gender, int age) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.adrress = adrress;
         this.gender = gender;
+        this.age = age;
     }
 
     public int getUserID() {
@@ -53,6 +56,10 @@ public class DocGia
         return gender;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public void setUserID(int userID) {
         this.userID = userID;
     }
@@ -76,5 +83,11 @@ public class DocGia
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+   
     
 }

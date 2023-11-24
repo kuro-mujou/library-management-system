@@ -184,7 +184,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Poppins" size="20" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Publication year"/>
+            <Property name="text" type="java.lang.String" value="NamXB"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textNamXuatBan">
@@ -200,7 +200,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Poppins" size="20" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Book Title"/>
+            <Property name="text" type="java.lang.String" value="TenSach"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -208,7 +208,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Poppins" size="20" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Quantity"/>
+            <Property name="text" type="java.lang.String" value="TheLoai"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -216,7 +216,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Poppins" size="20" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Author"/>
+            <Property name="text" type="java.lang.String" value="SoLuong"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textSoLuong">
@@ -240,7 +240,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Poppins" size="20" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Category"/>
+            <Property name="text" type="java.lang.String" value="TacGia"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -271,6 +271,7 @@
             <Property name="radius" type="int" value="20"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button1MouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
           </Events>
         </Component>

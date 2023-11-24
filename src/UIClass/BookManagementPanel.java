@@ -432,13 +432,13 @@ public class BookManagementPanel extends javax.swing.JPanel
 
     private void btn_DeleteMouseClicked(java.awt.event.MouseEvent evt)
     {//GEN-FIRST:event_btn_DeleteMouseClicked
-        Sach sach = getModel();
-        if (sachDAO.delete(sach) > 0)
-        {
-            System.out.println("xoa thanh cong");
-            fillDataTable();
-            resetForm();
-        }
+//        Sach sach = getModel();
+//        if (sachDAO.delete(sach) > 0)
+//        {
+//            System.out.println("xoa thanh cong");
+//            fillDataTable();
+//            resetForm();
+//        }
     }//GEN-LAST:event_btn_DeleteMouseClicked
 
     private void btn_UpdateMouseClicked(java.awt.event.MouseEvent evt)

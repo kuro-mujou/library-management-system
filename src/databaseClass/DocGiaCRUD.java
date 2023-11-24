@@ -19,8 +19,8 @@ public class DocGiaCRUD
     {
         try
         {
-            String sSQL = "insert into dbo.Users(userID,name,phone,address,email,gender)\n" +
-                          "values (?,?,?,?,?,?);";
+            String sSQL = "insert into dbo.Users(userID,name,phone,address,email,gender,age)\n" +
+                          "values (?,?,?,?,?,?,?);";
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
@@ -30,6 +30,7 @@ public class DocGiaCRUD
             sttm.setString(4, user.getAdrress());
             sttm.setString(5, user.getEmail());
             sttm.setString(6, user.getGender());
+            sttm.setInt(7, user.getAge());
             if (sttm.executeUpdate() > 0)
             {
                
@@ -47,7 +48,7 @@ public class DocGiaCRUD
         try
         {
             String sSQL = "update dbo.Users \n" +
-            "set name=?,phone=?,address=?,email=?,gender=?\n" +
+            "set name=?,phone=?,address=?,email=?,gender=?,age=?\n" +
              "where userID,=?";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
@@ -57,6 +58,7 @@ public class DocGiaCRUD
             sttm.setString(4, user.getAdrress());
             sttm.setString(5, user.getEmail());
             sttm.setString(6, user.getGender());
+            sttm.setInt(7, user.getAge());
             if (sttm.executeUpdate() > 0)
             {
             
@@ -69,15 +71,15 @@ public class DocGiaCRUD
         return -1;
     }
 
-    public int delete(DocGia user)
+    public int delete(int userid)
     {
         try
         {
-            String sSQL = "delete book where bookid=? ";
+            String sSQL = "delete Users where userID="+userid;
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
-            sttm.setInt(1, user.getUserID());
+           
 
             if (sttm.executeUpdate() > 0)
             {
@@ -99,7 +101,7 @@ public class DocGiaCRUD
         try
         {
      
-            String sSQL = "select userID,name,phone,address,email,gender from Users ";
+            String sSQL = "select userID,name,phone,address,email,gender,age from Users ";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);
@@ -112,7 +114,7 @@ public class DocGiaCRUD
                 user.setAdrress(rs.getString(4));
                 user.setEmail(rs.getString(5));
                 user.setGender(rs.getString(6));
-                
+                user.setAge(rs.getInt(7));
                 ls.add(user);
 
             }
@@ -133,13 +135,13 @@ public class DocGiaCRUD
         return ls;
     }
 
-    public DocGia findSachById(String UserID)
+    public DocGia findSachById(int UserID)
     {
         ResultSet rs = null;
         Statement sttm = null;
         try
         {
-            String sSQL = "select userID,name,phone,address,email,gender from Users where userID=" + UserID;
+            String sSQL = "select userID,name,phone,address,email,gender,age from Users where userID=" + UserID;
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
@@ -153,6 +155,7 @@ public class DocGiaCRUD
                 user.setAdrress(rs.getString(4));
                 user.setEmail(rs.getString(5));
                 user.setGender(rs.getString(6));
+                user.setAge(rs.getInt(7));
                 return user;
             }
 

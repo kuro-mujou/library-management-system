@@ -1,14 +1,18 @@
 package UIComponent;
 
+import databaseClass.DocGiaCRUD;
+import databaseClass.DocGia;
+
 public class ReaderDetail extends javax.swing.JFrame
 {
+    DocGiaCRUD docgiaDAO = new DocGiaCRUD();
+    int idUser = -1;
     private boolean isEditRequest;
     private boolean isAdding;
     //them data vao new bookdetail(data go here)
-    public ReaderDetail(boolean request,boolean isAdding)
+    public ReaderDetail(boolean request)
     {
         this.isEditRequest = request;
-        this.isAdding = isAdding;
         initComponents();
         //them data vao new initData(data go here)
         initData();
@@ -29,39 +33,38 @@ public class ReaderDetail extends javax.swing.JFrame
     }
     private void initUI()
     {
-        button1.setVisible(isEditRequest);
-        textReaderID.setEditable(isEditRequest);
-        textReaderName.setEditable(isEditRequest);
-        textReaderAge.setEditable(isEditRequest);
-        textGender.setEditable(isEditRequest);
-        textPhoneNumber.setEditable(isEditRequest);
-        textAddress.setEditable(isEditRequest);
-        textGmail.setEditable(isEditRequest);
-        jPanel3.setVisible(isAdding);
-        revalidate();
-        repaint();
+//        button1.setVisible(isEditRequest);
+//        textReaderID.setEditable(isEditRequest);
+//        textReaderName.setEditable(isEditRequest);
+//        textReaderAge.setEditable(isEditRequest);
+//        textGender.setEditable(isEditRequest);
+//        textPhoneNumber.setEditable(isEditRequest);
+//        textAddress.setEditable(isEditRequest);
+//        textGmail.setEditable(isEditRequest);
+//        jPanel3.setVisible(isAdding);
+//        revalidate();
+//        repaint();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         textReaderName = new javax.swing.JTextField();
-        textReaderAge = new javax.swing.JTextField();
+        textPhone = new javax.swing.JTextField();
         textReaderID = new javax.swing.JTextField();
-        textGender = new javax.swing.JTextField();
+        textAddresss = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        textAddress = new javax.swing.JTextField();
+        textGender = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        textPhoneNumber = new javax.swing.JTextField();
+        textEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        textGmail = new javax.swing.JTextField();
+        textAge = new javax.swing.JTextField();
         button1 = new swing.Button();
         jPanel3 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -90,56 +93,55 @@ public class ReaderDetail extends javax.swing.JFrame
         textReaderName.setEditable(false);
         textReaderName.setBorder(null);
 
-        textReaderAge.setEditable(false);
-        textReaderAge.setBorder(null);
+        textPhone.setEditable(false);
+        textPhone.setBorder(null);
 
         textReaderID.setEditable(false);
         textReaderID.setBorder(null);
 
-        textGender.setEditable(false);
-        textGender.setBorder(null);
+        textAddresss.setEditable(false);
+        textAddresss.setBorder(null);
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel6.setText("Address");
+        jLabel6.setText("GioiTinh");
+        jLabel6.setToolTipText("");
 
-        textAddress.setEditable(false);
-        textAddress.setBorder(null);
+        textGender.setEditable(false);
+        textGender.setBorder(null);
+        textGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textGenderActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel3.setText("Reader name");
+        jLabel3.setText("Ten");
 
         jLabel5.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel5.setText("Phone Number");
+        jLabel5.setText("Email");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel7.setText("Gender");
+        jLabel7.setText("DiaChi");
 
-        textPhoneNumber.setEditable(false);
-        textPhoneNumber.setBorder(null);
+        textEmail.setEditable(false);
+        textEmail.setBorder(null);
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel2.setText("ID");
+        jLabel2.setText("ReaderID");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel4.setText("Age");
+        jLabel4.setText("DienThoai");
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel8.setText("Gmail");
+        jLabel8.setText("Age");
 
-        textGmail.setEditable(false);
-        textGmail.setBorder(null);
+        textAge.setEditable(false);
+        textAge.setBorder(null);
 
         button1.setBackground(new java.awt.Color(204, 204, 0));
         button1.setText("Confirm");
         button1.setColor(new java.awt.Color(204, 204, 0));
         button1.setRadius(20);
-        button1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                button1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -159,17 +161,17 @@ public class ReaderDetail extends javax.swing.JFrame
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textGender, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textReaderAge, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textAddresss, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textPhone, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textReaderName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textReaderID)
-                            .addComponent(textAddress)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+                            .addComponent(textGender)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textGmail))
+                        .addComponent(textAge))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -190,23 +192,23 @@ public class ReaderDetail extends javax.swing.JFrame
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textReaderAge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textGender, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textAddresss, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textGender, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textGmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textAge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,7 +273,7 @@ public class ReaderDetail extends javax.swing.JFrame
                             .addComponent(textReturnStatus, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textTenSach, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textBorrowDay)))
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -311,14 +313,43 @@ public class ReaderDetail extends javax.swing.JFrame
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+public DocGia getModel() {
+        DocGia b = new DocGia();
+        b.setUserID(Integer.parseInt(textReaderID.getText()));
+        b.setName(textReaderName.getText());
+        b.setPhone(textPhone.getText());
+        b.setEmail(textEmail.getText());
+        b.setAdrress(textAddresss.getText());
+        b.setGender(textGender.getText());
+        b.setAge(Integer.parseInt(textAge.getText()));
+        return b;
+    }
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_button1ActionPerformed
-    {//GEN-HEADEREND:event_button1ActionPerformed
-        /*
-            bam nut confirm thi getText o tat ca text field xong roi update vao database
-        */
-        this.dispose();
-    }//GEN-LAST:event_button1ActionPerformed
+    public DocGia getModelId() {
+        DocGia b = new DocGia();
+        b.setUserID(Integer.parseInt(textReaderID.getText()));
+        b.setName(textReaderName.getText());
+        b.setPhone(textPhone.getText());
+        b.setEmail(textEmail.getText());
+        b.setAdrress(textAddresss.getText());
+        b.setGender(textGender.getText());
+        b.setAge(Integer.parseInt(textAge.getText()));
+        return b;
+    }
+
+    public void setModel(DocGia b) {
+        textReaderID.setText(String.valueOf(b.getUserID()));
+        textReaderName.setText(b.getName());
+        textPhone.setText(b.getPhone());
+        textEmail.setText(b.getEmail());
+        textAge.setText(String.valueOf(b.getAge()));
+        textGender.setText(b.getGender());
+        textAddresss.setText(b.getAdrress());
+    }
+    
+    private void textGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textGenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textGenderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button button1;
@@ -338,12 +369,12 @@ public class ReaderDetail extends javax.swing.JFrame
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField textAddress;
+    private javax.swing.JTextField textAddresss;
+    private javax.swing.JTextField textAge;
     private javax.swing.JTextField textBorrowDay;
+    private javax.swing.JTextField textEmail;
     private javax.swing.JTextField textGender;
-    private javax.swing.JTextField textGmail;
-    private javax.swing.JTextField textPhoneNumber;
-    private javax.swing.JTextField textReaderAge;
+    private javax.swing.JTextField textPhone;
     private javax.swing.JTextField textReaderID;
     private javax.swing.JTextField textReaderName;
     private javax.swing.JTextField textReturnDay;

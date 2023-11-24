@@ -19,6 +19,7 @@ create table Users(
 	address nvarchar(255),
 	email nvarchar(255),
 	gender nvarchar(255) ,
+	age int
 )
 
 create table transactions(
@@ -47,3 +48,17 @@ create table librarian(
 	password nvarchar(255),
 	gender nvarchar(255) 
  )
+
+ -- 
+ insert into Users(userID,name,phone,address,email,gender,age)
+ values ('1','name1','phone1','address1','email1','gioitinh1',1)
+  insert into Users(userID,name,phone,address,email,gender,age)
+ values ('2','name2','phone2','address2','email2','gioitinh2',2)
+  insert into Users(userID,name,phone,address,email,gender,age)
+ values ('3','name3','phone3','address3','email3','gioitinh3',3)
+  insert into Users(userID,name,phone,address,email,gender,age)
+ values ('4','name4','phone4','address4','email4','gioitinh4',4)
+  insert into Users(userID,name,phone,address,email,gender,age)
+ values ('5','name5','phone5','address5','email5','gioitinh5',5)
+  insert into Users(userID,name,phone,address,email,gender,age)
+ values ('6','name6','phone6','address6','email6','gioitinh6',6)

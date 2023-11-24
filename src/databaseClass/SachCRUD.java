@@ -17,6 +17,9 @@ public class SachCRUD
     Connection conn = null;
     PreparedStatement sttm = null;
 
+    public SachCRUD() {
+    }
+   
     public int add(Sach sach)
     {
         try
@@ -74,15 +77,14 @@ public class SachCRUD
         return -1;
     }
 
-    public int delete(Sach sach)
+    public int delete(int id)
     {
         try
         {
-            String sSQL = "delete book where bookid=? ";
+            String sSQL = "delete book where bookid= "+id;
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
-            sttm.setInt(1, sach.getBookId());
 
             if (sttm.executeUpdate() > 0)
             {

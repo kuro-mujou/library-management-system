@@ -114,10 +114,10 @@ public class LoginPanel extends JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
-        login();
-//        main.dispose();
-//        MainDashboard mainDashboard = new MainDashboard();
-//        mainDashboard.setVisible(true);
+//        login();
+        main.dispose();
+        MainDashboard mainDashboard = new MainDashboard();
+        mainDashboard.setVisible(true);
     }//GEN-LAST:event_loginBtnMouseClicked
 
 

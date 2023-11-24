@@ -28,7 +28,7 @@
           <Group type="102" alignment="1" attributes="0">
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="textField1" pref="823" max="32767" attributes="0"/>
+              <Component id="textFind" pref="823" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="SearchTable" min="-2" pref="91" max="-2" attributes="0"/>
           </Group>
@@ -38,7 +38,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="textField1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="textFind" alignment="0" pref="0" max="32767" attributes="0"/>
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   <Component id="SearchTable" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
@@ -62,18 +62,24 @@
         <Component class="javax.swing.JTable" name="Table">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="4">
+              <Table columnCount="8" rowCount="4">
                 <Column editable="false" title="ID" type="java.lang.Object"/>
-                <Column editable="false" title="Book name" type="java.lang.Object"/>
-                <Column editable="false" title="Title 3" type="java.lang.Object"/>
-                <Column editable="false" title="Title 4" type="java.lang.Object"/>
-                <Column editable="false" title="null" type="java.lang.Object"/>
-                <Column editable="false" title="null" type="java.lang.Object"/>
-                <Column editable="true" title="Action" type="java.lang.Object"/>
+                <Column editable="false" title="Ten" type="java.lang.Object"/>
+                <Column editable="false" title="DienThoai" type="java.lang.Object"/>
+                <Column editable="false" title="DiaChi" type="java.lang.Object"/>
+                <Column editable="false" title="Email" type="java.lang.Object"/>
+                <Column editable="false" title="GioiTinh" type="java.lang.Object"/>
+                <Column editable="true" title="Tuoi" type="java.lang.Object"/>
+                <Column editable="true" title="Title 8" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -143,7 +149,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchTableActionPerformed"/>
       </Events>
     </Component>
-    <Component class="swing.TextField" name="textField1">
+    <Component class="swing.TextField" name="textFind">
       <Properties>
         <Property name="labelText" type="java.lang.String" value="Search"/>
       </Properties>

@@ -1,20 +1,27 @@
 package UIComponent;
 
-public class BookDetail extends javax.swing.JFrame
-{
+import UIClass.BookManagement;
+import databaseClass.Sach;
+import databaseClass.SachCRUD;
+import javax.swing.table.DefaultTableModel;
+
+public class BookDetail extends javax.swing.JFrame {
+
+    SachCRUD sachDAO = new SachCRUD();
+    int idSach = -1;
     private boolean isEditRequest;
+
     //them data vao new bookdetail(data go here)
-    public BookDetail(boolean request)
-    {
+    public BookDetail(boolean request) {
         this.isEditRequest = request;
         initComponents();
         //them data vao new initData(data go here)
         initData();
         initUI();
     }
+
     //them data vao new initBookData(data go here)
-    private void initData()
-    {
+    private void initData() {
         //code hien thi thong tin sach o day:
 //        textMaSach.setText();
 //        textTenSach.setText();
@@ -24,8 +31,8 @@ public class BookDetail extends javax.swing.JFrame
 //        textNamXuatBan.setText();
 //        textGhiChu.setText();
     }
-    private void initUI()
-    {
+
+    private void initUI() {
         button1.setVisible(isEditRequest);
         textMaSach.setEditable(isEditRequest);
         textTenSach.setEditable(isEditRequest);
@@ -37,10 +44,10 @@ public class BookDetail extends javax.swing.JFrame
         revalidate();
         repaint();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -83,19 +90,19 @@ public class BookDetail extends javax.swing.JFrame
         textTacGia.setBorder(null);
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel6.setText("Publication year");
+        jLabel6.setText("NamXB");
 
         textNamXuatBan.setEditable(false);
         textNamXuatBan.setBorder(null);
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel3.setText("Book Title");
+        jLabel3.setText("TenSach");
 
         jLabel5.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel5.setText("Quantity");
+        jLabel5.setText("TheLoai");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel7.setText("Author");
+        jLabel7.setText("SoLuong");
 
         textSoLuong.setEditable(false);
         textSoLuong.setBorder(null);
@@ -104,7 +111,7 @@ public class BookDetail extends javax.swing.JFrame
         jLabel2.setText("Book ID");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
-        jLabel4.setText("Category");
+        jLabel4.setText("TacGia");
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel8.setText("Description");
@@ -116,10 +123,13 @@ public class BookDetail extends javax.swing.JFrame
         button1.setText("Confirm");
         button1.setColor(new java.awt.Color(204, 204, 0));
         button1.setRadius(20);
-        button1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        button1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button1MouseClicked(evt);
+            }
+        });
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button1ActionPerformed(evt);
             }
         });
@@ -213,14 +223,87 @@ public class BookDetail extends javax.swing.JFrame
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+  public Sach getModel() {
+        Sach b = new Sach();
+        b.setBookId(Integer.parseInt(textMaSach.getText()));
+        b.setNameBook(textTenSach.getText());
+        b.setDescription(textGhiChu.getText());
+        b.setWriting(textTacGia.getText());
+        b.setType(textTheLoai.getText());
+        b.setQuantity(Integer.parseInt(textSoLuong.getText()));
+        b.setYearRelease(Integer.parseInt(textNamXuatBan.getText()));
+        return b;
+    }
+    
+    public String gettest() {
+        return textGhiChu.getText();
+    }
+
+    public void settest() {
+        textGhiChu.setText("cmm");
+    }
+
+    public Sach getModelId() {
+        Sach b = new Sach();
+        b.setBookId(Integer.parseInt(textMaSach.getText()));
+        System.out.println("s" + b.getBookId());
+        b.setNameBook(textTenSach.getText());
+        b.setDescription(textGhiChu.getText());
+        b.setWriting(textTacGia.getText());
+        b.setType(textTheLoai.getText());
+        b.setQuantity(Integer.parseInt(textSoLuong.getText()));
+        b.setYearRelease(Integer.parseInt(textNamXuatBan.getText()));
+        return b;
+    }
+
+    public void setModel(Sach b) {
+        textMaSach.setText(String.valueOf(b.getBookId()));
+        textTenSach.setText(b.getNameBook());
+        textGhiChu.setText(b.getDescription());
+        textNamXuatBan.setText(String.valueOf(b.getYearRelease()));
+        textSoLuong.setText(String.valueOf(b.getQuantity()));
+        textTacGia.setText(b.getWriting());
+        textTheLoai.setText(b.getType());
+    }
+
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_button1ActionPerformed
     {//GEN-HEADEREND:event_button1ActionPerformed
+        try {
+            Sach sach = getModelId();
+            String baa = textMaSach.getText();
+            idSach = Integer.parseInt(baa);
+           
+            Sach sachtim = sachDAO.findSachById(idSach);
+            if (sachtim == null) {
+                
+                if (sachDAO.add(sach) > 0) {
+                    System.out.println("");
+            
+                }
+            } else {
+                
+                if (sachDAO.update(sach) > 0) {
+                     System.out.println("");
+                   
+//                 
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         /*
             bam nut confirm thi getText o tat ca text field xong roi update vao database
-        */
+         */
         this.dispose();
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
+        // TODO add your handling code here:
+         BookManagement b=new BookManagement();
+                    b.resetDataTable();
+    }//GEN-LAST:event_button1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button button1;
