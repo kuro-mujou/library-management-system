@@ -3,10 +3,12 @@ package UIComponent;
 public class ReaderDetail extends javax.swing.JFrame
 {
     private boolean isEditRequest;
+    private boolean isAdding;
     //them data vao new bookdetail(data go here)
-    public ReaderDetail(boolean request)
+    public ReaderDetail(boolean request,boolean isAdding)
     {
         this.isEditRequest = request;
+        this.isAdding = isAdding;
         initComponents();
         //them data vao new initData(data go here)
         initData();
@@ -35,6 +37,7 @@ public class ReaderDetail extends javax.swing.JFrame
         textPhoneNumber.setEditable(isEditRequest);
         textAddress.setEditable(isEditRequest);
         textGmail.setEditable(isEditRequest);
+        jPanel3.setVisible(isAdding);
         revalidate();
         repaint();
     }
@@ -75,6 +78,7 @@ public class ReaderDetail extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -161,7 +165,7 @@ public class ReaderDetail extends javax.swing.JFrame
                             .addComponent(textReaderName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textReaderID)
                             .addComponent(textAddress)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -208,6 +212,8 @@ public class ReaderDetail extends javax.swing.JFrame
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        getContentPane().add(jPanel1);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -265,7 +271,7 @@ public class ReaderDetail extends javax.swing.JFrame
                             .addComponent(textReturnStatus, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textTenSach, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textBorrowDay)))
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -300,25 +306,7 @@ public class ReaderDetail extends javax.swing.JFrame
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
-        );
+        getContentPane().add(jPanel3);
 
         pack();
         setLocationRelativeTo(null);

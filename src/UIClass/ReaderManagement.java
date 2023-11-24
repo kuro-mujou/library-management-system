@@ -23,7 +23,7 @@ public class ReaderManagement extends javax.swing.JPanel
             {
                 //code ham edit table row
                 //them data vao new bookdetail(data go here)
-                new ReaderDetail(true).setVisible(true);
+                new ReaderDetail(true,true).setVisible(true);
             }
 
             @Override
@@ -43,7 +43,7 @@ public class ReaderManagement extends javax.swing.JPanel
             {
                 //hien thi chi tiet thong tin sach
                 //them data vao new bookdetail(data go here)
-                new ReaderDetail(false).setVisible(true);
+                new ReaderDetail(false,true).setVisible(true);
             }
         };
         Table.getColumnModel().getColumn(6).setCellRenderer(new ThreeFunctionActionCellRenderer());
@@ -151,7 +151,7 @@ public class ReaderManagement extends javax.swing.JPanel
 
     private void AddTableItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddTableItemActionPerformed
     {//GEN-HEADEREND:event_AddTableItemActionPerformed
-        // TODO add your handling code here:
+        new ReaderDetail(true,false).setVisible(true);
     }//GEN-LAST:event_AddTableItemActionPerformed
 
     private void SearchTableActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SearchTableActionPerformed
