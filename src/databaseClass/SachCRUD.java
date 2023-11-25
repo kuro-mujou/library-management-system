@@ -189,4 +189,72 @@ public class SachCRUD
 ////        a.findSachById (1); done
 //            System.out.println(a.getAll());//done
 //    }
+public Sach findSachByName(String Name)
+    {
+        ResultSet rs = null;
+        Statement sttm = null;
+        try
+        {
+            String sSQL = "select top 1 bookid,nameBook,description,type,writing,quantity,yearRelease from book where nameBook= '" + Name + "'";
+
+            conn = DatabaseConnect.getDBConnect();
+            sttm = conn.createStatement();
+            rs = sttm.executeQuery(sSQL);
+            while (rs.next())
+            {
+                Sach sach = new Sach();
+                sach.setBookId(rs.getInt(1));
+                sach.setNameBook(rs.getString(2));
+                sach.setDescription(rs.getString(3));
+                sach.setType(rs.getString(4));
+                sach.setWriting(rs.getString(5));
+                sach.setQuantity(rs.getInt(6));
+                sach.setYearRelease(rs.getInt(7));
+                return sach;
+            }
+
+        } catch (Exception e)
+        {
+        } finally
+        {
+            try
+            {
+                rs.close();
+                sttm.close();
+                conn.close();
+            } catch (Exception e)
+            {
+            }
+        }
+        return null;
+  
+   }
+
+// Update Data for 
+ public int UpdateQuantity(int id, int quantity)
+    {
+        try
+        {
+            String sSQL = "update book set quantity = quantity - ?  where bookid = ?";
+            conn = DatabaseConnect.getDBConnect();
+            sttm = conn.prepareStatement(sSQL);
+            sttm.setInt(1, quantity);
+            sttm.setInt(2, id);
+         
+
+            if (sttm.executeUpdate() > 0)
+            {
+            
+                return 1;
+            }
+
+        } catch (Exception e)
+        {
+        }
+        return -1;
+    }
 }
+
+
+
+

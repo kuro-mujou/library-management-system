@@ -41,8 +41,7 @@ public class LoginPanel extends JPanel
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         UsernameTXT = new swing.TextField();
         jLabel1 = new javax.swing.JLabel();
@@ -53,6 +52,11 @@ public class LoginPanel extends JPanel
         setOpaque(false);
 
         UsernameTXT.setLabelText("Username / username@gmail.com");
+        UsernameTXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsernameTXTActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel1.setText("Username");
@@ -69,10 +73,8 @@ public class LoginPanel extends JPanel
         loginBtn.setColorClick(new java.awt.Color(94, 94, 94));
         loginBtn.setColorOver(new java.awt.Color(128, 128, 128));
         loginBtn.setFont(new java.awt.Font("Poppins SemiBold", 0, 24)); // NOI18N
-        loginBtn.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginBtnMouseClicked(evt);
             }
         });
@@ -119,6 +121,10 @@ public class LoginPanel extends JPanel
         MainDashboard mainDashboard = new MainDashboard();
         mainDashboard.setVisible(true);
     }//GEN-LAST:event_loginBtnMouseClicked
+
+    private void UsernameTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsernameTXTActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,5 +1,7 @@
 package UIComponent;
 
+import databaseClass.transactions;
+
 public class TransactionDetail extends javax.swing.JFrame
 {
     private boolean isEditRequest;
@@ -12,18 +14,18 @@ public class TransactionDetail extends javax.swing.JFrame
         initData();
         initUI();
     }
+    
+    public void setModel(transactions t){
+        TransactionID.setText(String.valueOf(t.getTransactionId()));
+       
+        
+    }
     //them data vao new initBookData(data go here)
-    private void initData()
+    public void initData()
     {
         //code hien thi thong tin sach o day:
         //them truong du lieu vao di luoi sua qua :)
-//        textMaSach.setText();
-//        textTenSach.setText();
-//        textTheLoai.setText();
-//        textTacGia.setText();
-//        textSoLuong.setText();
-//        textNamXuatBan.setText();
-//        textGhiChu.setText();
+        
     }
     private void initUI()
     {
@@ -35,8 +37,7 @@ public class TransactionDetail extends javax.swing.JFrame
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -56,7 +57,7 @@ public class TransactionDetail extends javax.swing.JFrame
         jLabel24 = new javax.swing.JLabel();
         textReturnDay = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        textReaderName1 = new javax.swing.JTextField();
+        TransactionID = new javax.swing.JTextField();
         button1 = new swing.Button();
         comboBoxSuggestion1 = new swing.ComboBoxSuggestion();
 
@@ -118,17 +119,15 @@ public class TransactionDetail extends javax.swing.JFrame
         jLabel9.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel9.setText("Transaction ID");
 
-        textReaderName1.setEditable(false);
-        textReaderName1.setBorder(null);
+        TransactionID.setEditable(false);
+        TransactionID.setBorder(null);
 
         button1.setBackground(new java.awt.Color(204, 204, 0));
         button1.setText("Confirm");
         button1.setColor(new java.awt.Color(204, 204, 0));
         button1.setRadius(20);
-        button1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button1ActionPerformed(evt);
             }
         });
@@ -151,7 +150,7 @@ public class TransactionDetail extends javax.swing.JFrame
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textReaderName1))
+                        .addComponent(TransactionID))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,7 +189,7 @@ public class TransactionDetail extends javax.swing.JFrame
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textReaderName1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TransactionID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -253,6 +252,7 @@ public class TransactionDetail extends javax.swing.JFrame
     }//GEN-LAST:event_button1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TransactionID;
     private swing.Button button1;
     private swing.ComboBoxSuggestion comboBoxSuggestion1;
     private javax.swing.JLabel jLabel1;
@@ -270,7 +270,6 @@ public class TransactionDetail extends javax.swing.JFrame
     private javax.swing.JTextField textBorrowDay;
     private javax.swing.JTextField textPhoneNumber;
     private javax.swing.JTextField textReaderName;
-    private javax.swing.JTextField textReaderName1;
     private javax.swing.JTextField textReturnDay;
     private javax.swing.JTextField textSoLuong;
     private javax.swing.JTextField textTenSach;
