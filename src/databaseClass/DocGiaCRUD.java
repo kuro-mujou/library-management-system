@@ -47,16 +47,16 @@ public class DocGiaCRUD
         {
             String sSQL = "update dbo.Users \n"
                     + "set name=?,phone=?,address=?,email=?,gender=?,age=?\n"
-                    + "where userID,=?";
+                    + "where userID=?";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
-            sttm.setInt(1, user.getUserID());
-            sttm.setString(2, user.getName());
-            sttm.setString(3, user.getPhone());
-            sttm.setString(4, user.getAdrress());
-            sttm.setString(5, user.getEmail());
-            sttm.setString(6, user.getGender());
-            sttm.setInt(7, user.getAge());
+            sttm.setInt(7, user.getUserID());
+            sttm.setString(1, user.getName());
+            sttm.setString(2, user.getPhone());
+            sttm.setString(3, user.getAdrress());
+            sttm.setString(4, user.getEmail());
+            sttm.setString(5, user.getGender());
+            sttm.setInt(6, user.getAge());
             if (sttm.executeUpdate() > 0)
             {
 
