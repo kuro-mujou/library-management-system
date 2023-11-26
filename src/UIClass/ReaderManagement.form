@@ -31,8 +31,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="ReloadTable" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="AddTableItem" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
@@ -52,10 +50,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane2" pref="448" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="AddTableItem" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="ReloadTable" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-              </Group>
+              <Component id="AddTableItem" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -97,18 +92,6 @@
           <Image iconType="3" name="/Icon/SearchIcon.png"/>
         </Property>
       </Properties>
-    </Component>
-    <Component class="swing.Button" name="ReloadTable">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="RELOAD"/>
-        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="cc" red="ff" type="rgb"/>
-        </Property>
-        <Property name="radius" type="int" value="15"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReloadTableActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>

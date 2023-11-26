@@ -106,7 +106,6 @@ public class ReaderManagement extends javax.swing.JPanel
         SearchTable = new swing.Button();
         textFind = new swing.TextField();
         jLabel1 = new javax.swing.JLabel();
-        ReloadTable = new swing.Button();
         jScrollPane2 = new javax.swing.JScrollPane();
         Table = new swing.TableWhite();
 
@@ -137,17 +136,6 @@ public class ReaderManagement extends javax.swing.JPanel
         textFind.setLabelText("Search");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/SearchIcon.png"))); // NOI18N
-
-        ReloadTable.setText("RELOAD");
-        ReloadTable.setColor(new java.awt.Color(255, 204, 0));
-        ReloadTable.setRadius(15);
-        ReloadTable.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                ReloadTableActionPerformed(evt);
-            }
-        });
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -191,8 +179,6 @@ public class ReaderManagement extends javax.swing.JPanel
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ReloadTable, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2))
                 .addContainerGap())
@@ -207,9 +193,7 @@ public class ReaderManagement extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReloadTable, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -296,15 +280,9 @@ public class ReaderManagement extends javax.swing.JPanel
         }
     }//GEN-LAST:event_SearchTableActionPerformed
 
-    private void ReloadTableActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ReloadTableActionPerformed
-    {//GEN-HEADEREND:event_ReloadTableActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReloadTableActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button AddTableItem;
-    private swing.Button ReloadTable;
     private swing.Button SearchTable;
     private swing.TableWhite Table;
     private javax.swing.JLabel jLabel1;

@@ -115,7 +115,6 @@ public class BookManagement extends javax.swing.JPanel
         SearchTable = new swing.Button();
         textFind = new swing.TextField();
         jLabel1 = new javax.swing.JLabel();
-        ResetTable = new swing.Button();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new swing.TableWhite();
 
@@ -146,17 +145,6 @@ public class BookManagement extends javax.swing.JPanel
         textFind.setLabelText("Search");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/SearchIcon.png"))); // NOI18N
-
-        ResetTable.setText("Reload");
-        ResetTable.setColor(new java.awt.Color(255, 204, 0));
-        ResetTable.setRadius(15);
-        ResetTable.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                ResetTableActionPerformed(evt);
-            }
-        });
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -200,8 +188,6 @@ public class BookManagement extends javax.swing.JPanel
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ResetTable, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -216,9 +202,7 @@ public class BookManagement extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ResetTable, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -304,16 +288,9 @@ public class BookManagement extends javax.swing.JPanel
 //        fillDataTable();
     }//GEN-LAST:event_AddTableItemActionPerformed
 
-    private void ResetTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetTableActionPerformed
-        // TODO add your handling code here:
-//        resetDataTable();
-//        fillDataTable();
-    }//GEN-LAST:event_ResetTableActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button AddTableItem;
-    private swing.Button ResetTable;
     private swing.Button SearchTable;
     private swing.TableWhite Table;
     private javax.swing.JLabel jLabel1;
