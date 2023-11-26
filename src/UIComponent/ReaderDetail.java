@@ -1,25 +1,29 @@
 package UIComponent;
 
+import UIClass.ReaderManagement;
 import databaseClass.DocGiaCRUD;
 import databaseClass.DocGia;
 
 public class ReaderDetail extends javax.swing.JFrame
 {
     DocGiaCRUD docgiaDAO = new DocGiaCRUD();
-    int idUser = -1;
+    private int idUser = -1;
     private boolean isEditRequest;
     private boolean isAdding;
-    public ReaderDetail(boolean request,boolean isAdding)
+    private ReaderManagement rd;
+
+    public ReaderDetail(boolean request, boolean isAdding, ReaderManagement rd)
     {
         this.isEditRequest = request;
         this.isAdding = isAdding;
+        this.rd = rd;
         initComponents();
         initUI();
     }
 
     private void initUI()
     {
-        button1.setVisible(isEditRequest);
+        confirm.setVisible(isEditRequest);
         textReaderID.setEditable(isEditRequest);
         textReaderName.setEditable(isEditRequest);
         textAge.setEditable(isEditRequest);
@@ -31,6 +35,7 @@ public class ReaderDetail extends javax.swing.JFrame
         revalidate();
         repaint();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
@@ -53,7 +58,7 @@ public class ReaderDetail extends javax.swing.JFrame
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         textAge = new javax.swing.JTextField();
-        button1 = new swing.Button();
+        confirm = new swing.Button();
         jPanel3 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         textTenSach = new javax.swing.JTextField();
@@ -123,15 +128,15 @@ public class ReaderDetail extends javax.swing.JFrame
         textAge.setEditable(false);
         textAge.setBorder(null);
 
-        button1.setBackground(new java.awt.Color(204, 204, 0));
-        button1.setText("Confirm");
-        button1.setColor(new java.awt.Color(204, 204, 0));
-        button1.setRadius(20);
-        button1.addActionListener(new java.awt.event.ActionListener()
+        confirm.setBackground(new java.awt.Color(204, 204, 0));
+        confirm.setText("Confirm");
+        confirm.setColor(new java.awt.Color(204, 204, 0));
+        confirm.setRadius(20);
+        confirm.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                button1ActionPerformed(evt);
+                confirmActionPerformed(evt);
             }
         });
 
@@ -166,7 +171,7 @@ public class ReaderDetail extends javax.swing.JFrame
                         .addComponent(textAge))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -203,7 +208,7 @@ public class ReaderDetail extends javax.swing.JFrame
                     .addComponent(textAge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -317,38 +322,34 @@ public class ReaderDetail extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_button1ActionPerformed
-    {//GEN-HEADEREND:event_button1ActionPerformed
-        try {
+    private void confirmActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_confirmActionPerformed
+    {//GEN-HEADEREND:event_confirmActionPerformed
+        try
+        {
             DocGia docGia = getModelId();
-            String baa = textReaderID.getText();
-            idUser = Integer.parseInt(baa);
-           
-            DocGia sachtim = docgiaDAO.findSachById(idUser);
-            if (sachtim == null) {
-                
-                if (docgiaDAO.add(docGia) > 0) {
-                    System.out.println("");
-            
+
+            DocGia docgiatim = docgiaDAO.findSachById(docGia.getUserID());
+            if (docgiatim == null)
+            {
+                if (docgiaDAO.add(docGia) > 0)
+                {
                 }
-            } else {
-                
-                if (docgiaDAO.update(docGia) > 0) {
-                     System.out.println("");
-                   
-//                 
+            } else
+            {
+                if (docgiaDAO.update(docGia) > 0)
+                {
                 }
             }
-
-        } catch (Exception e) {
+            rd.resetDataTable();
+            rd.fillDataTable();
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
-        /*
-            bam nut confirm thi getText o tat ca text field xong roi update vao database
-         */
         this.dispose();
-    }//GEN-LAST:event_button1ActionPerformed
-public DocGia getModel() {
+    }//GEN-LAST:event_confirmActionPerformed
+    public DocGia getModel()
+    {
         DocGia b = new DocGia();
         b.setUserID(Integer.parseInt(textReaderID.getText()));
         b.setName(textReaderName.getText());
@@ -360,7 +361,8 @@ public DocGia getModel() {
         return b;
     }
 
-    public DocGia getModelId() {
+    public DocGia getModelId()
+    {
         DocGia b = new DocGia();
         b.setUserID(Integer.parseInt(textReaderID.getText()));
         b.setName(textReaderName.getText());
@@ -372,7 +374,8 @@ public DocGia getModel() {
         return b;
     }
 
-    public void setModel(DocGia b) {
+    public void setModel(DocGia b)
+    {
         textReaderID.setText(String.valueOf(b.getUserID()));
         textReaderName.setText(b.getName());
         textPhone.setText(b.getPhone());
@@ -381,9 +384,9 @@ public DocGia getModel() {
         textGender.setText(b.getGender());
         textAddresss.setText(b.getAdrress());
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private swing.Button button1;
+    private swing.Button confirm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;

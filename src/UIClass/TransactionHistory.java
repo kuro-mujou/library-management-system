@@ -58,8 +58,8 @@ public final class TransactionHistory extends javax.swing.JPanel {
                 new TransactionDetail(false).setVisible(true);
             }
         };
-        TableTID.getColumnModel().getColumn(6).setCellRenderer(new ThreeFunctionActionCellRenderer());
-        TableTID.getColumnModel().getColumn(6).setCellEditor(new TableActionCellEditor(event));
+        TableTID.getColumnModel().getColumn(6).setCellRenderer(new ThreeFunctionActionCellRenderer(TableTID.getSelectionBackground()));
+        TableTID.getColumnModel().getColumn(6).setCellEditor(new TableActionCellEditor(event,TableTID.getSelectionBackground()));
     }
 
     @SuppressWarnings("unchecked")

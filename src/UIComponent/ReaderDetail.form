@@ -87,7 +87,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="button1" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="confirm" min="-2" pref="75" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -135,7 +135,7 @@
                           <Component id="jLabel8" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="button1" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="confirm" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -265,7 +265,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="swing.Button" name="button1">
+            <Component class="swing.Button" name="confirm">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="cc" red="cc" type="rgb"/>
@@ -277,7 +277,7 @@
                 <Property name="radius" type="int" value="20"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

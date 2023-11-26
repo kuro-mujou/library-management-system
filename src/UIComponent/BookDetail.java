@@ -5,35 +5,26 @@ import databaseClass.Sach;
 import databaseClass.SachCRUD;
 import javax.swing.table.DefaultTableModel;
 
-public class BookDetail extends javax.swing.JFrame {
+public class BookDetail extends javax.swing.JFrame
+{
 
     SachCRUD sachDAO = new SachCRUD();
     int idSach = -1;
     private boolean isEditRequest;
+    private BookManagement bm;
 
     //them data vao new bookdetail(data go here)
-    public BookDetail(boolean request) {
+    public BookDetail(boolean request, BookManagement bm)
+    {
         this.isEditRequest = request;
+        this.bm = bm;
         initComponents();
-        //them data vao new initData(data go here)
-        initData();
         initUI();
     }
 
-    //them data vao new initBookData(data go here)
-    private void initData() {
-        //code hien thi thong tin sach o day:
-//        textMaSach.setText();
-//        textTenSach.setText();
-//        textTheLoai.setText();
-//        textTacGia.setText();
-//        textSoLuong.setText();
-//        textNamXuatBan.setText();
-//        textGhiChu.setText();
-    }
-
-    private void initUI() {
-        button1.setVisible(isEditRequest);
+    private void initUI()
+    {
+        confirm.setVisible(isEditRequest);
         textMaSach.setEditable(isEditRequest);
         textTenSach.setEditable(isEditRequest);
         textTheLoai.setEditable(isEditRequest);
@@ -47,25 +38,26 @@ public class BookDetail extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         textTenSach = new javax.swing.JTextField();
-        textTheLoai = new javax.swing.JTextField();
         textMaSach = new javax.swing.JTextField();
-        textTacGia = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         textNamXuatBan = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        textSoLuong = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         textGhiChu = new javax.swing.JTextField();
-        button1 = new swing.Button();
+        confirm = new swing.Button();
+        textTacGia = new javax.swing.JTextField();
+        textSoLuong = new javax.swing.JTextField();
+        textTheLoai = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -80,14 +72,8 @@ public class BookDetail extends javax.swing.JFrame {
         textTenSach.setEditable(false);
         textTenSach.setBorder(null);
 
-        textTheLoai.setEditable(false);
-        textTheLoai.setBorder(null);
-
         textMaSach.setEditable(false);
         textMaSach.setBorder(null);
-
-        textTacGia.setEditable(false);
-        textTacGia.setBorder(null);
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel6.setText("NamXB");
@@ -104,9 +90,6 @@ public class BookDetail extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel7.setText("SoLuong");
 
-        textSoLuong.setEditable(false);
-        textSoLuong.setBorder(null);
-
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel2.setText("Book ID");
 
@@ -119,20 +102,26 @@ public class BookDetail extends javax.swing.JFrame {
         textGhiChu.setEditable(false);
         textGhiChu.setBorder(null);
 
-        button1.setBackground(new java.awt.Color(204, 204, 0));
-        button1.setText("Confirm");
-        button1.setColor(new java.awt.Color(204, 204, 0));
-        button1.setRadius(20);
-        button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button1MouseClicked(evt);
+        confirm.setBackground(new java.awt.Color(204, 204, 0));
+        confirm.setText("Confirm");
+        confirm.setColor(new java.awt.Color(204, 204, 0));
+        confirm.setRadius(20);
+        confirm.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                confirmActionPerformed(evt);
             }
         });
-        button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
-            }
-        });
+
+        textTacGia.setEditable(false);
+        textTacGia.setBorder(null);
+
+        textSoLuong.setEditable(false);
+        textSoLuong.setBorder(null);
+
+        textTheLoai.setEditable(false);
+        textTheLoai.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -152,20 +141,20 @@ public class BookDetail extends javax.swing.JFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textSoLuong, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textTacGia, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textTheLoai, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textTenSach, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textMaSach)
-                            .addComponent(textNamXuatBan)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+                            .addComponent(textNamXuatBan)
+                            .addComponent(textTacGia)
+                            .addComponent(textSoLuong)
+                            .addComponent(textTheLoai)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textGhiChu))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -183,16 +172,16 @@ public class BookDetail extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textTheLoai, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(textTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textTheLoai, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNamXuatBan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +191,7 @@ public class BookDetail extends javax.swing.JFrame {
                     .addComponent(textGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -211,9 +200,8 @@ public class BookDetail extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +211,8 @@ public class BookDetail extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-  public Sach getModel() {
+  public Sach getModel()
+    {
         Sach b = new Sach();
         b.setBookId(Integer.parseInt(textMaSach.getText()));
         b.setNameBook(textTenSach.getText());
@@ -234,16 +223,19 @@ public class BookDetail extends javax.swing.JFrame {
         b.setYearRelease(Integer.parseInt(textNamXuatBan.getText()));
         return b;
     }
-    
-    public String gettest() {
+
+    public String gettest()
+    {
         return textGhiChu.getText();
     }
 
-    public void settest() {
+    public void settest()
+    {
         textGhiChu.setText("cmm");
     }
 
-    public Sach getModelId() {
+    public Sach getModelId()
+    {
         Sach b = new Sach();
         b.setBookId(Integer.parseInt(textMaSach.getText()));
         System.out.println("s" + b.getBookId());
@@ -256,7 +248,8 @@ public class BookDetail extends javax.swing.JFrame {
         return b;
     }
 
-    public void setModel(Sach b) {
+    public void setModel(Sach b)
+    {
         textMaSach.setText(String.valueOf(b.getBookId()));
         textTenSach.setText(b.getNameBook());
         textGhiChu.setText(b.getDescription());
@@ -265,48 +258,36 @@ public class BookDetail extends javax.swing.JFrame {
         textTacGia.setText(b.getWriting());
         textTheLoai.setText(b.getType());
     }
-
-
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_button1ActionPerformed
-    {//GEN-HEADEREND:event_button1ActionPerformed
-        try {
+    private void confirmActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_confirmActionPerformed
+    {//GEN-HEADEREND:event_confirmActionPerformed
+        try
+        {
             Sach sach = getModelId();
-            String baa = textMaSach.getText();
-            idSach = Integer.parseInt(baa);
-           
-            Sach sachtim = sachDAO.findSachById(idSach);
-            if (sachtim == null) {
-                
-                if (sachDAO.add(sach) > 0) {
-                    System.out.println("");
-            
+
+            Sach sachtim = sachDAO.findSachById(sach.getBookId());
+            if (sachtim == null)
+            {
+                if (sachDAO.add(sach) > 0)
+                {
                 }
-            } else {
-                
-                if (sachDAO.update(sach) > 0) {
-                     System.out.println("");
-                   
-//                 
+            } else
+            {
+                if (sachDAO.update(sach) > 0)
+                {
                 }
             }
+            bm.resetDataTable();
+            bm.fillDataTable();
 
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
-        /*
-            bam nut confirm thi getText o tat ca text field xong roi update vao database
-         */
         this.dispose();
-    }//GEN-LAST:event_button1ActionPerformed
-
-    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-        // TODO add your handling code here:
-         BookManagement b=new BookManagement();
-                    b.resetDataTable();
-    }//GEN-LAST:event_button1MouseClicked
+    }//GEN-LAST:event_confirmActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private swing.Button button1;
+    private swing.Button confirm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

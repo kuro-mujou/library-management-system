@@ -9,12 +9,14 @@ import javax.swing.JTable;
 
 public class TableActionCellEditor extends DefaultCellEditor
 {
+    Color selectcolor;
     private TableActionEvent event;
     
-    public TableActionCellEditor(TableActionEvent event)
+    public TableActionCellEditor(TableActionEvent event,Color selectcolor)
     {
         super(new JCheckBox());
         this.event = event;
+        this.selectcolor = selectcolor;
     }
     
     @Override
@@ -22,6 +24,7 @@ public class TableActionCellEditor extends DefaultCellEditor
     {
         ThreeFunctionButton bookButton = new ThreeFunctionButton();
         bookButton.initEvent(event, row);
+        bookButton.setBackground(selectcolor);
         return bookButton;
     }
 }

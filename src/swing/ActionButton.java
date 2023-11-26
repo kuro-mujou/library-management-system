@@ -46,10 +46,10 @@ public class ActionButton extends JButton
         int y = (height - size) / 2;
         if(mousePress)
         {
-            g2.setColor(new Color(255,0,0));
+            g2.setColor(new Color(255,204,0));
         }else
         {
-            g2.setColor(new Color(200,200,200));
+            g2.setColor(new Color(240, 240, 240));
         }
         g2.fill(new Ellipse2D.Double(x, y, size, size));
         g2.dispose();

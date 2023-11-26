@@ -4,9 +4,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.BorderFactory;
@@ -14,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -23,34 +19,22 @@ public class TableWhite extends JTable
 
     private TableHeader header;
     private TableCell cell;
-    private Color colorSelection1;
-    private Color colorSelection2;
+    private Color colorSelection;
 
-    public Color getColorSelection1()
+    public Color getColorSelection()
     {
-        return colorSelection1;
+        return colorSelection;
     }
 
-    public void setColorSelection1(Color colorSelection1)
+    public void setColorSelection(Color colorSelection1)
     {
-        this.colorSelection1 = colorSelection1;
-    }
-
-    public Color getColorSelection2()
-    {
-        return colorSelection2;
-    }
-
-    public void setColorSelection2(Color colorSelection2)
-    {
-        this.colorSelection2 = colorSelection2;
+        this.colorSelection = colorSelection1;
     }
     public TableWhite()
     {
         header = new TableHeader();
         cell = new TableCell();
-        colorSelection1 = new Color(179, 222, 252);
-        colorSelection2 = new Color(163, 217, 255);
+        colorSelection = new Color(179, 222, 252);
         getTableHeader().setDefaultRenderer(header);
         getTableHeader().setPreferredSize(new Dimension(0, 35));
         setDefaultRenderer(Object.class, cell);
@@ -112,7 +96,6 @@ public class TableWhite extends JTable
             {
                 setHorizontalAlignment(JLabel.LEFT);
             }
-
             return com;
         }
     }
@@ -133,22 +116,11 @@ public class TableWhite extends JTable
             Component com = super.getTableCellRendererComponent(jtable, o, bln, bln1, row, column);
             if (isCellSelected(row, column))
             {
-                if (row % 2 == 0)
-                {
-                    com.setBackground(colorSelection1);
-                } else
-                {
-                    com.setBackground(colorSelection2);
-                }
+                com.setBackground(colorSelection);
+                
             } else
             {
-                if (row % 2 == 0)
-                {
                     com.setBackground(new Color(255, 255, 255));
-                } else
-                {
-                    com.setBackground(new Color(245, 245, 245));
-                }
             }
             com.setForeground(new Color(0, 0, 0));
             setBorder(new LineBorder(new Color(217, 181, 68, 100), 1));
@@ -159,7 +131,8 @@ public class TableWhite extends JTable
             {
                 setHorizontalAlignment(JLabel.LEFT);
             }
-            jtable.getColumnModel().getColumn(getColumnCount() - 1).setCellRenderer(new ThreeFunctionActionCellRenderer());
+            
+        jtable.getColumnModel().getColumn(jtable.getColumnCount() - 1).setCellRenderer(new ThreeFunctionActionCellRenderer(colorSelection));
             return com;
         }
     }

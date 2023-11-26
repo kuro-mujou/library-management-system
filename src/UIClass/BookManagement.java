@@ -8,137 +8,126 @@ import swing.ThreeFunctionActionCellRenderer;
 import swing.TableActionCellEditor;
 import databaseClass.Sach;
 import databaseClass.SachCRUD;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Arrays;
+import java.util.Comparator;
+import javax.swing.JOptionPane;
+import javax.swing.table.JTableHeader;
 
-public class BookManagement extends javax.swing.JPanel {
+public class BookManagement extends javax.swing.JPanel
+{
 
     SachCRUD sachDAO = new SachCRUD();
     int idSach = -1;
 
-    public BookManagement() {
+    public BookManagement()
+    {
         initComponents();
-        fillDataTable();
         init();
+        fillDataTable();
     }
 
-    private void init() {
-        TableActionEvent event = new TableActionEvent() {
+    private void init()
+    {
+        TableActionEvent event = new TableActionEvent()
+        {
             @Override
-            public void onEdit(int row) {
+            public void onEdit(int row)
+            {
                 //code ham edit table row
                 //them data vao new bookdetail(data go here)
-                BookDetail update = new BookDetail(true);
-               
-               String baa = String.valueOf(Table.getValueAt(row, 0));
+                BookDetail update = new BookDetail(true,BookManagement.this);
+
+                String baa = String.valueOf(Table.getValueAt(row, 0));
 
                 idSach = Integer.parseInt(baa);
-   
-                Sach sach = sachDAO.findSachById(idSach);
-                if (sach != null) {
-//                    
-                    System.out.println("tim dc roi");
-//                  
-                } else {
-                    System.out.println("khong tim duoc gia tri can tim");
-                }
 
-                update.setModel(sach);
-                resetDataTable();
-                fillDataTable();
-                update.setVisible(true);
-               
+                Sach sach = sachDAO.findSachById(idSach);
+                if (sach != null)
+                {
+                    update.setModel(sach);
+                    resetDataTable();
+                    fillDataTable();
+                    update.setVisible(true);
+//                  
+                } else
+                {
+                    JOptionPane.showMessageDialog(Table, "khong co sach nay trong database");
+                }
             }
 
             @Override
-            public void onDelete(int row) {
-                if (Table.isEditing()) {
+            public void onDelete(int row)
+            {
+                if (Table.isEditing())
+                {
                     Table.getCellEditor().stopCellEditing();
                 }
                 DefaultTableModel model = (DefaultTableModel) Table.getModel();
 
                 String baa = String.valueOf(Table.getValueAt(row, 0));
                 idSach = Integer.parseInt(baa);
-                if (sachDAO.delete(idSach) > 0) {
-                    System.out.println("xoa thanh cong");
+                if (sachDAO.delete(idSach) > 0)
+                {
                     model.removeRow(row);
                 }
-
-                //thieu remove data trong database
             }
 
             @Override
-            public void onView(int row) {
-                //hien thi chi tiet thong tin sach
-                //them data vao new bookdetail(data go here)
-                BookDetail a = new BookDetail(false);
-                a.setVisible(true);
+            public void onView(int row)
+            {
+                BookDetail a = new BookDetail(false,BookManagement.this);
                 String baa = String.valueOf(Table.getValueAt(row, 0));
-
                 idSach = Integer.parseInt(baa);
-                System.out.println(">>>>>>>Id Sach" + idSach);
                 Sach sach = sachDAO.findSachById(idSach);
-                if (sach != null) {
-                    
+                if (sach != null)
+                {
+                    a.setModel(sach);
+                    a.setVisible(true);
                     System.out.println("tim dc roi");
-//                    fillOneDataTable(sach);
-//                 a.resetForm();
-                } else {
-                    System.out.println("khong tim duoc gia tri can tim");
+                } else
+                {
+                    JOptionPane.showMessageDialog(Table, "khong tim duoc gia tri can tim");
                 }
-
-                a.setModel(sach);
             }
         };
-        Table.getColumnModel().getColumn(Table.getColumnModel().getColumnCount() - 1).setCellRenderer(new ThreeFunctionActionCellRenderer());
-        Table.getColumnModel().getColumn(Table.getColumnModel().getColumnCount() - 1).setCellEditor(new TableActionCellEditor(event));
+        Table.getColumnModel().getColumn(Table.getColumnModel().getColumnCount() - 1).setCellEditor(new TableActionCellEditor(event, Table.getColorSelection()));
+        Table.fixTable(jScrollPane1);
+        JTableHeader header = Table.getTableHeader();
+        header.addMouseListener(new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent e)
+            {
+                int columnIndex = header.columnAtPoint(e.getPoint());
+                sort(columnIndex);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Table = new javax.swing.JTable();
         AddTableItem = new swing.Button();
         SearchTable = new swing.Button();
         textFind = new swing.TextField();
         jLabel1 = new javax.swing.JLabel();
-        AddTableItem1 = new swing.Button();
+        ResetTable = new swing.Button();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Table = new swing.TableWhite();
 
         setOpaque(false);
-
-        Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Ten Sach", "Tac Gia", "So Luong", "The Loai", "NamXB", "MoTa", "Title 8"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        Table.setRowHeight(40);
-        Table.getTableHeader().setReorderingAllowed(false);
-        Table.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TableMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(Table);
 
         AddTableItem.setText("ADD NEW BOOK");
         AddTableItem.setColor(new java.awt.Color(255, 204, 0));
         AddTableItem.setRadius(15);
-        AddTableItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        AddTableItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 AddTableItemActionPerformed(evt);
             }
         });
@@ -146,8 +135,10 @@ public class BookManagement extends javax.swing.JPanel {
         SearchTable.setText("Search");
         SearchTable.setColor(new java.awt.Color(255, 204, 0));
         SearchTable.setRadius(15);
-        SearchTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        SearchTable.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 SearchTableActionPerformed(evt);
             }
         });
@@ -156,32 +147,64 @@ public class BookManagement extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/SearchIcon.png"))); // NOI18N
 
-        AddTableItem1.setText("Reload");
-        AddTableItem1.setColor(new java.awt.Color(255, 204, 0));
-        AddTableItem1.setRadius(15);
-        AddTableItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddTableItem1ActionPerformed(evt);
+        ResetTable.setText("Reload");
+        ResetTable.setColor(new java.awt.Color(255, 204, 0));
+        ResetTable.setRadius(15);
+        ResetTable.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ResetTableActionPerformed(evt);
             }
         });
+
+        Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+
+            },
+            new String []
+            {
+                "ID", "Ten Sach", "Tac Gia", "So Luong", "The Loai", "Nam XB", "Mo Ta", "Menu"
+            }
+        )
+        {
+            boolean[] canEdit = new boolean []
+            {
+                false, false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
+                return canEdit [columnIndex];
+            }
+        });
+        Table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Table.setGridColor(new java.awt.Color(255, 255, 255));
+        Table.setRowHeight(45);
+        Table.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(Table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AddTableItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textFind, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SearchTable, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(ResetTable, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,14 +218,35 @@ public class BookManagement extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddTableItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ResetTable, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
- public void fillDataTable() {
+    private void sort(int columnIndex)
+    {
+        DefaultTableModel model = (DefaultTableModel) Table.getModel();
+        Object[][] data = new Object[model.getRowCount()][model.getColumnCount()];
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            for (int j = 0; j < model.getColumnCount(); j++) {
+                data[i][j] = model.getValueAt(i, j);
+            }
+        }
+        Comparator<Object[]> comparator = Comparator.comparing(o -> o[columnIndex].toString());
+        Arrays.sort(data, comparator);
+        model.getDataVector().removeAllElements();
+        model.setRowCount(0);
+        for (Object[] row : data) {
+            model.addRow(row);
+        }
+    }
+
+    public void fillDataTable()
+    {
         DefaultTableModel tbModel = (DefaultTableModel) Table.getModel();
         tbModel.setRowCount(0);
-        for (Sach b : sachDAO.getAll()) {
+        for (Sach b : sachDAO.getAll())
+        {
             Object dataRow[] = new Object[7];
             dataRow[0] = b.getBookId();
             dataRow[1] = b.getNameBook();
@@ -213,10 +257,10 @@ public class BookManagement extends javax.swing.JPanel {
             dataRow[6] = b.getDescription();
             tbModel.addRow(dataRow);
         }
-
     }
 
-    public void fillOneDataTable(Sach b) {
+    public void fillOneDataTable(Sach b)
+    {
         DefaultTableModel tbModel = (DefaultTableModel) Table.getModel();
         tbModel.setRowCount(0);
         Object dataRow[] = new Object[7];
@@ -230,50 +274,48 @@ public class BookManagement extends javax.swing.JPanel {
         tbModel.addRow(dataRow);
     }
 
-    public void resetDataTable() {
+    public void resetDataTable()
+    {
         DefaultTableModel dm = (DefaultTableModel) Table.getModel();
         dm.getDataVector().removeAllElements();
         dm.fireTableDataChanged();
     }
+    
     private void SearchTableActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SearchTableActionPerformed
     {//GEN-HEADEREND:event_SearchTableActionPerformed
         idSach = Integer.parseInt(textFind.getText());
         System.out.println(">>>>>>>Id Sach" + idSach);
         Sach sach = sachDAO.findSachById(idSach);
-        if (sach != null) {
+        if (sach != null)
+        {
             resetDataTable();
             System.out.println("tim dc roi");
             fillOneDataTable(sach);
 //            resetForm();
-        } else {
+        } else
+        {
             System.out.println("khong tim duoc gia tri can tim");
         }
     }//GEN-LAST:event_SearchTableActionPerformed
 
     private void AddTableItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTableItemActionPerformed
-        BookDetail addbook = new BookDetail(true);
+        BookDetail addbook = new BookDetail(true,this);
         addbook.setVisible(true);
 //        fillDataTable();
     }//GEN-LAST:event_AddTableItemActionPerformed
 
-    private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
+    private void ResetTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetTableActionPerformed
         // TODO add your handling code here:
-         resetDataTable();
-         fillDataTable();
-    }//GEN-LAST:event_TableMouseClicked
-
-    private void AddTableItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTableItem1ActionPerformed
-        // TODO add your handling code here:
-        resetDataTable();
-         fillDataTable();
-    }//GEN-LAST:event_AddTableItem1ActionPerformed
+//        resetDataTable();
+//        fillDataTable();
+    }//GEN-LAST:event_ResetTableActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button AddTableItem;
-    private swing.Button AddTableItem1;
+    private swing.Button ResetTable;
     private swing.Button SearchTable;
-    private javax.swing.JTable Table;
+    private swing.TableWhite Table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private swing.TextField textFind;

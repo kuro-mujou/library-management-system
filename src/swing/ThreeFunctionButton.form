@@ -29,9 +29,14 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="ItemEdit" min="-2" max="-2" attributes="0"/>
-          <Component id="ItemDetail" min="-2" max="-2" attributes="0"/>
-          <Component id="ItemDelete" min="-2" max="-2" attributes="0"/>
+          <Component id="ItemEdit" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="ItemDetail" alignment="0" max="32767" attributes="0"/>
+                  <Component id="ItemDelete" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -53,7 +58,7 @@
     <Component class="swing.ActionButton" name="ItemEdit">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Icon/edit.png"/>
+          <Image iconType="3" name="/Icon/pencil.png"/>
         </Property>
       </Properties>
     </Component>

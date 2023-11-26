@@ -13,14 +13,13 @@ public class DocGiaCRUD
     SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-mm-dd");
     Connection conn = null;
     PreparedStatement sttm = null;
-    
-    
+
     public int add(DocGia user)
     {
         try
         {
-            String sSQL = "insert into dbo.Users(userID,name,phone,address,email,gender,age)\n" +
-                          "values (?,?,?,?,?,?,?);";
+            String sSQL = "insert into dbo.Users(userID,name,phone,address,email,gender,age)\n"
+                    + "values (?,?,?,?,?,?,?);";
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
@@ -33,7 +32,6 @@ public class DocGiaCRUD
             sttm.setInt(7, user.getAge());
             if (sttm.executeUpdate() > 0)
             {
-               
                 return 1;
             }
 
@@ -42,14 +40,14 @@ public class DocGiaCRUD
         }
         return -1;
     }
-    
-   public int update(DocGia user)
+
+    public int update(DocGia user)
     {
         try
         {
-            String sSQL = "update dbo.Users \n" +
-            "set name=?,phone=?,address=?,email=?,gender=?,age=?\n" +
-             "where userID,=?";
+            String sSQL = "update dbo.Users \n"
+                    + "set name=?,phone=?,address=?,email=?,gender=?,age=?\n"
+                    + "where userID,=?";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setInt(1, user.getUserID());
@@ -61,7 +59,7 @@ public class DocGiaCRUD
             sttm.setInt(7, user.getAge());
             if (sttm.executeUpdate() > 0)
             {
-            
+
                 return 1;
             }
 
@@ -75,11 +73,10 @@ public class DocGiaCRUD
     {
         try
         {
-            String sSQL = "delete Users where userID="+userid;
+            String sSQL = "delete Users where userID=" + userid;
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
-           
 
             if (sttm.executeUpdate() > 0)
             {
@@ -100,7 +97,7 @@ public class DocGiaCRUD
         Statement sttm = null;
         try
         {
-     
+
             String sSQL = "select userID,name,phone,address,email,gender,age from Users ";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
