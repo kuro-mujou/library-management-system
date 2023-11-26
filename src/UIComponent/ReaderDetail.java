@@ -9,46 +9,34 @@ public class ReaderDetail extends javax.swing.JFrame
     int idUser = -1;
     private boolean isEditRequest;
     private boolean isAdding;
-    //them data vao new bookdetail(data go here)
-    public ReaderDetail(boolean request)
+    public ReaderDetail(boolean request,boolean isAdding)
     {
         this.isEditRequest = request;
+        this.isAdding = isAdding;
         initComponents();
-        //them data vao new initData(data go here)
-        initData();
         initUI();
     }
-    //them data vao new initBookData(data go here)
-    private void initData()
-    {
-        //code hien thi thong tin sach o day:
-        //them truong du lieu vao di luoi sua qua :)
-//        textMaSach.setText();
-//        textTenSach.setText();
-//        textTheLoai.setText();
-//        textTacGia.setText();
-//        textSoLuong.setText();
-//        textNamXuatBan.setText();
-//        textGhiChu.setText();
-    }
+
     private void initUI()
     {
-//        button1.setVisible(isEditRequest);
-//        textReaderID.setEditable(isEditRequest);
-//        textReaderName.setEditable(isEditRequest);
-//        textReaderAge.setEditable(isEditRequest);
-//        textGender.setEditable(isEditRequest);
-//        textPhoneNumber.setEditable(isEditRequest);
-//        textAddress.setEditable(isEditRequest);
-//        textGmail.setEditable(isEditRequest);
-//        jPanel3.setVisible(isAdding);
-//        revalidate();
-//        repaint();
+        button1.setVisible(isEditRequest);
+        textReaderID.setEditable(isEditRequest);
+        textReaderName.setEditable(isEditRequest);
+        textAge.setEditable(isEditRequest);
+        textGender.setEditable(isEditRequest);
+        textPhone.setEditable(isEditRequest);
+        textAddresss.setEditable(isEditRequest);
+        textEmail.setEditable(isEditRequest);
+        jPanel3.setVisible(isAdding);
+        revalidate();
+        repaint();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         textReaderName = new javax.swing.JTextField();
@@ -81,7 +69,9 @@ public class ReaderDetail extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -108,11 +98,6 @@ public class ReaderDetail extends javax.swing.JFrame
 
         textGender.setEditable(false);
         textGender.setBorder(null);
-        textGender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textGenderActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel3.setText("Ten");
@@ -142,6 +127,13 @@ public class ReaderDetail extends javax.swing.JFrame
         button1.setText("Confirm");
         button1.setColor(new java.awt.Color(204, 204, 0));
         button1.setRadius(20);
+        button1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                button1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -167,7 +159,7 @@ public class ReaderDetail extends javax.swing.JFrame
                             .addComponent(textReaderName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textReaderID)
                             .addComponent(textGender)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -215,7 +207,7 @@ public class ReaderDetail extends javax.swing.JFrame
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1);
+        jPanel2.add(jPanel1);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -273,7 +265,7 @@ public class ReaderDetail extends javax.swing.JFrame
                             .addComponent(textReturnStatus, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textTenSach, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textBorrowDay)))
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -308,11 +300,54 @@ public class ReaderDetail extends javax.swing.JFrame
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3);
+        jPanel2.add(jPanel3);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_button1ActionPerformed
+    {//GEN-HEADEREND:event_button1ActionPerformed
+        try {
+            DocGia docGia = getModelId();
+            String baa = textReaderID.getText();
+            idUser = Integer.parseInt(baa);
+           
+            DocGia sachtim = docgiaDAO.findSachById(idUser);
+            if (sachtim == null) {
+                
+                if (docgiaDAO.add(docGia) > 0) {
+                    System.out.println("");
+            
+                }
+            } else {
+                
+                if (docgiaDAO.update(docGia) > 0) {
+                     System.out.println("");
+                   
+//                 
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        /*
+            bam nut confirm thi getText o tat ca text field xong roi update vao database
+         */
+        this.dispose();
+    }//GEN-LAST:event_button1ActionPerformed
 public DocGia getModel() {
         DocGia b = new DocGia();
         b.setUserID(Integer.parseInt(textReaderID.getText()));
@@ -347,10 +382,6 @@ public DocGia getModel() {
         textAddresss.setText(b.getAdrress());
     }
     
-    private void textGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textGenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textGenderActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button button1;
     private javax.swing.JLabel jLabel1;
@@ -368,6 +399,7 @@ public DocGia getModel() {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField textAddresss;
     private javax.swing.JTextField textAge;

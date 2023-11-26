@@ -29,7 +29,7 @@ public class ReaderManagement extends javax.swing.JPanel
             {
                 //code ham edit table row
                 //them data vao new bookdetail(data go here)
-                ReaderDetail update= new ReaderDetail(true);
+                ReaderDetail update= new ReaderDetail(true,false);
                 update.setVisible(true);
                 String baa = String.valueOf(Table.getValueAt(row, 0));
 
@@ -72,7 +72,7 @@ public class ReaderManagement extends javax.swing.JPanel
             {
                 //hien thi chi tiet thong tin sach
                 //them data vao new bookdetail(data go here)
-             ReaderDetail a=   new ReaderDetail(false);
+             ReaderDetail a=   new ReaderDetail(false,true);
                       a.setVisible(true);
                 String baa = String.valueOf(Table.getValueAt(row, 0));
 
@@ -97,7 +97,8 @@ public class ReaderManagement extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
@@ -105,25 +106,31 @@ public class ReaderManagement extends javax.swing.JPanel
         SearchTable = new swing.Button();
         textFind = new swing.TextField();
         jLabel1 = new javax.swing.JLabel();
+        ReloadTable = new swing.Button();
 
         setOpaque(false);
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null}
             },
-            new String [] {
+            new String []
+            {
                 "ID", "Ten", "DienThoai", "DiaChi", "Email", "GioiTinh", "Tuoi", "Title 8"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
+        )
+        {
+            boolean[] canEdit = new boolean []
+            {
                 false, false, false, false, false, false, true, true
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
                 return canEdit [columnIndex];
             }
         });
@@ -134,8 +141,10 @@ public class ReaderManagement extends javax.swing.JPanel
         AddTableItem.setText("ADD NEW READER");
         AddTableItem.setColor(new java.awt.Color(255, 204, 0));
         AddTableItem.setRadius(15);
-        AddTableItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        AddTableItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 AddTableItemActionPerformed(evt);
             }
         });
@@ -143,8 +152,10 @@ public class ReaderManagement extends javax.swing.JPanel
         SearchTable.setText("Search");
         SearchTable.setColor(new java.awt.Color(255, 204, 0));
         SearchTable.setRadius(15);
-        SearchTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        SearchTable.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 SearchTableActionPerformed(evt);
             }
         });
@@ -153,6 +164,17 @@ public class ReaderManagement extends javax.swing.JPanel
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/SearchIcon.png"))); // NOI18N
 
+        ReloadTable.setText("RELOAD");
+        ReloadTable.setColor(new java.awt.Color(255, 204, 0));
+        ReloadTable.setRadius(15);
+        ReloadTable.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ReloadTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,6 +182,8 @@ public class ReaderManagement extends javax.swing.JPanel
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ReloadTable, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -179,7 +203,9 @@ public class ReaderManagement extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ReloadTable, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -219,7 +245,7 @@ public void fillDataTable() {
     }
     private void AddTableItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddTableItemActionPerformed
     {//GEN-HEADEREND:event_AddTableItemActionPerformed
-        new ReaderDetail(true).setVisible(true);
+        new ReaderDetail(true,false).setVisible(true);
         fillDataTable();
     }//GEN-LAST:event_AddTableItemActionPerformed
 
@@ -239,9 +265,15 @@ public void fillDataTable() {
         }
     }//GEN-LAST:event_SearchTableActionPerformed
 
+    private void ReloadTableActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ReloadTableActionPerformed
+    {//GEN-HEADEREND:event_ReloadTableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReloadTableActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button AddTableItem;
+    private swing.Button ReloadTable;
     private swing.Button SearchTable;
     private javax.swing.JTable Table;
     private javax.swing.JLabel jLabel1;

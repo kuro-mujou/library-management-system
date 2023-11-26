@@ -1,18 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package databaseClass;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import java.sql.*;
-/**
- *
- * @author ADMIN
- */
+
 public class DatabaseConnect {
     public static Connection getDBConnect()
     {
-        var server = "DESKTOP-5M7K983\\HLOENG";
+        var server = "THEWORLD";
         var user = "sa";
         var password ="123456";
         var db = "librarytesting";
