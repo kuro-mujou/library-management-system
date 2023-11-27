@@ -31,7 +31,7 @@ public class transactionsCRUD {
         List<transactions> transactions = new ArrayList();
         try {
             String sSQL = "SELECT * FROM transactions";
-
+            
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);
@@ -144,4 +144,8 @@ public class transactionsCRUD {
         return -1;
     }
 
+    
+    
+  
+    
 }

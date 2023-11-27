@@ -16,6 +16,7 @@ public class transactions {
     int quantity;
     int bookid;
     int userID;
+    
 
     public transactions() {
 

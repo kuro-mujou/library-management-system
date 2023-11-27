@@ -2,39 +2,42 @@ package UIComponent;
 
 import databaseClass.transactions;
 
-public class TransactionDetail extends javax.swing.JFrame
-{
+public class TransactionDetail extends javax.swing.JFrame {
+
     private boolean isEditRequest;
+
     //them data vao new bookdetail(data go here)
-    public TransactionDetail(boolean request)
-    {
+    public TransactionDetail(boolean request) {
         this.isEditRequest = request;
         initComponents();
         //them data vao new initData(data go here)
         initData();
         initUI();
     }
-    
-    public void setModel(transactions t){
+
+    public void setModel(transactions t) {
+
         TransactionID.setText(String.valueOf(t.getTransactionId()));
-       
+        textReaderName.setText(String.valueOf(t.getUserID()));
         
+
     }
+
     //them data vao new initBookData(data go here)
-    public void initData()
-    {
+    public void initData() {
         //code hien thi thong tin sach o day:
         //them truong du lieu vao di luoi sua qua :)
-        
+
     }
-    private void initUI()
-    {
+
+    private void initUI() {
         button1.setVisible(isEditRequest);
         comboBoxSuggestion1.setFocusable(isEditRequest);
         comboBoxSuggestion1.setEnabled(isEditRequest);
         revalidate();
         repaint();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -247,7 +250,7 @@ public class TransactionDetail extends javax.swing.JFrame
     {//GEN-HEADEREND:event_button1ActionPerformed
         /*
             bam nut confirm thi getText o tat ca text field xong roi update vao database
-        */
+         */
         this.dispose();
     }//GEN-LAST:event_button1ActionPerformed
 
