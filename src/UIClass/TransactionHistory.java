@@ -1,161 +1,157 @@
 package UIClass;
 
 import UIComponent.TransactionDetail;
+import databaseClass.DocGia;
+import databaseClass.DocGiaCRUD;
 import databaseClass.transactions;
 import databaseClass.transactionsCRUD;
 import event.TableActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Arrays;
+import java.util.Comparator;
 import javax.swing.table.DefaultTableModel;
-import swing.ThreeFunctionActionCellRenderer;
+import javax.swing.table.JTableHeader;
 import swing.TableActionCellEditor;
 
 public final class TransactionHistory extends javax.swing.JPanel {
 
-    static transactionsCRUD crud = new transactionsCRUD();
-
+    private transactionsCRUD transactionCRUD = new transactionsCRUD();
+    private DocGiaCRUD readerCRUD = new DocGiaCRUD();
     public TransactionHistory() {
 
         initComponents();
-        fillDataTable();
         init();
+        resetDataTable();
+        fillDataTable();
     }
 
-    private void init() {
-        TableActionEvent event = new TableActionEvent() {
+    private void init() 
+    {
+        Table.fixTable(jScrollPane2);
+        JTableHeader header = Table.getTableHeader();
+        header.addMouseListener(new MouseAdapter()
+        {
             @Override
-            public void onEdit(int row) {
-                //code ham edit table row
-                //them data vao new TransactionDetail(data go here)
-                TransactionDetail transactionDetail = new TransactionDetail(true);
-
-                transactions trans = crud.getTransactionsByID(Integer.parseInt(val_searchTrans.getText()));
-                if (trans != null) {
-                    System.out.println("tim dc roi");
-                } else {
-                    System.out.println("khong tim duoc gia tri can tim");
+            public void mouseClicked(MouseEvent e)
+            {
+                int columnIndex = header.columnAtPoint(e.getPoint());
+                if (columnIndex != Table.getColumnModel().getColumnCount() - 1)
+                {
+                    sort(columnIndex);
                 }
-
-                transactionDetail.setModel(trans);
-                resetDataTable();
-                fillDataTable();
-                transactionDetail.setVisible(true);
-
             }
-
-            @Override
-            public void onDelete(int row) {
-                if (TableTID.isEditing()) {
-                    TableTID.getCellEditor().stopCellEditing();
-                }
-                DefaultTableModel model = (DefaultTableModel) TableTID.getModel();
-                model.removeRow(row);
-                //thieu remove data trong database
-            }
-
-            @Override
-            public void onView(int row) {
-                //hien thi chi tiet thong tin
-                //them data vao new TransactionDetail(data go here)
-                new TransactionDetail(false).setVisible(true);
-            }
-        };
-        TableTID.getColumnModel().getColumn(6).setCellRenderer(new ThreeFunctionActionCellRenderer(TableTID.getSelectionBackground()));
-        TableTID.getColumnModel().getColumn(6).setCellEditor(new TableActionCellEditor(event,TableTID.getSelectionBackground()));
+        });
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TableTID = new javax.swing.JTable();
         SearchTable = new swing.Button();
         val_searchTrans = new swing.TextField();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Table = new swing.TableWhite();
 
         setOpaque(false);
-
-        TableTID.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Transactions ID", "Start Day", "End Day", "Quantity", "Book ID", "Users ID", "Action"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        TableTID.setRowHeight(40);
-        TableTID.getTableHeader().setReorderingAllowed(false);
-        TableTID.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TableTIDMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(TableTID);
 
         SearchTable.setText("Search");
         SearchTable.setColor(new java.awt.Color(255, 204, 0));
         SearchTable.setRadius(15);
-        SearchTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        SearchTable.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 SearchTableActionPerformed(evt);
             }
         });
 
         val_searchTrans.setLabelText("Search");
-        val_searchTrans.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                val_searchTransActionPerformed(evt);
-            }
-        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/SearchIcon.png"))); // NOI18N
+
+        Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+
+            },
+            new String []
+            {
+                "Transaction ID", "Start Day", "End Day", "Quantity", "Book ID", "User ID", "Status"
+            }
+        )
+        {
+            boolean[] canEdit = new boolean []
+            {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
+                return canEdit [columnIndex];
+            }
+        });
+        Table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Table.setGridColor(new java.awt.Color(255, 255, 255));
+        Table.setRowHeight(45);
+        Table.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(Table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(val_searchTrans, javax.swing.GroupLayout.DEFAULT_SIZE, 811, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SearchTable, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(val_searchTrans, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SearchTable, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(SearchTable, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchTable, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(val_searchTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(val_searchTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+    private void sort(int columnIndex)
+    {
+        DefaultTableModel model = (DefaultTableModel) Table.getModel();
+        Object[][] data = new Object[model.getRowCount()][model.getColumnCount()];
 
+        for (int i = 0; i < model.getRowCount(); i++)
+        {
+            for (int j = 0; j < model.getColumnCount(); j++)
+            {
+                data[i][j] = model.getValueAt(i, j);
+            }
+        }
+        Comparator<Object[]> comparator = Comparator.comparing(o -> o[columnIndex].toString());
+        Arrays.sort(data, comparator);
+        model.getDataVector().removeAllElements();
+        model.setRowCount(0);
+        for (Object[] row : data)
+        {
+            model.addRow(row);
+        }
+    }
     private void SearchTableActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SearchTableActionPerformed
     {//GEN-HEADEREND:event_SearchTableActionPerformed
         // TODO add your handling code here:
@@ -169,58 +165,50 @@ public final class TransactionHistory extends javax.swing.JPanel {
 
     }//GEN-LAST:event_SearchTableActionPerformed
 
-    private void val_searchTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_val_searchTransActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_val_searchTransActionPerformed
-
-    private void TableTIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableTIDMouseClicked
-        // TODO add your handling code here:
-        resetDataTable();
-        fillDataTable();
-    }//GEN-LAST:event_TableTIDMouseClicked
-
     public void resetDataTable() {
-        DefaultTableModel dm = (DefaultTableModel) TableTID.getModel();
+        DefaultTableModel dm = (DefaultTableModel) Table.getModel();
         dm.getDataVector().removeAllElements();
         dm.fireTableDataChanged();
     }
 
     public void fillOneDataTable(transactions b) {
-        DefaultTableModel tbModel = (DefaultTableModel) TableTID.getModel();
+        DefaultTableModel tbModel = (DefaultTableModel) Table.getModel();
         tbModel.setRowCount(0);
+        DocGia docgia = readerCRUD.findReaderById(b.getUserID());
         Object dataRow[] = new Object[7];
         dataRow[0] = b.getTransactionId();
         dataRow[1] = b.getStartDay();
         dataRow[2] = b.getEndDay();
         dataRow[3] = b.getQuantity();
-        dataRow[4] = b.getBookid();
+        dataRow[4] = b.getBookID();
         dataRow[5] = b.getUserID();
-
+        dataRow[6] = docgia.ENUM_TO_STATUS(docgia.getStatus());
         tbModel.addRow(dataRow);
     }
 
     public void fillDataTable() {
         transactionsCRUD trans = new transactionsCRUD();
-        DefaultTableModel tbModel = (DefaultTableModel) TableTID.getModel();
+        DefaultTableModel tbModel = (DefaultTableModel) Table.getModel();
         tbModel.setRowCount(0);
         for (transactions b : trans.getAllTransactions()) {
+            DocGia docgia = readerCRUD.findReaderById(b.getUserID());
             Object dataRow[] = new Object[7];
             dataRow[0] = b.getTransactionId();
             dataRow[1] = b.getStartDay();
             dataRow[2] = b.getEndDay();
             dataRow[3] = b.getQuantity();
-            dataRow[4] = b.getBookid();
+            dataRow[4] = b.getBookID();
             dataRow[5] = b.getUserID();
-
+            dataRow[6] = docgia.ENUM_TO_STATUS(docgia.getStatus());
             tbModel.addRow(dataRow);
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button SearchTable;
-    private javax.swing.JTable TableTID;
+    private swing.TableWhite Table;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private swing.TextField val_searchTrans;
     // End of variables declaration//GEN-END:variables
 }

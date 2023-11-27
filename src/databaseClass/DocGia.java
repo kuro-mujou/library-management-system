@@ -9,11 +9,17 @@ public class DocGia
     private String adrress;
     private String gender;
     private int age;
+    public ReaderStatus status;
+
+    public static enum ReaderStatus
+    {
+        READY_TO_BORROW, CURRENT_BORROWING, CURRENT_NOT_RETURN
+    };
 
     public DocGia() {
     }
 
-    public DocGia(int userID, String name, String phone, String email, String adrress, String gender, int age) {
+    public DocGia(int userID, String name, String phone, String email, String adrress, String gender, int age, ReaderStatus status) {
         this.userID = userID;
         this.name = name;
         this.phone = phone;
@@ -21,15 +27,17 @@ public class DocGia
         this.adrress = adrress;
         this.gender = gender;
         this.age = age;
+        this.status = status;
     }
 
-    public DocGia(String name, String phone, String email, String adrress, String gender, int age) {
+    public DocGia(String name, String phone, String email, String adrress, String gender, int age, ReaderStatus status) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.adrress = adrress;
         this.gender = gender;
         this.age = age;
+        this.status = status;
     }
 
     public int getUserID() {
@@ -87,7 +95,31 @@ public class DocGia
     public void setAge(int age) {
         this.age = age;
     }
-
-   
     
+    public String ENUM_TO_STATUS(ReaderStatus status)
+    {
+        return switch (status)
+        {
+            case READY_TO_BORROW ->
+                "RETURNED";
+            case CURRENT_BORROWING ->
+                "BORROWING";
+            case CURRENT_NOT_RETURN ->
+                "NOT RETURNED";
+            default ->
+                "INVALID REQUEST";
+        };
+    }
+    
+    
+    
+    public ReaderStatus getStatus()
+    {
+        return this.status;
+    }
+
+    public void setStatus(ReaderStatus status)
+    {
+        this.status = status;
+    }
 }

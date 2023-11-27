@@ -46,8 +46,10 @@ public class MainDashboard extends javax.swing.JFrame
                         updatePanel(transaction);
                         break;
                     case 4:
-
+                        
                         updatePanel(transactionManagement);
+                        transactionManagement.resetDataTable();
+                        transactionManagement.fillDataTable();
                         break;
                     case 6:
 

@@ -1,32 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package databaseClass;
 
-/**
- *
- * @author LENOVO
- */
 public class transactions {
 
     int transactionId;
-    int startDay;
-    int endDay;
+    String startDay;
+    String endDay;
     int quantity;
-    int bookid;
+    int bookID;
     int userID;
     
 
     public transactions() {
 
     }
-    public transactions(int transactionId, int startDay, int endDay, int quantity, int bookid, int userID) {
+    public transactions(int transactionId, String startDay, String endDay, int quantity, int bookid, int userID) {
         this.transactionId = transactionId;
         this.startDay = startDay;
         this.endDay = endDay;
         this.quantity = quantity;
-        this.bookid = bookid;
+        this.bookID = bookid;
         this.userID = userID;
     }
 
@@ -38,19 +31,19 @@ public class transactions {
         this.transactionId = transactionId;
     }
 
-    public int getStartDay() {
+    public String getStartDay() {
         return startDay;
     }
 
-    public void setStartDay(int startDay) {
+    public void setStartDay(String startDay) {
         this.startDay = startDay;
     }
 
-    public int getEndDay() {
+    public String getEndDay() {
         return endDay;
     }
 
-    public void setEndDay(int endDay) {
+    public void setEndDay(String endDay) {
         this.endDay = endDay;
     }
 
@@ -62,12 +55,12 @@ public class transactions {
         this.quantity = quantity;
     }
 
-    public int getBookid() {
-        return bookid;
+    public int getBookID() {
+        return bookID;
     }
 
-    public void setBookid(int bookid) {
-        this.bookid = bookid;
+    public void setBookID(int bookid) {
+        this.bookID = bookid;
     }
 
     public int getUserID() {

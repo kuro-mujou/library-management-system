@@ -29,11 +29,13 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="reset" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="AddTableItem" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -50,7 +52,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane2" pref="448" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="AddTableItem" min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="AddTableItem" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="reset" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -103,7 +108,7 @@
         <Component class="swing.TableWhite" name="Table">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="8" rowCount="0">
+              <Table columnCount="9" rowCount="0">
                 <Column editable="false" title="ID" type="java.lang.Object"/>
                 <Column editable="false" title="Ten" type="java.lang.Object"/>
                 <Column editable="false" title="Dien Thoai" type="java.lang.Object"/>
@@ -111,11 +116,17 @@
                 <Column editable="false" title="Email" type="java.lang.Object"/>
                 <Column editable="false" title="Gioi Tinh" type="java.lang.Object"/>
                 <Column editable="false" title="Tuoi" type="java.lang.Object"/>
+                <Column editable="false" title="Status" type="java.lang.Object"/>
                 <Column editable="true" title="Menu" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -172,5 +183,17 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="swing.Button" name="reset">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="RESET TABLE"/>
+        <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="cc" red="ff" type="rgb"/>
+        </Property>
+        <Property name="radius" type="int" value="15"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

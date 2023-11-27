@@ -12,14 +12,15 @@ create table book(
 	yearRelease int
 )
 
-create table Users(
+create table reader(
     userID int primary key,
 	name nvarchar(255),
 	phone nvarchar(255),
 	address nvarchar(255),
 	email nvarchar(255),
 	gender nvarchar(255) ,
-	age int
+	age int,
+        status nvarchar(255)
 )
 
 create table transactions(
@@ -30,16 +31,8 @@ create table transactions(
      bookid int FOREIGN KEY REFERENCES book (bookid),
      userID int FOREIGN KEY REFERENCES Users(userID)
 )
-create table resume(
-     bookid int FOREIGN KEY REFERENCES book (bookid),
-     userID int FOREIGN KEY REFERENCES Users(userID),
-	 transactionId int FOREIGN KEY REFERENCES transactions(transactionId),
-	 status nvarchar(255),
-	 resumeid int primary key
- )
 
-
-create table librarian(
+create table user(
     libID int primary key,
 	name nvarchar(255),
 	phone nvarchar(255),

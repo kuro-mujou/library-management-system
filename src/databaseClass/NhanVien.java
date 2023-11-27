@@ -3,46 +3,47 @@ package databaseClass;
 public class NhanVien
 {
     private int MaNhanVien;
-    private String Hoten;
-    private Date NgaySinh;
+    private String ten;
     private String SoDienThoai;
+    private String diaChi;
+    private String email;
+    private String password;
+    private String gioiTinh;
 
-    NhanVien(int maNhanVien, String hoten, Date ngaySinh, String soDienThoai)
+    public NhanVien()
     {
-        MaNhanVien = maNhanVien;
-        Hoten = hoten;
-        NgaySinh = ngaySinh;
-        SoDienThoai = soDienThoai;
+        
     }
-
+    
+    public NhanVien(int MaNhanVien, String ten, String SoDienThoai, String diaChi, String email, String password, String gioiTinh)
+    {
+        this.MaNhanVien = MaNhanVien;
+        this.ten = ten;
+        this.SoDienThoai = SoDienThoai;
+        this.diaChi = diaChi;
+        this.email = email;
+        this.password = password;
+        this.gioiTinh = gioiTinh;
+    }
+    
     public int getMaNhanVien()
     {
         return MaNhanVien;
     }
 
-    public void setMaNhanVien(int maNhanVien)
+    public void setMaNhanVien(int MaNhanVien)
     {
-        MaNhanVien = maNhanVien;
+        this.MaNhanVien = MaNhanVien;
     }
 
-    public String getHoten()
+    public String getTen()
     {
-        return Hoten;
+        return ten;
     }
 
-    public void setHoten(String hoten)
+    public void setTen(String ten)
     {
-        Hoten = hoten;
-    }
-
-    public Date getNgaySinh()
-    {
-        return NgaySinh;
-    }
-
-    public void setNgaySinh(Date ngaySinh)
-    {
-        NgaySinh = ngaySinh;
+        this.ten = ten;
     }
 
     public String getSoDienThoai()
@@ -50,8 +51,48 @@ public class NhanVien
         return SoDienThoai;
     }
 
-    public void setSoDienThoai(String soDienThoai)
+    public void setSoDienThoai(String SoDienThoai)
     {
-        SoDienThoai = soDienThoai;
+        this.SoDienThoai = SoDienThoai;
+    }
+
+    public String getDiaChi()
+    {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi)
+    {
+        this.diaChi = diaChi;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
+    }
+
+    public String getGioiTinh()
+    {
+        return gioiTinh;
+    }
+
+    public void setGioiTinh(String gioiTinh)
+    {
+        this.gioiTinh = gioiTinh;
     }
 }

@@ -6,31 +6,37 @@ import databaseClass.Sach;
 import databaseClass.SachCRUD;
 import databaseClass.transactions;
 import databaseClass.transactionsCRUD;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import javax.swing.JOptionPane;
 
-public class Transaction extends javax.swing.JPanel {
+public class Transaction extends javax.swing.JPanel
+{
 
     DocGiaCRUD Users = new DocGiaCRUD();
     SachCRUD Sach = new SachCRUD();
-    transactionsCRUD trans = new transactionsCRUD();
+    transactionsCRUD transCRUD = new transactionsCRUD();
+    DocGia docgia;
 
-    public Transaction() {
+    public Transaction()
+    {
         initComponents();
         init();
 
     }
 
-    private void init() {
+    private void init()
+    {
         bookInfoPanel.setVisible(false);
         readerInfoPanel.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         checkbox1 = new java.awt.Checkbox();
         SearchReaderTXT = new swing.TextField_noLabel();
@@ -71,16 +77,10 @@ public class Transaction extends javax.swing.JPanel {
         mess_err = new javax.swing.JLabel();
         IDtransactions = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        textGhiChu1 = new javax.swing.JTextField();
 
         checkbox1.setLabel("checkbox1");
 
         SearchReaderTXT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        SearchReaderTXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchReaderTXTActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -89,8 +89,10 @@ public class Transaction extends javax.swing.JPanel {
         SearchReaderBtn.setText("Search");
         SearchReaderBtn.setColor(new java.awt.Color(255, 204, 0));
         SearchReaderBtn.setRadius(15);
-        SearchReaderBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        SearchReaderBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 SearchReaderBtnActionPerformed(evt);
             }
         });
@@ -149,8 +151,10 @@ public class Transaction extends javax.swing.JPanel {
         SearchBookBtn.setText("Search");
         SearchBookBtn.setColor(new java.awt.Color(255, 204, 0));
         SearchBookBtn.setRadius(15);
-        SearchBookBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        SearchBookBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 SearchBookBtnActionPerformed(evt);
             }
         });
@@ -172,11 +176,6 @@ public class Transaction extends javax.swing.JPanel {
 
         textTheLoai.setEditable(false);
         textTheLoai.setBorder(null);
-        textTheLoai.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textTheLoaiActionPerformed(evt);
-            }
-        });
 
         jLabel12.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel12.setText("Author");
@@ -210,23 +209,27 @@ public class Transaction extends javax.swing.JPanel {
         Minus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Minus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Minus.setRadius(5);
-        Minus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        Minus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MinusActionPerformed(evt);
             }
         });
 
         quantity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         quantity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        quantity.setText("0");
+        quantity.setText("1");
 
         Plus.setText("+");
         Plus.setColor(new java.awt.Color(255, 204, 0));
         Plus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Plus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Plus.setRadius(5);
-        Plus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        Plus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 PlusActionPerformed(evt);
             }
         });
@@ -234,8 +237,10 @@ public class Transaction extends javax.swing.JPanel {
         ConfirmBorrow.setText("Confirm");
         ConfirmBorrow.setColor(new java.awt.Color(255, 204, 0));
         ConfirmBorrow.setRadius(15);
-        ConfirmBorrow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ConfirmBorrow.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ConfirmBorrowActionPerformed(evt);
             }
         });
@@ -275,7 +280,7 @@ public class Transaction extends javax.swing.JPanel {
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(bookInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textSoLuong, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+                            .addComponent(textSoLuong, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 786, Short.MAX_VALUE)
                             .addComponent(textTacGia, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textTheLoai, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textTenSach, javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,10 +369,10 @@ public class Transaction extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(bookInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Minus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                             .addComponent(Plus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(IDtransactions, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(IDtransactions, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addGap(4, 4, 4))
             .addGroup(bookInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(bookInfoPanelLayout.createSequentialGroup()
@@ -376,22 +381,10 @@ public class Transaction extends javax.swing.JPanel {
                     .addContainerGap()))
         );
 
-        textGhiChu1.setEditable(false);
-        textGhiChu1.setBorder(null);
-        textGhiChu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textGhiChu1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(textGhiChu1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,9 +412,7 @@ public class Transaction extends javax.swing.JPanel {
                         .addComponent(SearchReaderBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bookInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(textGhiChu1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         SearchReaderTXT.getAccessibleContext().setAccessibleName("ReaderID");
@@ -429,138 +420,125 @@ public class Transaction extends javax.swing.JPanel {
 
     private void MinusActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MinusActionPerformed
     {//GEN-HEADEREND:event_MinusActionPerformed
-        try {
+        try
+        {
             int num = Integer.parseInt(quantity.getText());
-            if (num > 0) {
+            if (num > 1)
+            {
                 num -= 1;
                 quantity.setText(String.valueOf(num));
-            } else {
-                JOptionPane.showMessageDialog(this, "minimum quantity is 0");
+            } else
+            {
+                JOptionPane.showMessageDialog(this, "minimum quantity is 1");
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
 
         }
     }//GEN-LAST:event_MinusActionPerformed
 
     private void PlusActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlusActionPerformed
     {//GEN-HEADEREND:event_PlusActionPerformed
-        //thay max = so luong sach trong data (quantity)
-        int max = 10;
-        try {
+
+        int max = Integer.parseInt(textSoLuong.getText());
+        try
+        {
             int num = Integer.parseInt(quantity.getText());
-            if (num < max) {
+            if (num < max)
+            {
                 num += 1;
                 quantity.setText(String.valueOf(num));
-            } else if (num == max) {
+            } else if (num == max)
+            {
                 JOptionPane.showMessageDialog(this, "reach maximum quantity");
             }
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
 
         }
     }//GEN-LAST:event_PlusActionPerformed
 
     private void SearchReaderBtnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SearchReaderBtnActionPerformed
     {//GEN-HEADEREND:event_SearchReaderBtnActionPerformed
-        /*
-        neu co reader thi display readerInfoPanel
-        sau do load reader data vao readerInfoPanel
-        sau do display bookInfoPanel
-         */
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now = LocalDateTime.now().plusDays(14);
-        LableNgayTra.setText(dtf.format(now));
-
-        DocGia DocGia = Users.findSachById(Integer.parseInt(SearchReaderTXT.getText()));
-
-        ReadName.setText(DocGia.getName());
-        Phone.setText(DocGia.getPhone());
-        readerInfoPanel.setVisible(true);
-        bookInfoPanel.setVisible(true);
-        /*
-        neu khong co reader:
-         */
-//        JOptionPane.showMessageDialog(this, "No reader name: "+SearchReaderTXT.getText()+" found!");
+        try
+        {
+//            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//            LocalDate now = LocalDate.now().plusDays(14);
+//            LableNgayTra.setText(dtf.format(now));
+            docgia = Users.findReaderById(Integer.parseInt(SearchReaderTXT.getText()));
+            if (docgia != null)
+            {
+                if (docgia.getStatus() == DocGia.ReaderStatus.READY_TO_BORROW)
+                {
+                    ReadName.setText(docgia.getName());
+                    Phone.setText(docgia.getPhone());
+                    readerInfoPanel.setVisible(true);
+                    bookInfoPanel.setVisible(true);
+                    Status.setText("READY");
+                } else
+                {
+                    JOptionPane.showMessageDialog(this, "Reader nay dang co sach chua tra");
+                }
+            } else
+            {
+                JOptionPane.showMessageDialog(this, "No reader found!");
+            }
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_SearchReaderBtnActionPerformed
 
     private void SearchBookBtnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SearchBookBtnActionPerformed
     {//GEN-HEADEREND:event_SearchBookBtnActionPerformed
-        /*
-        search co sach thi display thong tin cai sach do ra
-         */
-
-        Sach Sach1 = Sach.findSachByName(SearchBookTXT.getText());
-        Sach1.getQuantity();
-        if (Sach1.getQuantity() > 0) {
-            Status.setText("OK");
-        } else {
-            Status.setText("KHONG OK");
+        try
+        {
+            Sach Sach1 = Sach.findSachById(Integer.parseInt(SearchBookTXT.getText()));
+            textMaSach.setText(String.valueOf(Sach1.getBookId()));
+            textTenSach.setText(Sach1.getNameBook());
+            textTheLoai.setText(Sach1.getType());
+            textTacGia.setText(Sach1.getWriting());
+            textSoLuong.setText(String.valueOf(Sach1.getQuantity()));
+            textNamXuatBan.setText(String.valueOf(Sach1.getYearRelease()));
+            textGhiChu.setText(Sach1.getDescription());
+        } catch (Exception e)
+        {
         }
-        textMaSach.setText(String.valueOf(Sach1.getBookId()));
-        textTenSach.setText(Sach1.getNameBook());
-        textTheLoai.setText(Sach1.getType());
-        textTacGia.setText(Sach1.getWriting());
-        textSoLuong.setText(String.valueOf(Sach1.getQuantity()));
-        textNamXuatBan.setText(String.valueOf(Sach1.getYearRelease()));
-        textGhiChu.setText(Sach1.getDescription());
+
 
     }//GEN-LAST:event_SearchBookBtnActionPerformed
 
     private void ConfirmBorrowActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ConfirmBorrowActionPerformed
     {//GEN-HEADEREND:event_ConfirmBorrowActionPerformed
-        try {
-            int num = Integer.parseInt(quantity.getText());
-            /*
-                lay so luong can dat roi tru cho so luong co trong database
-             */
-            int id = Integer.parseInt(textMaSach.getText());
-            int numberSl = Integer.parseInt(textSoLuong.getText());
-            int numberdown = Integer.parseInt(quantity.getText());
+        try
+        {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate now = LocalDate.now();
+            LocalDate future = LocalDate.now().plusDays(14);
 
-            if (numberSl < numberdown) {
-                mess_err.setText("KHONG DU SACH, VUI LONG CHON LAI");
-                JOptionPane.showMessageDialog(this, "FAIL");
-            } else {
-                Sach.UpdateQuantity(id, numberdown);
-                mess_err.setText("");
-                
+            LableNgayTra.setText(dtf.format(future));
 
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-                LocalDateTime now = LocalDateTime.now();
-                LocalDateTime future = LocalDateTime.now().plusDays(14);
-                LableNgayTra.setText(dtf.format(now));
-
-                int transID = trans.getIdTransactions() + 1;
-                int startDay = now.getDayOfMonth();
-                int endDay = future.getDayOfMonth();
-                int iquantity = Integer.parseInt(quantity.getText());
-                int bookId = Integer.parseInt(textMaSach.getText());
-                int userID = Integer.parseInt(SearchReaderTXT.getText());
-
-                transactions T = new transactions(transID, startDay, endDay, iquantity, bookId, userID);
-                int checked = trans.CreateTransactions(T);
-
-                if (checked > 0) {
-                    transactions tras = trans.getTransactionsByID(transID);
-                    IDtransactions.setText(String.valueOf(tras.getTransactionId()));
-                }
-                JOptionPane.showMessageDialog(this, "SUCCESS");
+            int bookquantity = Integer.parseInt(quantity.getText());
+            int bookid = Integer.parseInt(textMaSach.getText());
+            int userID = Integer.parseInt(SearchReaderTXT.getText());
+            int transID = transCRUD.getIdTransactions() + 1;
+            String startDay = now.toString();
+            String endDay = future.toString();
+            
+            transactions T = new transactions(transID, startDay, endDay, bookquantity, bookid, userID);
+            
+            int checked = transCRUD.addNewTransaction(T);
+            if (checked > 0)
+            {
+                transactions tras = transCRUD.getTransactionsByID(transID);
+                IDtransactions.setText(String.valueOf(tras.getTransactionId()));
             }
+            JOptionPane.showMessageDialog(this, "SUCCESS");
             SearchBookBtnActionPerformed(evt);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
         }
     }//GEN-LAST:event_ConfirmBorrowActionPerformed
-
-    private void SearchReaderTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchReaderTXTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SearchReaderTXTActionPerformed
-
-    private void textTheLoaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textTheLoaiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textTheLoaiActionPerformed
-
-    private void textGhiChu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textGhiChu1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textGhiChu1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -597,7 +575,6 @@ public class Transaction extends javax.swing.JPanel {
     private javax.swing.JLabel quantity;
     private javax.swing.JPanel readerInfoPanel;
     private javax.swing.JTextField textGhiChu;
-    private javax.swing.JTextField textGhiChu1;
     private javax.swing.JTextField textMaSach;
     private javax.swing.JTextField textNamXuatBan;
     private javax.swing.JTextField textSoLuong;

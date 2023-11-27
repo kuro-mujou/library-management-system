@@ -4,25 +4,30 @@ import UIComponent.ReaderDetail;
 import databaseClass.DocGiaCRUD;
 import databaseClass.DocGia;
 import databaseClass.SachCRUD;
+import databaseClass.transactions;
+import databaseClass.transactionsCRUD;
 import event.TableActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Comparator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import swing.ThreeFunctionActionCellRenderer;
 import swing.TableActionCellEditor;
 
 public class ReaderManagement extends javax.swing.JPanel
 {
-    DocGiaCRUD docgiaDAO = new DocGiaCRUD();
-    int idUser = -1;
+    private DocGiaCRUD docgiaDAO = new DocGiaCRUD();
+    private transactionsCRUD transCRUD = new transactionsCRUD();
+    private int idUser = -1;
 
     public ReaderManagement()
     {
         initComponents();
+        checkStatus();
         fillDataTable();
         init();
     }
@@ -35,9 +40,8 @@ public class ReaderManagement extends javax.swing.JPanel
             public void onEdit(int row)
             {
                 ReaderDetail update = new ReaderDetail(true, false, ReaderManagement.this);
-                String baa = String.valueOf(Table.getValueAt(row, 0));
-                idUser = Integer.parseInt(baa);
-                DocGia docGia = docgiaDAO.findSachById(idUser);
+                idUser = (Integer) Table.getValueAt(row, 0);
+                DocGia docGia = docgiaDAO.findReaderById(idUser);
                 if (docGia != null)
                 {
                     update.setModel(docGia);
@@ -58,8 +62,7 @@ public class ReaderManagement extends javax.swing.JPanel
                     Table.getCellEditor().stopCellEditing();
                 }
                 DefaultTableModel model = (DefaultTableModel) Table.getModel();
-                String baa = String.valueOf(Table.getValueAt(row, 0));
-                idUser = Integer.parseInt(baa);
+                idUser = (Integer) Table.getValueAt(row, 0);
                 if (docgiaDAO.delete(idUser) > 0)
                 {
                     model.removeRow(row);
@@ -71,9 +74,8 @@ public class ReaderManagement extends javax.swing.JPanel
             {
                 ReaderDetail a = new ReaderDetail(false, true, ReaderManagement.this);
                 a.setVisible(true);
-                String baa = String.valueOf(Table.getValueAt(row, 0));
-                idUser = Integer.parseInt(baa);
-                DocGia docGia = docgiaDAO.findSachById(idUser);
+                idUser = (Integer) Table.getValueAt(row, 0);
+                DocGia docGia = docgiaDAO.findReaderById(idUser);
                 if (docGia != null)
                 {
                     a.setModel(docGia);
@@ -92,7 +94,10 @@ public class ReaderManagement extends javax.swing.JPanel
             public void mouseClicked(MouseEvent e)
             {
                 int columnIndex = header.columnAtPoint(e.getPoint());
-                sort(columnIndex);
+                if (columnIndex != Table.getColumnModel().getColumnCount() - 1)
+                {
+                    sort(columnIndex);
+                }
             }
         });
     }
@@ -108,6 +113,7 @@ public class ReaderManagement extends javax.swing.JPanel
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Table = new swing.TableWhite();
+        reset = new swing.Button();
 
         setOpaque(false);
 
@@ -144,13 +150,13 @@ public class ReaderManagement extends javax.swing.JPanel
             },
             new String []
             {
-                "ID", "Ten", "Dien Thoai", "Dia Chi", "Email", "Gioi Tinh", "Tuoi", "Menu"
+                "ID", "Ten", "Dien Thoai", "Dia Chi", "Email", "Gioi Tinh", "Tuoi", "Status", "Menu"
             }
         )
         {
             boolean[] canEdit = new boolean []
             {
-                false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex)
@@ -163,6 +169,17 @@ public class ReaderManagement extends javax.swing.JPanel
         Table.setRowHeight(45);
         Table.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Table);
+
+        reset.setText("RESET TABLE");
+        reset.setColor(new java.awt.Color(255, 204, 0));
+        reset.setRadius(15);
+        reset.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                resetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -177,8 +194,10 @@ public class ReaderManagement extends javax.swing.JPanel
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2))
                 .addContainerGap())
@@ -193,7 +212,9 @@ public class ReaderManagement extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -219,13 +240,33 @@ public class ReaderManagement extends javax.swing.JPanel
         }
     }
 
+    public void checkStatus()
+    {
+        for (DocGia b : docgiaDAO.getAll())
+        {
+            transactions t = transCRUD.getTransactionsByReaderID(b.getUserID());
+            if (t != null)
+            {
+                LocalDate now = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate endDate = LocalDate.parse(t.getEndDay(), formatter);
+
+                if (now.compareTo(endDate) > 0)
+                {
+                    b.setStatus(DocGia.ReaderStatus.CURRENT_NOT_RETURN);
+                    docgiaDAO.update(b);
+                }
+            }
+        }
+    }
+
     public void fillDataTable()
     {
         DefaultTableModel tbModel = (DefaultTableModel) Table.getModel();
         tbModel.setRowCount(0);
         for (DocGia b : docgiaDAO.getAll())
         {
-            Object dataRow[] = new Object[7];
+            Object dataRow[] = new Object[8];
             dataRow[0] = b.getUserID();
             dataRow[1] = b.getName();
             dataRow[2] = b.getPhone();
@@ -233,6 +274,7 @@ public class ReaderManagement extends javax.swing.JPanel
             dataRow[4] = b.getEmail();
             dataRow[5] = b.getGender();
             dataRow[6] = b.getAge();
+            dataRow[7] = b.ENUM_TO_STATUS(b.getStatus());
             tbModel.addRow(dataRow);
         }
     }
@@ -241,7 +283,7 @@ public class ReaderManagement extends javax.swing.JPanel
     {
         DefaultTableModel tbModel = (DefaultTableModel) Table.getModel();
         tbModel.setRowCount(0);
-        Object dataRow[] = new Object[7];
+        Object dataRow[] = new Object[8];
         dataRow[0] = b.getUserID();
         dataRow[1] = b.getName();
         dataRow[2] = b.getPhone();
@@ -249,6 +291,7 @@ public class ReaderManagement extends javax.swing.JPanel
         dataRow[4] = b.getEmail();
         dataRow[5] = b.getGender();
         dataRow[6] = b.getAge();
+        dataRow[7] = b.ENUM_TO_STATUS(b.getStatus());
         tbModel.addRow(dataRow);
     }
 
@@ -267,18 +310,22 @@ public class ReaderManagement extends javax.swing.JPanel
     {//GEN-HEADEREND:event_SearchTableActionPerformed
         // TODO add your handling code here:
         idUser = Integer.parseInt(textFind.getText());
-        System.out.println(">>>>>>>Id Sach" + idUser);
-        DocGia docGia = docgiaDAO.findSachById(idUser);
+        DocGia docGia = docgiaDAO.findReaderById(idUser);
         if (docGia != null)
         {
             resetDataTable();
-            System.out.println("tim dc roi");
             fillOneDataTable(docGia);
         } else
         {
-            System.out.println("khong tim duoc gia tri can tim");
+            JOptionPane.showMessageDialog(Table, "khong tim duoc gia tri can tim");
         }
     }//GEN-LAST:event_SearchTableActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_resetActionPerformed
+    {//GEN-HEADEREND:event_resetActionPerformed
+        resetDataTable();
+        fillDataTable();
+    }//GEN-LAST:event_resetActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -287,6 +334,7 @@ public class ReaderManagement extends javax.swing.JPanel
     private swing.TableWhite Table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private swing.Button reset;
     private swing.TextField textFind;
     // End of variables declaration//GEN-END:variables
 }

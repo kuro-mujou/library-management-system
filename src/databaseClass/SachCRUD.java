@@ -7,25 +7,27 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Ther
  */
 public class SachCRUD
 {
-    SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-mm-dd");
+    SimpleDateFormat formatDate = new SimpleDateFormat("dd-MM-yyyy");
     Connection conn = null;
     PreparedStatement sttm = null;
 
-    public SachCRUD() {
+    public SachCRUD()
+    {
     }
-   
+
     public int add(Sach sach)
     {
         try
         {
-            String sSQL = "insert into dbo.book(bookid,nameBook,description,type,writing,quantity,yearRelease)\n" +
-                          "values (?,?,?,?,?,?,?);";
+            String sSQL = "insert into dbo.book(bookid,nameBook,description,type,writing,quantity,yearRelease)\n"
+                    + "values (?,?,?,?,?,?,?);";
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
@@ -33,12 +35,12 @@ public class SachCRUD
             sttm.setString(2, sach.getNameBook());
             sttm.setString(3, sach.getDescription());
             sttm.setString(4, sach.getType());
-             sttm.setString(5, sach.getWriting());
+            sttm.setString(5, sach.getWriting());
             sttm.setInt(6, sach.getQuantity());
             sttm.setInt(7, sach.getYearRelease());
             if (sttm.executeUpdate() > 0)
             {
-               
+
                 return 1;
             }
 
@@ -52,9 +54,9 @@ public class SachCRUD
     {
         try
         {
-            String sSQL = "update dbo.book \n" +
-            "set nameBook=?,description=?,type=?,writing=?,quantity=?,yearRelease=?\n" +
-             "where bookid=?";
+            String sSQL = "update dbo.book \n"
+                    + "set nameBook=?,description=?,type=?,writing=?,quantity=?,yearRelease=?\n"
+                    + "where bookid=?";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, sach.getNameBook());
@@ -67,7 +69,7 @@ public class SachCRUD
             sttm.setInt(7, sach.getBookId());
             if (sttm.executeUpdate() > 0)
             {
-            
+
                 return 1;
             }
 
@@ -81,7 +83,7 @@ public class SachCRUD
     {
         try
         {
-            String sSQL = "delete book where bookid= "+id;
+            String sSQL = "delete book where bookid= " + id;
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
@@ -105,7 +107,7 @@ public class SachCRUD
         Statement sttm = null;
         try
         {
-     
+
             String sSQL = "select book.bookid,nameBook,description,type,writing,quantity,yearRelease from book ";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
@@ -179,17 +181,8 @@ public class SachCRUD
         }
         return null;
     }
-//    public static void main(String[] args) {
-//     
-//         SachCRUD a = new SachCRUD();
-////        Sach sach = new Sach(100,"update","updasda","up","up",1,2003);
-////        System.out.println(a.add(sach));
-////        System.out.println(a.update(sach));done
-////            System.out.println(a.delete(sach));done
-////        a.findSachById (1); done
-//            System.out.println(a.getAll());//done
-//    }
-public Sach findSachByName(String Name)
+
+    public Sach findSachByName(String Name)
     {
         ResultSet rs = null;
         Statement sttm = null;
@@ -227,11 +220,9 @@ public Sach findSachByName(String Name)
             }
         }
         return null;
-  
-   }
 
-// Update Data for 
- public int UpdateQuantity(int id, int quantity)
+    }
+    public int UpdateQuantity(int id, int quantity)
     {
         try
         {
@@ -240,11 +231,10 @@ public Sach findSachByName(String Name)
             sttm = conn.prepareStatement(sSQL);
             sttm.setInt(1, quantity);
             sttm.setInt(2, id);
-         
 
             if (sttm.executeUpdate() > 0)
             {
-            
+
                 return 1;
             }
 
@@ -254,7 +244,3 @@ public Sach findSachByName(String Name)
         return -1;
     }
 }
-
-
-
-

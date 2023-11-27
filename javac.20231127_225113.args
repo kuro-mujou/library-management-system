@@ -1,0 +1,18 @@
+-d
+C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\build\\classes
+-classpath
+"C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\build\\classes;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\TimingFramework-0.55.jar;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\filters-2.0.235.jar;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\swing-worker-1.1.jar;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\swingx-1.6.1.jar;C:\\Program Files\\NetBeans-19\\netbeans\\java\\modules\\ext\\AbsoluteLayout.jar;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\mssql-jdbc-12.2.0.jre11.jar"
+-sourcepath
+C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\src
+-target
+19
+-encoding
+UTF-8
+-g
+-processorpath
+"C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\TimingFramework-0.55.jar;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\filters-2.0.235.jar;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\swing-worker-1.1.jar;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\swingx-1.6.1.jar;C:\\Program Files\\NetBeans-19\\netbeans\\java\\modules\\ext\\AbsoluteLayout.jar;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\mssql-jdbc-12.2.0.jre11.jar;C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\build\\empty"
+-s
+C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\build\\generated-sources\\ap-source-output
+-source
+19
+C:\\Users\\PC\\Documents\\NetBeansProjects\\library-management-system\\src\\databaseClass\\DocGiaCRUD.java

@@ -22,6 +22,8 @@ public class Setting extends javax.swing.JPanel
 
         LogoutButton = new swing.Button();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         LogoutButton.setText("Log out");
         LogoutButton.setColor(new java.awt.Color(255, 204, 0));
         LogoutButton.setRadius(15);

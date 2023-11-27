@@ -17,9 +17,8 @@ import javax.swing.table.JTableHeader;
 
 public class BookManagement extends javax.swing.JPanel
 {
-
-    SachCRUD sachDAO = new SachCRUD();
-    int idSach = -1;
+    private SachCRUD sachDAO = new SachCRUD();
+    private int idSach = -1;
 
     public BookManagement()
     {
@@ -35,14 +34,8 @@ public class BookManagement extends javax.swing.JPanel
             @Override
             public void onEdit(int row)
             {
-                //code ham edit table row
-                //them data vao new bookdetail(data go here)
-                BookDetail update = new BookDetail(true,BookManagement.this);
-
-                String baa = String.valueOf(Table.getValueAt(row, 0));
-
-                idSach = Integer.parseInt(baa);
-
+                BookDetail update = new BookDetail(true, BookManagement.this);
+                idSach = (Integer) Table.getValueAt(row, 0);
                 Sach sach = sachDAO.findSachById(idSach);
                 if (sach != null)
                 {
@@ -50,7 +43,6 @@ public class BookManagement extends javax.swing.JPanel
                     resetDataTable();
                     fillDataTable();
                     update.setVisible(true);
-//                  
                 } else
                 {
                     JOptionPane.showMessageDialog(Table, "khong co sach nay trong database");
@@ -65,9 +57,7 @@ public class BookManagement extends javax.swing.JPanel
                     Table.getCellEditor().stopCellEditing();
                 }
                 DefaultTableModel model = (DefaultTableModel) Table.getModel();
-
-                String baa = String.valueOf(Table.getValueAt(row, 0));
-                idSach = Integer.parseInt(baa);
+                idSach = (Integer) Table.getValueAt(row, 0);;
                 if (sachDAO.delete(idSach) > 0)
                 {
                     model.removeRow(row);
@@ -77,15 +67,13 @@ public class BookManagement extends javax.swing.JPanel
             @Override
             public void onView(int row)
             {
-                BookDetail a = new BookDetail(false,BookManagement.this);
-                String baa = String.valueOf(Table.getValueAt(row, 0));
-                idSach = Integer.parseInt(baa);
+                BookDetail a = new BookDetail(false, BookManagement.this);
+                idSach = (Integer) Table.getValueAt(row, 0);
                 Sach sach = sachDAO.findSachById(idSach);
                 if (sach != null)
                 {
                     a.setModel(sach);
                     a.setVisible(true);
-                    System.out.println("tim dc roi");
                 } else
                 {
                     JOptionPane.showMessageDialog(Table, "khong tim duoc gia tri can tim");
@@ -101,7 +89,10 @@ public class BookManagement extends javax.swing.JPanel
             public void mouseClicked(MouseEvent e)
             {
                 int columnIndex = header.columnAtPoint(e.getPoint());
-                sort(columnIndex);
+                if (columnIndex != Table.getColumnModel().getColumnCount() - 1)
+                {
+                    sort(columnIndex);
+                }
             }
         });
     }
@@ -117,6 +108,7 @@ public class BookManagement extends javax.swing.JPanel
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new swing.TableWhite();
+        reset = new swing.Button();
 
         setOpaque(false);
 
@@ -173,6 +165,17 @@ public class BookManagement extends javax.swing.JPanel
         Table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(Table);
 
+        reset.setText("RESET TABLE");
+        reset.setColor(new java.awt.Color(255, 204, 0));
+        reset.setRadius(15);
+        reset.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                resetActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,6 +191,8 @@ public class BookManagement extends javax.swing.JPanel
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -202,7 +207,9 @@ public class BookManagement extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -211,8 +218,10 @@ public class BookManagement extends javax.swing.JPanel
         DefaultTableModel model = (DefaultTableModel) Table.getModel();
         Object[][] data = new Object[model.getRowCount()][model.getColumnCount()];
 
-        for (int i = 0; i < model.getRowCount(); i++) {
-            for (int j = 0; j < model.getColumnCount(); j++) {
+        for (int i = 0; i < model.getRowCount(); i++)
+        {
+            for (int j = 0; j < model.getColumnCount(); j++)
+            {
                 data[i][j] = model.getValueAt(i, j);
             }
         }
@@ -220,7 +229,8 @@ public class BookManagement extends javax.swing.JPanel
         Arrays.sort(data, comparator);
         model.getDataVector().removeAllElements();
         model.setRowCount(0);
-        for (Object[] row : data) {
+        for (Object[] row : data)
+        {
             model.addRow(row);
         }
     }
@@ -264,29 +274,31 @@ public class BookManagement extends javax.swing.JPanel
         dm.getDataVector().removeAllElements();
         dm.fireTableDataChanged();
     }
-    
+
     private void SearchTableActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SearchTableActionPerformed
     {//GEN-HEADEREND:event_SearchTableActionPerformed
         idSach = Integer.parseInt(textFind.getText());
-        System.out.println(">>>>>>>Id Sach" + idSach);
         Sach sach = sachDAO.findSachById(idSach);
         if (sach != null)
         {
             resetDataTable();
-            System.out.println("tim dc roi");
             fillOneDataTable(sach);
-//            resetForm();
         } else
         {
-            System.out.println("khong tim duoc gia tri can tim");
+            JOptionPane.showMessageDialog(Table, "khong tim duoc gia tri can tim");
         }
     }//GEN-LAST:event_SearchTableActionPerformed
 
     private void AddTableItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTableItemActionPerformed
-        BookDetail addbook = new BookDetail(true,this);
+        BookDetail addbook = new BookDetail(true, this);
         addbook.setVisible(true);
-//        fillDataTable();
     }//GEN-LAST:event_AddTableItemActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_resetActionPerformed
+    {//GEN-HEADEREND:event_resetActionPerformed
+        resetDataTable();
+        fillDataTable();
+    }//GEN-LAST:event_resetActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -295,6 +307,7 @@ public class BookManagement extends javax.swing.JPanel
     private swing.TableWhite Table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private swing.Button reset;
     private swing.TextField textFind;
     // End of variables declaration//GEN-END:variables
 }
