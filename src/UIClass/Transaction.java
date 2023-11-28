@@ -526,7 +526,7 @@ public class Transaction extends javax.swing.JPanel
     {//GEN-HEADEREND:event_SearchBookBtnActionPerformed
         try
         {
-            sach = sachCRUD.findSachById(Integer.parseInt(SearchBookTXT.getText()));
+            sach = sachCRUD.findSachByName(SearchBookTXT.getText());
             if(sach!=null)
             {
                 if(Integer.valueOf(sach.getQuantity())> 0)
