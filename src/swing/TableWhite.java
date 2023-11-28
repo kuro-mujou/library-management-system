@@ -20,6 +20,17 @@ public class TableWhite extends JTable
     private TableHeader header;
     private TableCell cell;
     private Color colorSelection;
+    private boolean isTransactionHistory;
+    
+    public boolean isIsTransactionHistory()
+    {
+        return isTransactionHistory;
+    }
+
+    public void setIsTransactionHistory(boolean isTransactionHistory)
+    {
+        this.isTransactionHistory = isTransactionHistory;
+    }
 
     public Color getColorSelection()
     {
@@ -131,8 +142,8 @@ public class TableWhite extends JTable
             {
                 setHorizontalAlignment(JLabel.LEFT);
             }
-            
-        jtable.getColumnModel().getColumn(jtable.getColumnCount() - 1).setCellRenderer(new ThreeFunctionActionCellRenderer(colorSelection));
+            if(isTransactionHistory==false)
+                jtable.getColumnModel().getColumn(jtable.getColumnCount() - 1).setCellRenderer(new ThreeFunctionActionCellRenderer(colorSelection));
             return com;
         }
     }

@@ -13,41 +13,82 @@ public class NhanVienCRUD
     Connection conn = null;
     PreparedStatement sttm = null;
 
-    public int update(NhanVien user)
+    public int updateBasicInfo(NhanVien user)
     {
         try
         {
             String sSQL = "update dbo.Users \n"
-                    + "set libID=?,name=?,phone=?,address=?,email=?,password=?,gender=?\n"
+                    + "set name=?,phone=?,address=?,gender=?\n"
                     + "where libID=?";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, user.getTen());
             sttm.setString(2, user.getSoDienThoai());
             sttm.setString(3, user.getDiaChi());
-            sttm.setString(4, user.getEmail());
-            sttm.setString(5, user.getPassword());
-            sttm.setString(6,user.getGioiTinh());
-            sttm.setInt(7, user.getMaNhanVien());
+            sttm.setString(4,user.getGioiTinh());
+            sttm.setInt(5, user.getMaNhanVien());
             if (sttm.executeUpdate() > 0)
             {
-
                 return 1;
             }
 
         } catch (Exception e)
         {
+            e.printStackTrace();
         }
         return -1;
     }
-    public NhanVien findReaderById(int UserID)
+    public int updatePassword(NhanVien user)
+    {
+        try
+        {
+            String sSQL = "update dbo.Users \n"
+                    + "set password=?\n"
+                    + "where libID=?";
+            conn = DatabaseConnect.getDBConnect();
+            sttm = conn.prepareStatement(sSQL);
+            sttm.setString(1, user.getPassword());
+            sttm.setInt(2, user.getMaNhanVien());
+            if (sttm.executeUpdate() > 0)
+            {
+                return 1;
+            }
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    public int updateEmail(NhanVien user)
+    {
+        try
+        {
+            String sSQL = "update dbo.Users \n"
+                    + "set email=?\n"
+                    + "where libID=?";
+            conn = DatabaseConnect.getDBConnect();
+            sttm = conn.prepareStatement(sSQL);
+            sttm.setString(1, user.getEmail());
+            sttm.setInt(2, user.getMaNhanVien());
+            if (sttm.executeUpdate() > 0)
+            {
+                return 1;
+            }
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    public NhanVien findUser()
     {
         ResultSet rs = null;
         Statement sttm = null;
         try
         {
-            String sSQL = "select libID,name,phone,address,email,password,gender from Users where userID=" + UserID;
-
+            String sSQL = "select libID,name,phone,address,email,password,gender from Users";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);

@@ -95,6 +95,7 @@ public final class TransactionHistory extends javax.swing.JPanel {
         });
         Table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Table.setGridColor(new java.awt.Color(255, 255, 255));
+        Table.setIsTransactionHistory(true);
         Table.setRowHeight(45);
         Table.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Table);
@@ -176,13 +177,13 @@ public final class TransactionHistory extends javax.swing.JPanel {
         tbModel.setRowCount(0);
         DocGia docgia = readerCRUD.findReaderById(b.getUserID());
         Object dataRow[] = new Object[7];
-        dataRow[0] = b.getTransactionId();
+        dataRow[0] = b.getTransactionID();
         dataRow[1] = b.getStartDay();
         dataRow[2] = b.getEndDay();
         dataRow[3] = b.getQuantity();
         dataRow[4] = b.getBookID();
         dataRow[5] = b.getUserID();
-        dataRow[6] = docgia.ENUM_TO_STATUS(docgia.getStatus());
+        dataRow[6] = docgia.ENUM_TO_STATUS_TRANSACTION(docgia.getStatus());
         tbModel.addRow(dataRow);
     }
 
@@ -193,13 +194,13 @@ public final class TransactionHistory extends javax.swing.JPanel {
         for (transactions b : trans.getAllTransactions()) {
             DocGia docgia = readerCRUD.findReaderById(b.getUserID());
             Object dataRow[] = new Object[7];
-            dataRow[0] = b.getTransactionId();
+            dataRow[0] = b.getTransactionID();
             dataRow[1] = b.getStartDay();
             dataRow[2] = b.getEndDay();
             dataRow[3] = b.getQuantity();
             dataRow[4] = b.getBookID();
             dataRow[5] = b.getUserID();
-            dataRow[6] = docgia.ENUM_TO_STATUS(docgia.getStatus());
+            dataRow[6] = docgia.ENUM_TO_STATUS_TRANSACTION(docgia.getStatus());
             tbModel.addRow(dataRow);
         }
     }

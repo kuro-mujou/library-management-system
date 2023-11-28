@@ -63,11 +63,8 @@
   <SubComponents>
     <Component class="swing.TextField" name="UsernameTXT">
       <Properties>
-        <Property name="labelText" type="java.lang.String" value="Username / username@gmail.com"/>
+        <Property name="labelText" type="java.lang.String" value="username@gmail.com"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UsernameTXTActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -87,7 +84,7 @@
     </Component>
     <Component class="swing.PasswordField" name="PasswordTXT">
       <Properties>
-        <Property name="labelText" type="java.lang.String" value="Password: 0-9,a-z,A-Z"/>
+        <Property name="labelText" type="java.lang.String" value="password"/>
       </Properties>
     </Component>
     <Component class="swing.Button" name="loginBtn">

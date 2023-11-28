@@ -1,5 +1,7 @@
 package UIClass;
 
+import databaseClass.NhanVien;
+import databaseClass.NhanVienCRUD;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -7,22 +9,23 @@ import javax.swing.JPanel;
 public class LoginPanel extends JPanel
 {
     MainInterface main;
-    HashMap<String, String> logininfo = new HashMap<String, String>();
-
-    public LoginPanel(MainInterface m, HashMap<String, String> loginInforOriginal)
+    NhanVien nhanvien = new NhanVien();
+    
+    public LoginPanel(MainInterface m,NhanVien nhanvien)
     {
         initComponents();
-        logininfo =loginInforOriginal;
+        this.nhanvien = nhanvien;
         main = m;
     }
     private void login()
     {
         String userID =UsernameTXT.getText();
         String password = String.valueOf(PasswordTXT.getPassword());
-            
-        if(logininfo.containsKey(userID))
+        String email = nhanvien.getEmail();
+        String pass = nhanvien.getPassword();
+        if(userID.equals(email))
         {
-            if(logininfo.get(userID).equals(password))
+            if(password.equals(pass))
             {
                 JOptionPane.showMessageDialog(this, "login successful");
                 main.dispose();
@@ -41,7 +44,8 @@ public class LoginPanel extends JPanel
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         UsernameTXT = new swing.TextField();
         jLabel1 = new javax.swing.JLabel();
@@ -51,12 +55,7 @@ public class LoginPanel extends JPanel
 
         setOpaque(false);
 
-        UsernameTXT.setLabelText("Username / username@gmail.com");
-        UsernameTXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameTXTActionPerformed(evt);
-            }
-        });
+        UsernameTXT.setLabelText("username@gmail.com");
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel1.setText("Username");
@@ -64,7 +63,7 @@ public class LoginPanel extends JPanel
         jLabel2.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel2.setText("Password");
 
-        PasswordTXT.setLabelText("Password: 0-9,a-z,A-Z");
+        PasswordTXT.setLabelText("password");
 
         loginBtn.setBackground(new java.awt.Color(0, 0, 0));
         loginBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,8 +72,10 @@ public class LoginPanel extends JPanel
         loginBtn.setColorClick(new java.awt.Color(94, 94, 94));
         loginBtn.setColorOver(new java.awt.Color(128, 128, 128));
         loginBtn.setFont(new java.awt.Font("Poppins SemiBold", 0, 24)); // NOI18N
-        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        loginBtn.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 loginBtnMouseClicked(evt);
             }
         });
@@ -116,15 +117,8 @@ public class LoginPanel extends JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseClicked
-//        login();
-        main.dispose();
-        MainDashboard mainDashboard = new MainDashboard();
-        mainDashboard.setVisible(true);
+        login();
     }//GEN-LAST:event_loginBtnMouseClicked
-
-    private void UsernameTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTXTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameTXTActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -192,7 +192,7 @@ public class BookDetail extends javax.swing.JFrame
   public Sach getModel()
     {
         Sach b = new Sach();
-        b.setBookId(Integer.parseInt(textMaSach.getText()));
+        b.setBookID(Integer.parseInt(textMaSach.getText()));
         b.setNameBook(textTenSach.getText());
         b.setDescription(textGhiChu.getText());
         b.setWriting(textTacGia.getText());
@@ -215,8 +215,8 @@ public class BookDetail extends javax.swing.JFrame
     public Sach getModelId()
     {
         Sach b = new Sach();
-        b.setBookId(Integer.parseInt(textMaSach.getText()));
-        System.out.println("s" + b.getBookId());
+        b.setBookID(Integer.parseInt(textMaSach.getText()));
+        System.out.println("s" + b.getBookID());
         b.setNameBook(textTenSach.getText());
         b.setDescription(textGhiChu.getText());
         b.setWriting(textTacGia.getText());
@@ -228,7 +228,7 @@ public class BookDetail extends javax.swing.JFrame
 
     public void setModel(Sach b)
     {
-        textMaSach.setText(String.valueOf(b.getBookId()));
+        textMaSach.setText(String.valueOf(b.getBookID()));
         textTenSach.setText(b.getNameBook());
         textGhiChu.setText(b.getDescription());
         textNamXuatBan.setText(String.valueOf(b.getYearRelease()));
@@ -242,7 +242,7 @@ public class BookDetail extends javax.swing.JFrame
         {
             Sach sach = getModelId();
 
-            Sach sachtim = sachDAO.findSachById(sach.getBookId());
+            Sach sachtim = sachDAO.findSachById(sach.getBookID());
             if (sachtim == null)
             {
                 if (sachDAO.add(sach) > 0)

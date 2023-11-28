@@ -27,7 +27,6 @@ public class ReaderManagement extends javax.swing.JPanel
     public ReaderManagement()
     {
         initComponents();
-        checkStatus();
         fillDataTable();
         init();
     }
@@ -113,7 +112,6 @@ public class ReaderManagement extends javax.swing.JPanel
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Table = new swing.TableWhite();
-        reset = new swing.Button();
 
         setOpaque(false);
 
@@ -170,17 +168,6 @@ public class ReaderManagement extends javax.swing.JPanel
         Table.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Table);
 
-        reset.setText("RESET TABLE");
-        reset.setColor(new java.awt.Color(255, 204, 0));
-        reset.setRadius(15);
-        reset.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                resetActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,12 +181,10 @@ public class ReaderManagement extends javax.swing.JPanel
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2))
+                        .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -212,9 +197,7 @@ public class ReaderManagement extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -321,12 +304,6 @@ public class ReaderManagement extends javax.swing.JPanel
         }
     }//GEN-LAST:event_SearchTableActionPerformed
 
-    private void resetActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_resetActionPerformed
-    {//GEN-HEADEREND:event_resetActionPerformed
-        resetDataTable();
-        fillDataTable();
-    }//GEN-LAST:event_resetActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button AddTableItem;
@@ -334,7 +311,6 @@ public class ReaderManagement extends javax.swing.JPanel
     private swing.TableWhite Table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private swing.Button reset;
     private swing.TextField textFind;
     // End of variables declaration//GEN-END:variables
 }

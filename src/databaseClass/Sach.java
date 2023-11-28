@@ -5,7 +5,7 @@ package databaseClass;
  */
 public class Sach
 {
-    private int BookId;
+    private int BookID;
     private String NameBook;
     private String Description;
     private String Type;
@@ -16,8 +16,8 @@ public class Sach
     public Sach() {
     }
 
-    public Sach(int BookId, String NameBook, String Description, String Type, String Writing, int Quantity, int YearRelease) {
-        this.BookId = BookId;
+    public Sach(int bookID, String NameBook, String Description, String Type, String Writing, int Quantity, int YearRelease) {
+        this.BookID = bookID;
         this.NameBook = NameBook;
         this.Description = Description;
         this.Type = Type;
@@ -35,8 +35,8 @@ public class Sach
         this.YearRelease = YearRelease;
     }
 
-    public int getBookId() {
-        return BookId;
+    public int getBookID() {
+        return BookID;
     }
 
     public String getNameBook() {
@@ -63,8 +63,8 @@ public class Sach
         return YearRelease;
     }
 
-    public void setBookId(int BookId) {
-        this.BookId = BookId;
+    public void setBookID(int BookId) {
+        this.BookID = BookId;
     }
 
     public void setNameBook(String NameBook) {

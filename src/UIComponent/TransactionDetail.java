@@ -17,7 +17,7 @@ public class TransactionDetail extends javax.swing.JFrame {
 
     public void setModel(transactions t) {
 
-        TransactionID.setText(String.valueOf(t.getTransactionId()));
+        TransactionID.setText(String.valueOf(t.getTransactionID()));
         textReaderName.setText(String.valueOf(t.getUserID()));
         
 

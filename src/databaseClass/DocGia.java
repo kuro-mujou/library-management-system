@@ -101,7 +101,7 @@ public class DocGia
         return switch (status)
         {
             case READY_TO_BORROW ->
-                "RETURNED";
+                "READY";
             case CURRENT_BORROWING ->
                 "BORROWING";
             case CURRENT_NOT_RETURN ->
@@ -111,7 +111,20 @@ public class DocGia
         };
     }
     
-    
+    public String ENUM_TO_STATUS_TRANSACTION(ReaderStatus status)
+    {
+        return switch (status)
+        {
+            case READY_TO_BORROW ->
+                "RETURNED";
+            case CURRENT_BORROWING ->
+                "BORROWING";
+            case CURRENT_NOT_RETURN ->
+                "NOT RETURNED";
+            default ->
+                "INVALID REQUEST";
+        };
+    }
     
     public ReaderStatus getStatus()
     {

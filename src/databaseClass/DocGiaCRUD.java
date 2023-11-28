@@ -179,7 +179,7 @@ public class DocGiaCRUD
     {
         return switch (status)
         {
-            case "RETURNED" ->
+            case "READY" ->
                 DocGia.ReaderStatus.READY_TO_BORROW;
             case "BORROWING" ->
                 DocGia.ReaderStatus.CURRENT_BORROWING;

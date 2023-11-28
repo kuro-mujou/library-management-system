@@ -3,7 +3,7 @@ package databaseClass;
 
 public class transactions {
 
-    int transactionId;
+    int transactionID;
     String startDay;
     String endDay;
     int quantity;
@@ -15,7 +15,7 @@ public class transactions {
 
     }
     public transactions(int transactionId, String startDay, String endDay, int quantity, int bookid, int userID) {
-        this.transactionId = transactionId;
+        this.transactionID = transactionId;
         this.startDay = startDay;
         this.endDay = endDay;
         this.quantity = quantity;
@@ -23,12 +23,12 @@ public class transactions {
         this.userID = userID;
     }
 
-    public int getTransactionId() {
-        return transactionId;
+    public int getTransactionID() {
+        return transactionID;
     }
 
-    public void setTransactionId(int transactionId) {
-        this.transactionId = transactionId;
+    public void setTransactionID(int transactionId) {
+        this.transactionID = transactionId;
     }
 
     public String getStartDay() {

@@ -26,12 +26,12 @@ public class SachCRUD
     {
         try
         {
-            String sSQL = "insert into dbo.book(bookid,nameBook,description,type,writing,quantity,yearRelease)\n"
+            String sSQL = "insert into dbo.book(bookID,nameBook,description,type,author,quantity,yearRelease)\n"
                     + "values (?,?,?,?,?,?,?);";
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
-            sttm.setInt(1, sach.getBookId());
+            sttm.setInt(1, sach.getBookID());
             sttm.setString(2, sach.getNameBook());
             sttm.setString(3, sach.getDescription());
             sttm.setString(4, sach.getType());
@@ -55,8 +55,8 @@ public class SachCRUD
         try
         {
             String sSQL = "update dbo.book \n"
-                    + "set nameBook=?,description=?,type=?,writing=?,quantity=?,yearRelease=?\n"
-                    + "where bookid=?";
+                    + "set nameBook=?,description=?,type=?,author=?,quantity=?,yearRelease=?\n"
+                    + "where bookID=?";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, sach.getNameBook());
@@ -66,7 +66,7 @@ public class SachCRUD
             sttm.setInt(5, sach.getQuantity());
             sttm.setInt(6, sach.getYearRelease());
 
-            sttm.setInt(7, sach.getBookId());
+            sttm.setInt(7, sach.getBookID());
             if (sttm.executeUpdate() > 0)
             {
 
@@ -83,7 +83,7 @@ public class SachCRUD
     {
         try
         {
-            String sSQL = "delete book where bookid= " + id;
+            String sSQL = "delete book where bookID= " + id;
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
@@ -108,14 +108,14 @@ public class SachCRUD
         try
         {
 
-            String sSQL = "select book.bookid,nameBook,description,type,writing,quantity,yearRelease from book ";
+            String sSQL = "select book.bookID,nameBook,description,type,author,quantity,yearRelease from book ";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);
             while (rs.next())
             {
                 Sach sach = new Sach();
-                sach.setBookId(rs.getInt(1));
+                sach.setBookID(rs.getInt(1));
                 sach.setNameBook(rs.getString(2));
                 sach.setDescription(rs.getString(3));
                 sach.setType(rs.getString(4));
@@ -148,7 +148,7 @@ public class SachCRUD
         Statement sttm = null;
         try
         {
-            String sSQL = "select bookid,nameBook,description,type,writing,quantity,yearRelease from book where bookid=" + MaSach;
+            String sSQL = "select bookID,nameBook,description,type,author,quantity,yearRelease from book where bookID=" + MaSach;
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
@@ -156,7 +156,7 @@ public class SachCRUD
             while (rs.next())
             {
                 Sach sach = new Sach();
-                sach.setBookId(rs.getInt(1));
+                sach.setBookID(rs.getInt(1));
                 sach.setNameBook(rs.getString(2));
                 sach.setDescription(rs.getString(3));
                 sach.setType(rs.getString(4));
@@ -188,7 +188,7 @@ public class SachCRUD
         Statement sttm = null;
         try
         {
-            String sSQL = "select top 1 bookid,nameBook,description,type,writing,quantity,yearRelease from book where nameBook= '" + Name + "'";
+            String sSQL = "select top 1 bookID,nameBook,description,type,author,quantity,yearRelease from book where nameBook= '" + Name + "'";
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
@@ -196,7 +196,7 @@ public class SachCRUD
             while (rs.next())
             {
                 Sach sach = new Sach();
-                sach.setBookId(rs.getInt(1));
+                sach.setBookID(rs.getInt(1));
                 sach.setNameBook(rs.getString(2));
                 sach.setDescription(rs.getString(3));
                 sach.setType(rs.getString(4));
@@ -226,7 +226,7 @@ public class SachCRUD
     {
         try
         {
-            String sSQL = "update book set quantity = quantity - ?  where bookid = ?";
+            String sSQL = "update book set quantity = quantity - ?  where bookID = ?";
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setInt(1, quantity);

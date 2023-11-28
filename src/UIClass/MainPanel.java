@@ -1,7 +1,8 @@
 package UIClass;
 
+import databaseClass.NhanVien;
+import databaseClass.NhanVienCRUD;
 import javax.swing.JPanel;
-import login.IPasswords;
 
 public class MainPanel extends JPanel
 {
@@ -75,10 +76,11 @@ public class MainPanel extends JPanel
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        IPasswords passwords = new IPasswords();
-        LoginPanel login = new LoginPanel(main,passwords.getLoginInfo());
+        
+        NhanVienCRUD nhanVienCRUD = new NhanVienCRUD();
+        NhanVien nhanVien = nhanVienCRUD.findUser();
+        LoginPanel login = new LoginPanel(main,nhanVien);
         JPanel p = main.getPanel();
-//        initcustom();
         p.removeAll();
         p.add(login);
         main.LoadChange();

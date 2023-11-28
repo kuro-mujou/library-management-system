@@ -108,7 +108,6 @@ public class BookManagement extends javax.swing.JPanel
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new swing.TableWhite();
-        reset = new swing.Button();
 
         setOpaque(false);
 
@@ -165,17 +164,6 @@ public class BookManagement extends javax.swing.JPanel
         Table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(Table);
 
-        reset.setText("RESET TABLE");
-        reset.setColor(new java.awt.Color(255, 204, 0));
-        reset.setRadius(15);
-        reset.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                resetActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,8 +179,6 @@ public class BookManagement extends javax.swing.JPanel
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -207,9 +193,7 @@ public class BookManagement extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(AddTableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -242,7 +226,7 @@ public class BookManagement extends javax.swing.JPanel
         for (Sach b : sachDAO.getAll())
         {
             Object dataRow[] = new Object[7];
-            dataRow[0] = b.getBookId();
+            dataRow[0] = b.getBookID();
             dataRow[1] = b.getNameBook();
             dataRow[2] = b.getWriting();
             dataRow[3] = b.getQuantity();
@@ -258,7 +242,7 @@ public class BookManagement extends javax.swing.JPanel
         DefaultTableModel tbModel = (DefaultTableModel) Table.getModel();
         tbModel.setRowCount(0);
         Object dataRow[] = new Object[7];
-        dataRow[0] = b.getBookId();
+        dataRow[0] = b.getBookID();
         dataRow[1] = b.getNameBook();
         dataRow[2] = b.getWriting();
         dataRow[3] = b.getQuantity();
@@ -294,12 +278,6 @@ public class BookManagement extends javax.swing.JPanel
         addbook.setVisible(true);
     }//GEN-LAST:event_AddTableItemActionPerformed
 
-    private void resetActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_resetActionPerformed
-    {//GEN-HEADEREND:event_resetActionPerformed
-        resetDataTable();
-        fillDataTable();
-    }//GEN-LAST:event_resetActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private swing.Button AddTableItem;
@@ -307,7 +285,6 @@ public class BookManagement extends javax.swing.JPanel
     private swing.TableWhite Table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private swing.Button reset;
     private swing.TextField textFind;
     // End of variables declaration//GEN-END:variables
 }

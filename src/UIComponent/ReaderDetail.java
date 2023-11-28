@@ -128,7 +128,7 @@ public class ReaderDetail extends javax.swing.JFrame
         jLabel23.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         jLabel23.setText("Status");
 
-        statusCombobx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "RETURNED", "BORROWING", "NOT RETURNED" }));
+        statusCombobx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "READY", "BORROWING", "NOT RETURNED" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -286,8 +286,6 @@ public class ReaderDetail extends javax.swing.JFrame
                 .addGap(22, 22, 22))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel18, jLabel19, jLabel20, jLabel24});
-
         jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {textBorrowDay, textReturnDay, textReturnStatus, textSoLuong, textTenSach});
 
         getContentPane().add(jPanel3);
@@ -365,7 +363,7 @@ public class ReaderDetail extends javax.swing.JFrame
     {
         return switch (status)
         {
-            case "RETURNED" ->
+            case "READY" ->
                 DocGia.ReaderStatus.READY_TO_BORROW;
             case "BORROWING" ->
                 DocGia.ReaderStatus.CURRENT_BORROWING;

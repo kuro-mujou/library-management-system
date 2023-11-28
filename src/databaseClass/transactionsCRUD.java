@@ -33,7 +33,7 @@ public class transactionsCRUD
             while (rs.next())
             {
                 transactions trans = new transactions();
-                trans.setTransactionId(rs.getInt("transactionId"));
+                trans.setTransactionID(rs.getInt("transactionID"));
                 trans.setStartDay(rs.getString("startDay"));
                 trans.setEndDay(rs.getString("endDay"));
                 trans.setQuantity(rs.getInt("quantity"));
@@ -67,14 +67,14 @@ public class transactionsCRUD
         transactions trans = new transactions();
         try
         {
-            String sSQL = "SELECT * FROM transactions WHERE transactionId = " + id;
+            String sSQL = "SELECT * FROM transactions WHERE transactionID = " + id;
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);
             while (rs.next())
             {
-                trans.setTransactionId(rs.getInt("transactionId"));
+                trans.setTransactionID(rs.getInt("transactionID"));
                 trans.setStartDay(rs.getString("startDay"));
                 trans.setEndDay(rs.getString("endDay"));
                 trans.setQuantity(rs.getInt("quantity"));
@@ -107,12 +107,12 @@ public class transactionsCRUD
         Statement sttm = null;
         try
         {
-            String sSQL = "SELECT MAX(transactionId) as 'maxID' FROM transactions";
+            String sSQL = "SELECT MAX(transactionID) as 'maxID' FROM transactions";
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);
-            int id = 0;
+            int id = 1;
             while (rs.next())
             {
                 id = rs.getInt("maxID");
@@ -144,7 +144,7 @@ public class transactionsCRUD
 
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
-            sttm.setInt(1, transactions.getTransactionId());
+            sttm.setInt(1, transactions.getTransactionID());
             sttm.setString(2, transactions.getStartDay());
             sttm.setString(3, transactions.getEndDay());
             sttm.setInt(4, transactions.getQuantity());
@@ -158,6 +158,7 @@ public class transactionsCRUD
 
         } catch (Exception e)
         {
+            e.printStackTrace();
         }
         return -1;
     }
@@ -166,7 +167,7 @@ public class transactionsCRUD
     {
         try
         {
-            String sSQL = "delete transactions where transactionId= " + id;
+            String sSQL = "delete transactions where transactionID= " + id;
             conn = DatabaseConnect.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
 
@@ -195,7 +196,7 @@ public class transactionsCRUD
             while (rs.next())
             {
                 transactions trans = new transactions();
-                trans.setTransactionId(rs.getInt("transactionId"));
+                trans.setTransactionID(rs.getInt("transactionID"));
                 trans.setStartDay(rs.getString("startDay"));
                 trans.setEndDay(rs.getString("endDay"));
                 trans.setQuantity(rs.getInt("quantity"));

@@ -321,7 +321,7 @@ public class BookManagementPanel extends javax.swing.JPanel
         for (Sach b : sachDAO.getAll())
         {
             Object dataRow[] = new Object[7];
-            dataRow[0] = b.getBookId();
+            dataRow[0] = b.getBookID();
             dataRow[1] = b.getNameBook();
             dataRow[2] = b.getWriting();
             dataRow[3] = b.getQuantity();
@@ -345,7 +345,7 @@ public class BookManagementPanel extends javax.swing.JPanel
         DefaultTableModel tbModel = (DefaultTableModel) jTable1.getModel();
         tbModel.setRowCount(0);
         Object dataRow[] = new Object[7];
-        dataRow[0] = b.getBookId();
+        dataRow[0] = b.getBookID();
         dataRow[1] = b.getNameBook();
         dataRow[2] = b.getWriting();
         dataRow[3] = b.getQuantity();
@@ -358,7 +358,7 @@ public class BookManagementPanel extends javax.swing.JPanel
     public Sach getModel()
     {
         Sach b = new Sach();
-        b.setBookId(Integer.parseInt(textMaSach.getText()));
+        b.setBookID(Integer.parseInt(textMaSach.getText()));
         b.setNameBook(textTenSach.getText());
         b.setDescription(textMaNXB.getText());
         b.setWriting(textMaTacGia.getText());
@@ -371,7 +371,7 @@ public class BookManagementPanel extends javax.swing.JPanel
     public Sach getModelId()
     {
         Sach b = new Sach();
-        b.setBookId(Integer.parseInt(textMaSach.getText()));
+        b.setBookID(Integer.parseInt(textMaSach.getText()));
         b.setNameBook(textTenSach.getText());
         b.setDescription(textMaNXB.getText());
         b.setWriting(textMaTacGia.getText());
@@ -383,7 +383,7 @@ public class BookManagementPanel extends javax.swing.JPanel
 
     public void setModel(Sach b)
     {
-        textMaSach.setText(String.valueOf(b.getBookId()));
+        textMaSach.setText(String.valueOf(b.getBookID()));
         textTenSach.setText(b.getNameBook());
         textMaNXB.setText(b.getDescription());
         textNamXB.setText(String.valueOf(b.getYearRelease()));

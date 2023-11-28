@@ -36,24 +36,26 @@ public class MainDashboard extends javax.swing.JFrame
                 {
                     case 1:
                         updatePanel(bookManagement);
+                        bookManagement.resetDataTable();
+                        bookManagement.fillDataTable();
                         break;
                     case 2:
-
                         updatePanel(readerManagement);
+                        readerManagement.resetDataTable();
+                        readerManagement.fillDataTable();
+                        readerManagement.checkStatus();
                         break;
                     case 3:
-
                         updatePanel(transaction);
                         break;
                     case 4:
-                        
                         updatePanel(transactionManagement);
                         transactionManagement.resetDataTable();
                         transactionManagement.fillDataTable();
                         break;
                     case 6:
-
                         updatePanel(setting);
+                        setting.updateUI(true);
                         break;
                     default:
                         updatePanel(bookManagement);
