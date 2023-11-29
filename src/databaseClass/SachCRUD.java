@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import java.util.List;
  */
 public class SachCRUD
 {
-    SimpleDateFormat formatDate = new SimpleDateFormat("dd-MM-yyyy");
     Connection conn = null;
     PreparedStatement sttm = null;
 

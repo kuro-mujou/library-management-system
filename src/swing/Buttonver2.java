@@ -11,7 +11,6 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Area;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.JButton;
-//import javax.swing.JPopupMenu;
 import javax.swing.border.AbstractBorder;
 
 public class Buttonver2 extends JButton

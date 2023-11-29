@@ -5,7 +5,6 @@ import UIComponent.UserEmailChange;
 import UIComponent.UserPasswordChange;
 import databaseClass.NhanVien;
 import databaseClass.NhanVienCRUD;
-import swing.ScrollBarCustom;
 
 public class Setting extends javax.swing.JPanel
 {

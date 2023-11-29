@@ -1,10 +1,8 @@
 package UIClass;
 
 import UIComponent.BookDetail;
-import databaseClass.Sach;
 import event.TableActionEvent;
 import javax.swing.table.DefaultTableModel;
-import swing.ThreeFunctionActionCellRenderer;
 import swing.TableActionCellEditor;
 import databaseClass.Sach;
 import databaseClass.SachCRUD;

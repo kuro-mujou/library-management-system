@@ -1,8 +1,6 @@
 package UIClass;
 
 import databaseClass.NhanVien;
-import databaseClass.NhanVienCRUD;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 

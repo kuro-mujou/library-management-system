@@ -28,7 +28,8 @@ public class AboutUsPanel extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -72,51 +73,61 @@ public class AboutUsPanel extends javax.swing.JPanel
         jLabel2.setText("Contact");
 
         jLabel3.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
-        jLabel3.setText("huahieu");
+        jLabel3.setText("hua hieu");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
-        jLabel4.setText("manhtuan");
+        jLabel4.setText("manh tuan");
 
         jLabel5.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
-        jLabel5.setText("hoanglong");
+        jLabel5.setText("hoang long");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
-        jLabel6.setText("xuantho");
+        jLabel6.setText("tan thanh");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
-        jLabel7.setText("huutuong");
+        jLabel7.setText("huong giang");
 
         pictureBox1.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/mailbox Icon.png"))); // NOI18N
-        pictureBox1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        pictureBox1.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 pictureBox1MouseClicked(evt);
             }
         });
 
         pictureBox2.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/mailbox Icon.png"))); // NOI18N
-        pictureBox2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        pictureBox2.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 pictureBox2MouseClicked(evt);
             }
         });
 
         pictureBox3.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/mailbox Icon.png"))); // NOI18N
-        pictureBox3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        pictureBox3.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 pictureBox3MouseClicked(evt);
             }
         });
 
         pictureBox4.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/mailbox Icon.png"))); // NOI18N
-        pictureBox4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        pictureBox4.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 pictureBox4MouseClicked(evt);
             }
         });
 
         pictureBox5.setImage(new javax.swing.ImageIcon(getClass().getResource("/Image/mailbox Icon.png"))); // NOI18N
-        pictureBox5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        pictureBox5.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 pictureBox5MouseClicked(evt);
             }
         });
@@ -131,9 +142,9 @@ public class AboutUsPanel extends javax.swing.JPanel
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pictureBox2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
@@ -141,8 +152,8 @@ public class AboutUsPanel extends javax.swing.JPanel
                             .addComponent(pictureBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -195,7 +206,7 @@ public class AboutUsPanel extends javax.swing.JPanel
     private void pictureBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pictureBox4MouseClicked
         try
         {
-            URI uri = new URL("https://www.facebook.com/ven.vungve2003").toURI();
+            URI uri = new URL("https://www.facebook.com/profile.php?id=100021807032555").toURI();
             Desktop.getDesktop().browse(uri);
         } catch (Exception e)
         {
@@ -217,7 +228,7 @@ public class AboutUsPanel extends javax.swing.JPanel
     private void pictureBox5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pictureBox5MouseClicked
         try
         {
-            URI uri = new URL("https://www.facebook.com/tuong.huynhhuu.961").toURI();
+            URI uri = new URL("https://www.facebook.com/hgian1709").toURI();
             Desktop.getDesktop().browse(uri);
         } catch (Exception e)
         {

@@ -4,7 +4,6 @@ import event.EventMenuSelected;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 
 public class MainDashboard extends javax.swing.JFrame
 {
@@ -26,7 +25,6 @@ public class MainDashboard extends javax.swing.JFrame
         ImageIcon icon = new ImageIcon("src/Image/StackOfBooksIcon.png");
         setIconImage(icon.getImage());
         winButton1.initEvent(this, background1);
-//        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         Menu.addEventMenuSelect(new EventMenuSelected()
         {
             @Override
@@ -72,17 +70,7 @@ public class MainDashboard extends javax.swing.JFrame
         MainPanel.validate();
         MainPanel.repaint();
     }
-     public static void main(String args[])
-    {
-
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                new MainDashboard().setVisible(true);
-            }
-        });
-    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()

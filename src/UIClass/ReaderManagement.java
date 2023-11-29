@@ -3,7 +3,6 @@ package UIClass;
 import UIComponent.ReaderDetail;
 import databaseClass.DocGiaCRUD;
 import databaseClass.DocGia;
-import databaseClass.SachCRUD;
 import databaseClass.transactions;
 import databaseClass.transactionsCRUD;
 import event.TableActionEvent;
@@ -38,7 +37,7 @@ public class ReaderManagement extends javax.swing.JPanel
             @Override
             public void onEdit(int row)
             {
-                ReaderDetail update = new ReaderDetail(true, false, ReaderManagement.this);
+                ReaderDetail update = new ReaderDetail(true, ReaderManagement.this);
                 idUser = (Integer) Table.getValueAt(row, 0);
                 DocGia docGia = docgiaDAO.findReaderById(idUser);
                 if (docGia != null)
@@ -71,7 +70,7 @@ public class ReaderManagement extends javax.swing.JPanel
             @Override
             public void onView(int row)
             {
-                ReaderDetail a = new ReaderDetail(false, true, ReaderManagement.this);
+                ReaderDetail a = new ReaderDetail(false, ReaderManagement.this);
                 a.setVisible(true);
                 idUser = (Integer) Table.getValueAt(row, 0);
                 DocGia docGia = docgiaDAO.findReaderById(idUser);
@@ -286,7 +285,7 @@ public class ReaderManagement extends javax.swing.JPanel
     }
     private void AddTableItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddTableItemActionPerformed
     {//GEN-HEADEREND:event_AddTableItemActionPerformed
-        new ReaderDetail(true, false, this).setVisible(true);
+        new ReaderDetail(true, this).setVisible(true);
     }//GEN-LAST:event_AddTableItemActionPerformed
 
     private void SearchTableActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SearchTableActionPerformed

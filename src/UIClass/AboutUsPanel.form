@@ -25,9 +25,9 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel3" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -37,8 +37,8 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel6" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="jLabel7" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
@@ -144,7 +144,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="20" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="huahieu"/>
+        <Property name="text" type="java.lang.String" value="hua hieu"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -152,7 +152,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="20" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="manhtuan"/>
+        <Property name="text" type="java.lang.String" value="manh tuan"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -160,7 +160,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="20" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="hoanglong"/>
+        <Property name="text" type="java.lang.String" value="hoang long"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -168,7 +168,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="20" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="xuantho"/>
+        <Property name="text" type="java.lang.String" value="tan thanh"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -176,7 +176,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="20" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="huutuong"/>
+        <Property name="text" type="java.lang.String" value="huong giang"/>
       </Properties>
     </Component>
     <Container class="swing.PictureBox" name="pictureBox1">

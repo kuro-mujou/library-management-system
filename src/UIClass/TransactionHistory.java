@@ -1,18 +1,15 @@
 package UIClass;
 
-import UIComponent.TransactionDetail;
 import databaseClass.DocGia;
 import databaseClass.DocGiaCRUD;
 import databaseClass.transactions;
 import databaseClass.transactionsCRUD;
-import event.TableActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
 import java.util.Comparator;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import swing.TableActionCellEditor;
 
 public final class TransactionHistory extends javax.swing.JPanel {
 

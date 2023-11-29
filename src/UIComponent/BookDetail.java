@@ -3,7 +3,6 @@ package UIComponent;
 import UIClass.BookManagement;
 import databaseClass.Sach;
 import databaseClass.SachCRUD;
-import javax.swing.table.DefaultTableModel;
 
 public class BookDetail extends javax.swing.JFrame
 {
